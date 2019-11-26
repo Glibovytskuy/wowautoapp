@@ -21,7 +21,6 @@
         "styles.css"
       ],
       "scripts": [
-        "assets/js/modernizr.js",
         "assets/js/jquery-3.4.1.min.js",
         "assets/js/main.js"
       ],
