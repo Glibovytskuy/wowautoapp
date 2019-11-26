@@ -1,0 +1,17 @@
+
+body {
+  margin: 0;
+  font-size: 100%;
+  font-family: 'Open Sans', sans-serif;
+  color: #f2f2f2;
+  background: linear-gradient(0deg, rgba(140,82,255,1) 30%, rgba(186,104,215,1) 70%);
+}
+
+body, html {
+  height: 100%;
+}
+
+a {
+  color: #f2f2f2;
+  text-decoration: none;
+}
