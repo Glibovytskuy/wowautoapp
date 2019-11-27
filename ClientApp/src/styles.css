@@ -128,7 +128,7 @@ header {
 
 /*Section1 Styles*/
 .cd-section#section1 {
-  min-height: 93vh;
+  min-height: 100vh;
 }
 
 #section1 .container {
@@ -140,10 +140,6 @@ header {
   top: 40px;
   width: 40%;
   text-align: right;
-}
-
-#section1 .cd-scroll-down {
-  bottom: 5px;
 }
 
 .promo {
@@ -391,7 +387,7 @@ header {
 
 .cd-section {
   /* min-height: 100%; old value */
-  min-height: 84vh;
+  min-height: 90vh;
   position: relative;
   padding: 2em 0;
   background: linear-gradient(0deg, rgba(140, 82, 255, 1) 30%, rgba(186, 104, 215, 1) 70%);
@@ -407,7 +403,7 @@ header {
   left: 50%;
   right: auto;
   transform: translateX(-50%);
-  bottom: 20px;
+  bottom: 5px;
   width: 38px;
   height: 44px;
   background: url("../src/assets/img/svg/arrow-down.svg") no-repeat center center;
@@ -524,6 +520,14 @@ header {
   .image-wrapper {
     width: 100%;
   }
+
+  #cd-vertical-nav {
+    display: none;
+  }
+
+  .cd-scroll-down {
+    display: none;
+  }
 }
 
 @media (max-width: 992px) {
@@ -545,12 +549,12 @@ header {
     width: 100%;
   }
 
-  #cd-vertical-nav {
+  .logo {
     display: none;
   }
 
-  .logo {
-    display: none;
+  .social {
+    justify-content: flex-end;
   }
 
   .menu {
@@ -563,10 +567,6 @@ header {
 
   .flex-centered > * {
     text-align: center;
-  }
-
-  .cd-scroll-down {
-    display: none;
   }
 
   .block-description {
@@ -666,6 +666,12 @@ header {
 
 @media (max-width: 475px) {
 
+}
+
+@media (max-height: 840px) {
+  .container.flex-centered {
+    margin-bottom: 3rem;
+  }
 }
 
 /*CONTAINER STYLES*/
