@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.29519.87
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "wowautoapp", "wowautoapp.csproj", "{68931A6E-0297-4355-AF07-D6667E99A04E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{B4C5E8E2-AF6A-4B52-9CDA-5A0213ABD2CD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WowAutoApp.Services", "..\WowAutoApp.Services\WowAutoApp.Services.csproj", "{2EEBCDF2-1DC5-48A9-B98E-9FE908E5F8A8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,9 +19,16 @@ Global
 		{68931A6E-0297-4355-AF07-D6667E99A04E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{68931A6E-0297-4355-AF07-D6667E99A04E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{68931A6E-0297-4355-AF07-D6667E99A04E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2EEBCDF2-1DC5-48A9-B98E-9FE908E5F8A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EEBCDF2-1DC5-48A9-B98E-9FE908E5F8A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EEBCDF2-1DC5-48A9-B98E-9FE908E5F8A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EEBCDF2-1DC5-48A9-B98E-9FE908E5F8A8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2EEBCDF2-1DC5-48A9-B98E-9FE908E5F8A8} = {B4C5E8E2-AF6A-4B52-9CDA-5A0213ABD2CD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {02F44D3D-79D8-464D-90BA-CD275B59FC8E}
