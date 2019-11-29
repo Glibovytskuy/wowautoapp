@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29519.87
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "wowautoapp", "wowautoapp.csproj", "{68931A6E-0297-4355-AF07-D6667E99A04E}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{B4C5E8E2-AF6A-4B52-9CDA-5A0213ABD2CD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WowAutoApp.Services", "..\WowAutoApp.Services\WowAutoApp.Services.csproj", "{2EEBCDF2-1DC5-48A9-B98E-9FE908E5F8A8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WowAutoApp.Web.Client", "WowAutoApp.Web.Client\WowAutoApp.Web.Client.csproj", "{4ED42BC8-B4B1-4E07-AE72-F30724FBDC29}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WowAutoApp.Services", "Libraries\WowAutoApp.Services\WowAutoApp.Services.csproj", "{8E482821-2063-4744-AE40-0B708458F1DB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "wowautoapp", "WowAutoApp.Web.Api\wowautoapp.csproj", "{24E978DD-74D9-4021-91AD-B0E0A5289A82}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,20 +17,24 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{68931A6E-0297-4355-AF07-D6667E99A04E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{68931A6E-0297-4355-AF07-D6667E99A04E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{68931A6E-0297-4355-AF07-D6667E99A04E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{68931A6E-0297-4355-AF07-D6667E99A04E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2EEBCDF2-1DC5-48A9-B98E-9FE908E5F8A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2EEBCDF2-1DC5-48A9-B98E-9FE908E5F8A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2EEBCDF2-1DC5-48A9-B98E-9FE908E5F8A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2EEBCDF2-1DC5-48A9-B98E-9FE908E5F8A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4ED42BC8-B4B1-4E07-AE72-F30724FBDC29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4ED42BC8-B4B1-4E07-AE72-F30724FBDC29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4ED42BC8-B4B1-4E07-AE72-F30724FBDC29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4ED42BC8-B4B1-4E07-AE72-F30724FBDC29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E482821-2063-4744-AE40-0B708458F1DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E482821-2063-4744-AE40-0B708458F1DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E482821-2063-4744-AE40-0B708458F1DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E482821-2063-4744-AE40-0B708458F1DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24E978DD-74D9-4021-91AD-B0E0A5289A82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24E978DD-74D9-4021-91AD-B0E0A5289A82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24E978DD-74D9-4021-91AD-B0E0A5289A82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24E978DD-74D9-4021-91AD-B0E0A5289A82}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{2EEBCDF2-1DC5-48A9-B98E-9FE908E5F8A8} = {B4C5E8E2-AF6A-4B52-9CDA-5A0213ABD2CD}
+		{8E482821-2063-4744-AE40-0B708458F1DB} = {B4C5E8E2-AF6A-4B52-9CDA-5A0213ABD2CD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {02F44D3D-79D8-464D-90BA-CD275B59FC8E}
