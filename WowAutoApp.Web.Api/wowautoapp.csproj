@@ -64,6 +64,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Libraries\WowAutoApp.Data\WowAutoApp.Data.csproj" />
     <ProjectReference Include="..\Libraries\WowAutoApp.Services\WowAutoApp.Services.csproj" />
   </ItemGroup>
   
