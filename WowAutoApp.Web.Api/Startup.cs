@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using wowautoapp.Web.Api.Extensions.StartupExtensions;
+using wowautoapp.Web.Api.Extensions.StartupExtensions.RuntimePipelineConfigurations;
 
 namespace wowautoapp
 {
@@ -34,10 +36,11 @@ namespace wowautoapp
         /// <param name="services"></param>
         public void ConfigureServices(IServiceCollection services)
         {
+            // Add swagger configuration
+            services.AddSwaggerConfiguration();
+
             // Add mvc
-            services.AddMvc()
-                .AddViewLocalization()
-                .AddDataAnnotationsLocalization();
+            services.AddMvc();
         }
 
         /// <summary>
@@ -52,6 +55,9 @@ namespace wowautoapp
             ILoggerFactory loggerFactory,
             IServiceProvider services)
         {
+            // Use swagger
+            applicationBuilder.UseRuntimeSwaggerBuilder();
+
             if (hostingEnvironment.IsDevelopment())
                 applicationBuilder.UseDeveloperExceptionPage();
 
