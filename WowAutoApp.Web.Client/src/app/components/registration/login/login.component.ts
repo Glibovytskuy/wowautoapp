@@ -27,4 +27,12 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  facebookLogin(){
+    
+  }
+
+  googleLogin(){
+    
+  }
 }

@@ -1,18 +1,18 @@
-<div class="d-flex">
+<div class="m-auto p-t-120">
   <div class="custom-form boxshadow">
     <form  class="login" name="loginForm">
-      <div class="auth-head">
+      <div class="login-head">
         LOG IN
       </div>
 
-      <button type="button" class="auth-button" id="facebook-btn" (click)="facebookLogin()" [disabled]="isLoading">
+      <button type="button" class="login-button" id="facebook-btn" (click)="facebookLogin()" [disabled]="isLoading">
           <img class="icon" src="./assets/img/svg/facebook-login.svg" width="22px">
-          <div class="social-auth-label ">LOG IN WITH FACEBOOK</div>
+          <div class="social-login-label ">LOG IN WITH FACEBOOK</div>
         </button>
 
-      <button type="button" class="auth-button" id="google-btn" (click)="googleLogin()" [disabled]="isLoading">
+      <button type="button" class="login-button" id="google-btn" (click)="googleLogin()" [disabled]="isLoading">
         <img class="icon" src="./assets/img/svg/google-login.svg" width="22px">
-        <div class="social-auth-label ">LOG IN WITH GOOGLE</div>
+        <div class="social-login-label ">LOG IN WITH GOOGLE</div>
       </button>
 
       <div class="separate-line"></div>
@@ -21,15 +21,15 @@
 
       <!--User Name Input-->
 
-      <input type="email" class="auth-form-control" placeholder="Email"
+      <input type="email" class="login-form-control" placeholder="Email"
         id="login-username" />
 
       <!--Password Input-->
 
-      <input type="password" class="auth-form-control" placeholder="Password"
+      <input type="password" class="login-form-control" placeholder="Password"
          id="login-password" />
 
-      <button type="submit" class="auth-button main-btn" id="login-btn" 
+      <button type="button" class="login-button main-btn" id="login-btn" 
      [disabled]="isLoading">
         LOG IN
       </button>
