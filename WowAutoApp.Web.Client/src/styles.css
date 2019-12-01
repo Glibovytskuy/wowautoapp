@@ -32,7 +32,7 @@ html {
   height: 100%;
 }
 
-a {
+a, a:hover, a:focus {
   color: #f2f2f2;
   text-decoration: none;
 }
@@ -138,8 +138,33 @@ header {
 .section1-left-block {
   position: relative;
   top: 40px;
-  width: 40%;
+  /* width: 40%; */
+  margin-left: 11%;
   text-align: right;
+}
+
+.auth-button {
+  position: absolute;
+  left: 51%;
+  width: 200px;
+  transform: translate(-50%, -50%);
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 12px 0;
+  border: 1px solid #fff;
+  cursor: pointer;
+  border-radius: 3px;
+  text-align: center;
+}
+
+.auth-button.log-in {
+  top: 62%;
+}
+
+.auth-button.sign-up {
+  background-color: #fff;
+  color: #BA68D7;
+  top: 70%;
 }
 
 .promo {
@@ -354,6 +379,11 @@ header {
   width: 50px;
 }
 
+.right-block {
+  text-align: right;
+  width: 33%;
+}
+
 .right-block span {
   font-size: 15px;
   color: #eaeaea;
@@ -380,10 +410,22 @@ header {
   margin-top: 3px;
 }
 
-.right-block {
-  text-align: right;
-  width: 33%;
+.profile-menu {
+  margin-left: 10px;
 }
+
+.profile-menu .dropdown-menu>li>a {
+  padding: 10px 20px;
+}
+
+.profile-menu img {
+  border-radius: 50%;
+  width: 50px;
+}
+
+.profile-menu img:hover {
+  cursor: pointer;
+ }
 
 .cd-section {
   /* min-height: 100%; old value */
@@ -508,6 +550,11 @@ header {
   margin-left: auto;
 }
 
+@media (max-width: 1400px) {
+  .profile-menu .dropdown-menu {
+    left: -110px;
+  }
+}
 
 @media (max-width: 1320px) {
   .block-description {
@@ -528,15 +575,34 @@ header {
   .cd-scroll-down {
     display: none;
   }
+
 }
 
 @media (max-width: 992px) {
-  header .right-block {
+  header .right-block, .profile-menu {
     display: none;
   }
 
   .image-wrapper {
     width: 63%;
+  }
+
+  .section1-left-block {
+    width: 100%;
+    margin-left: 0;
+    top: 0;
+  }
+
+  .auth-button {
+    width: 140px;
+  }
+
+  .auth-button.sign-up {
+    top: 72%;
+  }
+
+  .block-description {
+    width: 100%;
   }
 }
 
@@ -606,11 +672,6 @@ header {
   }
 
   /*section1*/
-
-  .section1-left-block {
-    width: auto;
-    top: 0;
-  }
 
   .promo {
     margin: 20px 0;

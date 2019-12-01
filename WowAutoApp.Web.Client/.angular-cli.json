@@ -23,7 +23,8 @@
       ],
       "scripts": [
         "assets/js/jquery-3.4.1.min.js",
-        "assets/js/main.js"
+        "assets/js/main.js",
+        "../node_modules/bootstrap/dist/js/bootstrap.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
