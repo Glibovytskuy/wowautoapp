@@ -796,10 +796,6 @@ header {
   /***************End Section5 Styles**************/
 }
 
-@media (max-width: 475px) {
-
-}
-
 @media (max-height: 840px) {
   .container.flex-centered {
     margin-bottom: 3rem;
