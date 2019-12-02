@@ -34,3 +34,11 @@
 .footer-block h4 {
   font-weight: bold;
 }
+
+.footer-social {
+  display: flex;
+}
+
+.footer-social li {
+  margin-right: 15px;
+}
