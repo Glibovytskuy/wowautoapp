@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using WowAutoApp.Data.Extensions;
 using wowautoapp.Web.Api.Extensions.StartupExtensions;
 using wowautoapp.Web.Api.Extensions.StartupExtensions.RuntimePipelineConfigurations;
 
@@ -36,6 +37,9 @@ namespace wowautoapp
         /// <param name="services"></param>
         public void ConfigureServices(IServiceCollection services)
         {
+            // Add Database Context
+            services.AddDatabase(Configuration);
+
             // Add swagger configuration
             services.AddSwaggerConfiguration();
 

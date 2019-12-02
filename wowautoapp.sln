@@ -11,9 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WowAutoApp.Services", "Libr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "wowautoapp", "WowAutoApp.Web.Api\wowautoapp.csproj", "{24E978DD-74D9-4021-91AD-B0E0A5289A82}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WowAutoApp.Data", "Libraries\WowAutoApp.Data\WowAutoApp.Data.csproj", "{425578E4-ABBB-4C4D-A897-9C089CDB4EB7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WowAutoApp.Data", "Libraries\WowAutoApp.Data\WowAutoApp.Data.csproj", "{425578E4-ABBB-4C4D-A897-9C089CDB4EB7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WowAutoApp.Core", "Libraries\WowAutoApp.Core\WowAutoApp.Core.csproj", "{BD6E60DC-5C53-4FF3-8F42-C9D31625633E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WowAutoApp.Core", "Libraries\WowAutoApp.Core\WowAutoApp.Core.csproj", "{BD6E60DC-5C53-4FF3-8F42-C9D31625633E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
