@@ -23,4 +23,9 @@
     <PackageReference Include="WindowsAzure.Storage" Version="9.2.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\WowAutoApp.Core\WowAutoApp.Core.csproj" />
+    <ProjectReference Include="..\WowAutoApp.Data\WowAutoApp.Data.csproj" />
+  </ItemGroup>
+
 </Project>

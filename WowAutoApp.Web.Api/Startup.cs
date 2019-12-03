@@ -6,8 +6,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using WowAutoApp.Data.Extensions;
-using wowautoapp.Web.Api.Extensions.StartupExtensions;
-using wowautoapp.Web.Api.Extensions.StartupExtensions.RuntimePipelineConfigurations;
+using wowautoapp.Extensions.StartupExtensions.RuntimePipelineConfigurations;
+using wowautoapp.Extensions.StartupExtensions;
 
 namespace wowautoapp
 {
@@ -43,6 +43,9 @@ namespace wowautoapp
             // Add swagger configuration
             services.AddSwaggerConfiguration();
 
+            // Add Identity 
+            services.AddIdentityConfiguration(Configuration);
+
             // Add mvc
             services.AddMvc();
         }
@@ -52,11 +55,9 @@ namespace wowautoapp
         /// </summary>
         /// <param name="applicationBuilder"></param>
         /// <param name="hostingEnvironment"></param>
-        /// <param name="loggerFactory"></param>
         /// <param name="services"></param>
         public void Configure(IApplicationBuilder applicationBuilder,
             IHostingEnvironment hostingEnvironment,
-            ILoggerFactory loggerFactory,
             IServiceProvider services)
         {
             // Use swagger
@@ -75,6 +76,8 @@ namespace wowautoapp
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            applicationBuilder.SeedDatabase(services);
         }
     }
 }
