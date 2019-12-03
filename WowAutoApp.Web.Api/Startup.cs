@@ -6,8 +6,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using WowAutoApp.Data.Extensions;
-using wowautoapp.Web.Api.Extensions.StartupExtensions;
-using wowautoapp.Web.Api.Extensions.StartupExtensions.RuntimePipelineConfigurations;
+using wowautoapp.Extensions.StartupExtensions.RuntimePipelineConfigurations;
+using wowautoapp.Extensions.StartupExtensions;
 
 namespace wowautoapp
 {
@@ -39,9 +39,36 @@ namespace wowautoapp
         {
             // Add Database Context
             services.AddDatabase(Configuration);
+            
+            // Add event configuration
+            services.AddEventPublishConfiguration();
 
             // Add swagger configuration
             services.AddSwaggerConfiguration();
+
+            // Add Identity 
+            services.AddIdentityConfiguration(Configuration);
+
+            // JWT Configuration
+            services.AddAuthenticationConfiguration(Configuration);
+
+            //Configure web config
+            services.AddWebConfiguration();
+
+            //Add entity repository config
+            services.AddEntityRepositories();
+
+            //Add entity service config
+            services.AddEntityServices();
+
+            // Add accessor to HttpContext
+            services.AddHttpContextAccessor();
+
+            // Add services for localization
+            services.AddLocalization();
+
+            //Add auto mapper
+            services.AddAutoMapper();
 
             // Add mvc
             services.AddMvc();
@@ -51,19 +78,28 @@ namespace wowautoapp
         /// This method gets called by the runtime.Use this method to configure the HTTP request pipeline.
         /// </summary>
         /// <param name="applicationBuilder"></param>
-        /// <param name="hostingEnvironment"></param>
         /// <param name="loggerFactory"></param>
+        /// <param name="hostingEnvironment"></param>
         /// <param name="services"></param>
         public void Configure(IApplicationBuilder applicationBuilder,
-            IHostingEnvironment hostingEnvironment,
+            IHostingEnvironment hostingEnvironment, 
             ILoggerFactory loggerFactory,
             IServiceProvider services)
         {
+            //Use logger factory
+            loggerFactory.UseRuntimeLoggerBuilder(Configuration);
+
             // Use swagger
             applicationBuilder.UseRuntimeSwaggerBuilder();
 
             if (hostingEnvironment.IsDevelopment())
                 applicationBuilder.UseDeveloperExceptionPage();
+
+            // Use IdentityServer
+            applicationBuilder.UseIdentityServer();
+
+            // Use authentication
+            applicationBuilder.UseAuthentication();
 
             applicationBuilder.UseMvc(routes =>
             {
@@ -75,6 +111,8 @@ namespace wowautoapp
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            applicationBuilder.SeedDatabase(services);
         }
     }
 }

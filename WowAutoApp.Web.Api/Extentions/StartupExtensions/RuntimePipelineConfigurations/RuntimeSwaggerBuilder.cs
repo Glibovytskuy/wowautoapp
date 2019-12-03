@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Builder;
 
-namespace wowautoapp.Web.Api.Extensions.StartupExtensions.RuntimePipelineConfigurations
+namespace wowautoapp.Extensions.StartupExtensions.RuntimePipelineConfigurations
 {
     /// <summary>
     /// Runtime configuration builder for swagger
