@@ -15,7 +15,7 @@ namespace wowautoapp
         /// <param name="args"></param>
         public static void Main(string[] args)
         {
-            CreateWebHostBuilder(args).Run();
+            BuildWebHost(args).Run();
         }
 
         /// <summary>
@@ -23,7 +23,7 @@ namespace wowautoapp
         /// </summary>
         /// <param name="args"></param>
         /// <returns></returns>
-        public static IWebHost CreateWebHostBuilder(string[] args) =>
+        public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseKestrel()
                 .UseContentRoot(Directory.GetCurrentDirectory())

@@ -71,11 +71,11 @@ namespace wowautoapp.Extensions.StartupExtensions
                 dbContext.Database.Migrate();
                 dbContext.Database.EnsureCreated();
 
-                //var identityContext = serviceScope.ServiceProvider.GetRequiredService<IIdentityServerInitializer>();
-                //identityContext.SeedAsync().Wait();
+                var identityContext = serviceScope.ServiceProvider.GetRequiredService<IIdentityServerInitializer>();
+                identityContext.SeedAsync().Wait();
 
-                //var seedService = serviceScope.ServiceProvider.GetService<ISeedSerivce>();
-                //seedService.InstallData(serviceProvider);
+                var seedService = serviceScope.ServiceProvider.GetService<ISeedSerivce>();
+                seedService.InstallData(serviceProvider);
             }
         }
     }
