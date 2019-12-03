@@ -11,7 +11,7 @@ using WowAutoApp.Core.Consts;
 using WowAutoApp.Services.Identity.Auth;
 using wowautoapp.Infrastructure;
 
-namespace wowautoapp.Extentions.StartupExtensions
+namespace wowautoapp.Extensions.StartupExtensions
 {
     /// <summary>
     ///     Dependency injection for jwt configurator

@@ -5,7 +5,7 @@ using WowAutoApp.Core.Interfaces;
 using WowAutoApp.Services.Identity.Auth;
 using wowautoapp.Infrastructure;
 
-namespace wowautoapp.Extentions.StartupExtensions
+namespace wowautoapp.Extensions.StartupExtensions
 {
     /// <summary>
     /// Dependency injection for web configurator

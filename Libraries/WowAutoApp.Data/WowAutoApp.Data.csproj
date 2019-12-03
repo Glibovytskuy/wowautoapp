@@ -27,7 +27,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Migrations\" />
+    <Folder Include="Migrations\Configuration\" />
+    <Folder Include="Migrations\PersistedGrant\" />
   </ItemGroup>
 
 </Project>

@@ -4,7 +4,7 @@ using WowAutoApp.Core.Domain.Profile;
 using WowAutoApp.Core.Repo;
 using WowAutoApp.Data;
 
-namespace wowautoapp.Extentions.StartupExtensions
+namespace wowautoapp.Extensions.StartupExtensions
 {
     /// <summary>
     /// Dependency injection configurator for entity repositories

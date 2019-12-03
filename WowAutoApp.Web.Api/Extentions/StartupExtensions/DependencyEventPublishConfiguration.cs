@@ -3,7 +3,7 @@ using WowAutoApp.Core.Domain;
 using WowAutoApp.Core.Events;
 using WowAutoApp.Services.Identity.Cache;
 
-namespace wowautoapp.Extentions.StartupExtensions
+namespace wowautoapp.Extensions.StartupExtensions
 {
     /// <summary>
     /// Represents an event publisher configuration

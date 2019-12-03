@@ -3,7 +3,7 @@ using WowAutoApp.Services.Identity.Registration;
 using WowAutoApp.Services.Identity.User;
 using WowAutoApp.Services.Profile;
 
-namespace wowautoapp.Extentions.StartupExtensions
+namespace wowautoapp.Extensions.StartupExtensions
 {
     /// <summary>
     /// Dependency injection configurator for entity services
