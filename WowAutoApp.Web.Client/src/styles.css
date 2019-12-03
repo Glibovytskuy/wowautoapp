@@ -192,6 +192,10 @@ header {
   margin-top: 10vh;
 }
 
+#section3 .container.flex-centered {
+  margin-top: 0;
+}
+
 .block-description {
   width: 38%;
   margin-right: 12%;
@@ -320,13 +324,43 @@ header {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-bottom: 40px;
-
 }
 
-.steps div {
-  margin-right: 15px;
-  margin-bottom: 10px;
+.steps .step {
+  position: relative;
+  font-size: 22px;
+  color: #fff;
+  text-align: left;
+  max-width: 395px;
+  padding: 40px 30px;
+  margin: 0 25px 25px 0;
+  border: 1px solid #FFFFFF;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+}
+
+.step > img {
+  position: absolute;
+  bottom: 7%;
+  right: 7%;
+}
+
+.step-heading {
+  display: flex;
+  align-items: center;
+}
+
+.step-title {
+  margin-left: 20px;
+}
+
+.step-title div {
+  font-weight: bold;
+  font-size: 32px;
+}
+
+.step-description {
+  opacity: .75;
 }
 
 /***************End Section3 Styles**************/
