@@ -177,10 +177,19 @@ header {
   align-items: center;
 }
 
+.d-flex-row {
+  display: flex;
+  justify-content: space-between;
+}
+
 .flex-centered {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.container.flex-centered {
+  margin-top: 10vh;
 }
 
 .block-description {
@@ -202,7 +211,7 @@ header {
 }
 
 #section1 .container {
-  margin-top: 60px;
+  margin-top: 6vh;
 }
 
 .section1-left-block {
@@ -302,10 +311,6 @@ header {
 /**************End Section2 Styles**************/
 
 /*Section3 Styles*/
-#section3 .container {
-  margin-top: 40px;
-}
-
 .section3-subtitle {
   margin-bottom: 30px;
   font-weight: 600;
@@ -768,10 +773,6 @@ header {
   .section2-left-block p {
     width: 100%;
   }
-
-  .image-wrapper {
-    width: 53%;
-  }
   /***************End Section2 Styles**************/
 
   /*section3*/
@@ -793,10 +794,6 @@ header {
   }
 
   /***************End Section5 Styles**************/
-}
-
-@media (max-width: 475px) {
-
 }
 
 @media (max-height: 840px) {

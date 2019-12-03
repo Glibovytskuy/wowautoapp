@@ -6,11 +6,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './components/home/home.component';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { CreditApplicationComponent } from './components/credit-application/credit-application.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    CreditApplicationComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,
