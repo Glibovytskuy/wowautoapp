@@ -21,7 +21,7 @@ namespace wowautoapp.Controllers.AspNetUser
     /// <summary>
     /// Accounts API Controller
     /// </summary>
-    [Authorize(AuthenticationSchemes = IdentityServerAuthenticationDefaults.AuthenticationScheme)]
+    //[Authorize(AuthenticationSchemes = IdentityServerAuthenticationDefaults.AuthenticationScheme)]
     [Route("api/[controller]")]
     public class AccountsController : BaseController
     {

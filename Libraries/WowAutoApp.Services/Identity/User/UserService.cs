@@ -142,6 +142,25 @@ namespace WowAutoApp.Services.Identity.User
                 }).FirstOrDefaultAsync();
         }
 
+        public ApplicationUser GetCurrentUser(string userName)
+        {
+            return _applicationUserRepository
+                .TableNoTracking
+                .Where(u => u.UserName == userName)
+                .Select(user => new ApplicationUser
+                {
+                    Id = user.Id,
+                    Email = user.Email,
+                    UserName = user.UserName,
+                    FirstName = user.FirstName,
+                    LastName = user.LastName,
+                    Profile = new Core.Domain.Profile.Profile
+                    {
+                        Id = user.Profile.Id
+                    }
+                }).FirstOrDefault();
+        }
+
         public async Task<ApplicationUser> GetByProfileIdAsync(int profileId)
         {
             return
