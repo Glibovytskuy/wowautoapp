@@ -202,6 +202,10 @@ header {
   text-align: left;
 }
 
+.tagline {
+  width: 75%;
+}
+
 .section-heading {
   font-size: 36px;
   font-weight: 600;
@@ -541,7 +545,8 @@ header {
   min-height: 90vh;
   position: relative;
   padding: 2em 0;
-  background: linear-gradient(0deg, rgba(140, 82, 255, 1) 30%, rgba(186, 104, 215, 1) 70%);
+  /* background: linear-gradient(0deg, rgba(140, 82, 255, 1) 30%, rgba(186, 104, 215, 1) 70%); */
+  background: linear-gradient(0deg, rgba(140,82,255,1) 0%, rgba(186,104,215,1) 50%, rgba(140,82,255,1) 100%);
 }
 
 .column>div {
