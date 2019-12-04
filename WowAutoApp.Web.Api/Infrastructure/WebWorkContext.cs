@@ -1,10 +1,10 @@
 ﻿using IdentityModel;
 using Microsoft.AspNetCore.Http;
-using WowAutoApp.Core.Interfaces;
 using WowAutoApp.Core.Domain;
 using WowAutoApp.Services.Caching;
 using WowAutoApp.Services.Identity.Cache;
 using WowAutoApp.Services.Identity.User;
+using WowAutoApp.Core;
 
 namespace wowautoapp.Infrastructure
 {

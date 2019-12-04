@@ -1,6 +1,6 @@
 ﻿using WowAutoApp.Core.Domain;
 
-namespace WowAutoApp.Core.Interfaces
+namespace WowAutoApp.Core
 {
     /// <summary>
     /// Represents work context
