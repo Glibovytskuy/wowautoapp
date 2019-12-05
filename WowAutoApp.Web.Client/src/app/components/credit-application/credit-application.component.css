@@ -1,0 +1,62 @@
+.container {
+  padding-top: 150px;
+}
+
+.row {
+  margin-bottom: 20px;
+}
+
+h2, h4 {
+  color: #fff;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+}
+
+h4 {
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+.form-group {
+  margin-bottom: 30px;
+}
+
+.form-control {
+  height: 48px;
+  background: none;
+  color: #eaeaea;
+  border-color: #eaeaea;
+}
+
+::placeholder {
+  color: #eaeaea;
+}
+
+.vehicle-block textarea {
+  background: none;
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  color: #eaeaea;
+  border-color: #eaeaea;
+  resize: none;
+}
+
+.draggable textarea {
+  border-style: dashed;
+}
+
+.vehicle-col div {
+  margin-bottom: 15px;
+}
+
+@media (max-width: 992px) {
+  .form-control {
+    margin-bottom: 15px;
+  }
+}

@@ -332,6 +332,7 @@ header {
   color: #fff;
   text-align: left;
   max-width: 370px;
+  height: 448px;
   padding: 40px 30px;
   margin: 0 25px 25px 0;
   border: 1px solid #FFFFFF;
@@ -712,6 +713,10 @@ header {
 
   .block-description {
     width: 100%;
+  }
+
+  .steps .step {
+    margin-right: 0;
   }
 }
 
