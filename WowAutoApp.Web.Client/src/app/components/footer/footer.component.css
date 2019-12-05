@@ -57,4 +57,12 @@
   .column-xs {
     flex-direction: column;
   }
+
+  .footer-block {
+    padding: 1rem 0;
+  }
+
+  .copyright {
+    margin: 0;
+  }
 }

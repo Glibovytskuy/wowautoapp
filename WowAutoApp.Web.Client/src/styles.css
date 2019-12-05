@@ -332,11 +332,11 @@ header {
 
 .steps .step {
   position: relative;
-  font-size: 22px;
+  font-size: 20px;
   color: #fff;
   text-align: left;
-  max-width: 370px;
-  height: 448px;
+  max-width: 348px;
+  height: 432px;
   padding: 40px 30px;
   margin: 0 25px 25px 0;
   border: 1px solid #FFFFFF;
@@ -752,6 +752,10 @@ header {
 
   .flex-centered > * {
     text-align: center;
+  }
+
+  .d-flex-row.col-xs {
+    flex-direction: column;
   }
 
   .block-description {
