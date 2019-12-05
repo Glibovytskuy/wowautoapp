@@ -1,6 +1,5 @@
 ﻿using WowAutoApp.Core.Domain;
 using WowAutoApp.Core.Events;
-using WowAutoApp.Services.Caching;
 
 namespace WowAutoApp.Services.Identity.Cache
 {
@@ -13,25 +12,20 @@ namespace WowAutoApp.Services.Identity.Cache
         IConsumer<EntityUpdatedEvent<ApplicationUser>>,
         IConsumer<EntityDeletedEvent<ApplicationUser>>
     {
-        private readonly IStaticCacheManager _cacheManager;
-        public UserEventConsumer(IStaticCacheManager cacheManager) => _cacheManager = cacheManager;
 
         public void HandleEvent(EntityInsertedEvent<ApplicationUser> eventMessage)
         {
-            _cacheManager.RemoveByPrefix(UserCacheDefaults.UserPrefixCacheKey);
-            _cacheManager.RemoveByPrefix(UserCacheDefaults.GeneralPersonPrefixCacheKey);
+            
         }
 
         public void HandleEvent(EntityUpdatedEvent<ApplicationUser> eventMessage)
         {
-            _cacheManager.RemoveByPrefix(UserCacheDefaults.UserPrefixCacheKey);
-            _cacheManager.RemoveByPrefix(UserCacheDefaults.GeneralPersonPrefixCacheKey);
+            
         }
 
         public void HandleEvent(EntityDeletedEvent<ApplicationUser> eventMessage)
         {
-            _cacheManager.RemoveByPrefix(UserCacheDefaults.UserPrefixCacheKey);
-            _cacheManager.RemoveByPrefix(UserCacheDefaults.GeneralPersonPrefixCacheKey);
+           
         }
     }
 }

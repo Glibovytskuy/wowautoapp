@@ -1,10 +1,10 @@
 ﻿using IdentityModel;
 using Microsoft.AspNetCore.Http;
 using WowAutoApp.Core.Domain;
-using WowAutoApp.Services.Caching;
 using WowAutoApp.Services.Identity.Cache;
 using WowAutoApp.Services.Identity.User;
 using WowAutoApp.Core;
+using System.Threading.Tasks;
 
 namespace wowautoapp.Infrastructure
 {
@@ -17,7 +17,6 @@ namespace wowautoapp.Infrastructure
         private ApplicationUser _cachedUser;
 
         private readonly IHttpContextAccessor _httpContextAccessor;
-        private readonly IStaticCacheManager _staticCache;
         private readonly IUserService _userService;
 
         /// <summary>
@@ -27,12 +26,10 @@ namespace wowautoapp.Infrastructure
         /// <param name="userService"></param>
         /// <param name="staticCache"></param>
         public WebWorkContext(IHttpContextAccessor httpContextAccessor,
-            IUserService userService,
-            IStaticCacheManager staticCache)
+            IUserService userService)
         {
             _httpContextAccessor = httpContextAccessor;
             _userService = userService;
-            _staticCache = staticCache;
         }
 
         /// <inheritdoc />
@@ -47,9 +44,7 @@ namespace wowautoapp.Infrastructure
                 if (string.IsNullOrEmpty(userName))
                     return _cachedUser;
 
-                var cacheKeyFormat = string.Format(UserCacheDefaults.UserCacheKey, userName);
-                _cachedUser = _staticCache.GetAsync(cacheKeyFormat,
-                    async () => await _userService.GetCurrentUserAsync(userName)).Result;
+                _cachedUser = _userService.GetCurrentUser(userName);
 
                 return _cachedUser;
             }

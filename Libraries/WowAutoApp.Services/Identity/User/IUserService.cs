@@ -15,6 +15,7 @@ namespace WowAutoApp.Services.Identity.User
         Task<IdentityResult> CreateAsync(ApplicationUser user, string password);
         Task<ApplicationUser> GetByUserNameAsync(string userName);
         Task<ApplicationUser> GetCurrentUserAsync(string userName);
+        ApplicationUser GetCurrentUser(string userName);
         Task<ApplicationUser> GetByProfileIdAsync(int profileId);
         Task<ApplicationUser> GetByEmailAsync(string email);
         Task<ApplicationUser> GetByIdAsync(string id);
