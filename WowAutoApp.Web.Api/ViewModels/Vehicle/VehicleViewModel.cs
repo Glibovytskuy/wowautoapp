@@ -1,18 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace wowautoapp.ViewModels
 {
     public class VehicleViewModel
     {
-        /// <summary>
-        /// Vehicle Name user
-        /// </summary>
-        [Required]
-        public string VehicleName { get; set; }
         /// <summary>
         /// Down Payment user
         /// </summary>

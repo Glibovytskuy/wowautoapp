@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WowAutoApp.Data;
 
 namespace WowAutoApp.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20191206230811_CreateVehicleEntity")]
+    partial class CreateVehicleEntity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -283,15 +285,15 @@ namespace WowAutoApp.Data.Migrations
 
                     b.Property<string>("OtherInfo");
 
-                    b.Property<string>("OwnerLicenseId");
-
                     b.Property<int>("TotalAmount");
+
+                    b.Property<int?>("VehicleId");
 
                     b.HasKey("Id");
 
                     b.HasIndex("DriverLicensePhotoId");
 
-                    b.HasIndex("OwnerLicenseId");
+                    b.HasIndex("VehicleId");
 
                     b.ToTable("Vehicle");
                 });
@@ -364,13 +366,13 @@ namespace WowAutoApp.Data.Migrations
             modelBuilder.Entity("WowAutoApp.Core.Domain.Vehicle", b =>
                 {
                     b.HasOne("WowAutoApp.Core.Domain.Media.Picture", "DriverLicensePhoto")
-                        .WithMany("Vehicles")
+                        .WithMany("Skills")
                         .HasForeignKey("DriverLicensePhotoId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("WowAutoApp.Core.Domain.ApplicationUser", "OwnerLicense")
-                        .WithMany()
-                        .HasForeignKey("OwnerLicenseId");
+                    b.HasOne("WowAutoApp.Core.Domain.Vehicle")
+                        .WithMany("Vehicles")
+                        .HasForeignKey("VehicleId");
                 });
 #pragma warning restore 612, 618
         }

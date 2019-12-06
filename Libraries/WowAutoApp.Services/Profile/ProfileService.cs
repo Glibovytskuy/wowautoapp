@@ -39,7 +39,7 @@ namespace WowAutoApp.Services.Profile
         {
             var profilePicture = Repository.TableNoTracking
                 .Where(x => x.Id.Equals(profileId))
-                .Select(x => x.ImageUrl)
+                .Select(x => x.ProfilePictures.LastOrDefault().Picture.AltAttribute)
                 .FirstOrDefault();
 
             return profilePicture.IsNullOrEmpty() ? "" : profilePicture;

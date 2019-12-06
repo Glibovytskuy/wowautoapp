@@ -8,6 +8,8 @@ namespace WowAutoApp.Core.Domain.Media
     public class Picture : Entity
     {
         private ICollection<ProfilePicture> _profilePictures;
+        private ICollection<Vehicle> _vehicle;
+       
         /// <summary>
         /// Gets or sets the picture mime type
         /// </summary>
@@ -31,6 +33,16 @@ namespace WowAutoApp.Core.Domain.Media
             get => _profilePictures ?? (_profilePictures = new List<ProfilePicture>());
 
             protected set => _profilePictures = value;
+        }
+
+        /// <summary>
+        /// Gets the Vehicles
+        /// </summary>
+        public virtual ICollection<Vehicle> Vehicles
+        {
+            get => _vehicle ?? (_vehicle = new List<Vehicle>());
+
+            protected set => _vehicle = value;
         }
     }
 }

@@ -26,8 +26,6 @@ namespace WowAutoApp.Core.Domain.Profile
         public int MonthlyRent { get; set; }
         public string EmploymentStatus { get; set; }
 
-        public string ImageUrl { get; set; }
-
         public virtual ICollection<ProfilePicture> ProfilePictures
         {
             get => _profilePictures ?? (_profilePictures = new List<ProfilePicture>());
