@@ -6,6 +6,7 @@ import { CreditApplicationComponent } from './components/credit-application/cred
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: '', loadChildren: './components/registration/registration.module#RegistrationModule' },
+  { path: '', loadChildren: './components/profile/profile.module#ProfileModule' },
   { path: 'credit-application', component: CreditApplicationComponent }
 ];
 
