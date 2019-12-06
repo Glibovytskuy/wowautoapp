@@ -110,6 +110,20 @@ h4 {
   color: #8C52FF;
 }
 
+.user {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 10px 0;
+}
+
+.description.user {
+  margin: 20px 0;
+}
+
+.location {
+  margin-bottom: 20px;
+}
+
 .user-help-block {
   margin-top: 10px;
   text-align: center;

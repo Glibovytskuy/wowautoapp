@@ -192,6 +192,10 @@ header {
   align-items: center;
 }
 
+.centered {
+  text-align: center;
+}
+
 .submit-button {
   color: #fff;
   border: 1px solid #fff;
