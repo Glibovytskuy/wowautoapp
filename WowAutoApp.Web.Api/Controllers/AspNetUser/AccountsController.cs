@@ -21,7 +21,6 @@ namespace wowautoapp.Controllers.AspNetUser
     /// <summary>
     /// Accounts API Controller
     /// </summary>
-    //[Authorize(AuthenticationSchemes = IdentityServerAuthenticationDefaults.AuthenticationScheme)]
     [Route("api/[controller]")]
     public class AccountsController : BaseController
     {
@@ -92,22 +91,22 @@ namespace wowautoapp.Controllers.AspNetUser
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ValidationFilter]
-        public async Task<IActionResult> CreateAsync([FromBody] RegistrationViewModel model)
+        public async Task<IActionResult> CreateAsync(RegistrationViewModel model)
         {
-            var userIdentity = _mapper.Map<ApplicationUser>(model);
+            //var userIdentity = _mapper.Map<ApplicationUser>(model);
 
-            if (!await _registrationService.RegisterAsync(userIdentity, model.Password, model.CallbackUrl))
-                return Bad("");
+            //if (!await _registrationService.RegisterAsync(userIdentity, model.Password, model.CallbackUrl))
+            //    return Bad("");
 
-            //ToDo: Implement profile
-            //var profile = new Core.Domain.Profile.Profile { ApplicationUserId = userIdentity.Id };
-            //_profileService.AddProfile(profile);
+            ////ToDo: Implement profile
+            ////var profile = new Core.Domain.Profile.Profile { ApplicationUserId = userIdentity.Id };
+            ////_profileService.AddProfile(profile);
 
-            //add role 
-            await _userManager.AddToRoleAsync(userIdentity, Consts.UserRoleKey);
+            ////add role 
+            //await _userManager.AddToRoleAsync(userIdentity, Consts.UserRoleKey);
 
-            var jwt = await _authService.GetJwtAsync(model.Email, ClientId);
-            return Ok(jwt);
+            //var jwt = await _authService.GetJwtAsync(model.Email, ClientId);
+            return Ok();
         }
 
         /// <summary>
