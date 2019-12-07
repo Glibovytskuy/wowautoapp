@@ -89,6 +89,5 @@ namespace wowautoapp.ViewModels
         /// </summary>
         [Required]
         public string EmploymentStatus { get; set; }
-        
     }
 }

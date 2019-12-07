@@ -13,8 +13,7 @@ namespace wowautoapp.Mappings.Vehicles
         /// </summary>
         public ViewModelToEntityMappingVehicle()
         {
-            CreateMap<RegistrationViewModel, Vehicle>()
-                .ForMember(x => x.DriverLicensePhoto, map => map.Ignore());
+            CreateMap<RegistrationViewModel, Vehicle>();
         }
     }
 }

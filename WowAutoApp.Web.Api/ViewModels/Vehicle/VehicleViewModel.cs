@@ -23,6 +23,6 @@ namespace wowautoapp.ViewModels
         /// Photo driver license
         /// </summary>
         [Required]
-        public string DriverLicensePhoto { get; set; }
+        public int DriverLicensePhotoId { get; set; }
     }
 }

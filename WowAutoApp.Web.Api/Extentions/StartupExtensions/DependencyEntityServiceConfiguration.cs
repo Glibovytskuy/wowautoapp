@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using WowAutoApp.Services;
 using WowAutoApp.Services.Identity.Registration;
 using WowAutoApp.Services.Identity.User;
 using WowAutoApp.Services.Profile;
@@ -19,6 +20,7 @@ namespace wowautoapp.Extensions.StartupExtensions
             services.AddTransient<IRegistrationService, RegistrationService>();
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IProfileService, ProfileService>();
+            services.AddTransient<IVehicleService, VehicleService>();
         }
     }
 }

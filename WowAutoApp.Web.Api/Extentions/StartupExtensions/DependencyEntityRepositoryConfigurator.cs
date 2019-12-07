@@ -20,6 +20,7 @@ namespace wowautoapp.Extensions.StartupExtensions
         {
             services.AddTransient<IRepository<ApplicationUser>, EfRepository<ApplicationUser>>();
             services.AddTransient<IRepository<Profile>, EfRepository<Profile>>();
+            services.AddTransient<IRepository<Vehicle>, EfRepository<Vehicle>>();
         }
     }
 }

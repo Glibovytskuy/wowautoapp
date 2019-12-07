@@ -11,8 +11,6 @@ namespace WowAutoApp.Services.Profile
 {
     public class ProfileService : GeneralService<Core.Domain.Profile.Profile>, IProfileService
     {
-        private const string ProfileByIdKey = "Netfully.profile.id-{0}";
-        private const string ProfileByUserIdKey = "Netfully.profile.userId-{0}";
         private const int DefaultCacheTime = 60;
 
         #region Fields
@@ -29,8 +27,6 @@ namespace WowAutoApp.Services.Profile
         {
             if (profile == null)
                 throw new ArgumentNullException(nameof(profile));
-
-            var key = string.Format(ProfileByIdKey, profile.Id);
 
             Repository.Insert(profile);
         }
@@ -49,8 +45,6 @@ namespace WowAutoApp.Services.Profile
         {
             if (profile == null)
                 throw new ArgumentNullException(nameof(profile));
-
-            var key = string.Format(ProfileByIdKey, profile.Id);
 
             Repository.Update(profile);
         }
@@ -78,8 +72,6 @@ namespace WowAutoApp.Services.Profile
         {
             if (userId.IsNullOrEmpty())
                 throw new ArgumentNullException(nameof(userId));
-
-            var key = string.Format(ProfileByUserIdKey, userId);
 
             return Repository.Table.FirstOrDefault(x => x.ApplicationUserId.Equals(userId));
         }

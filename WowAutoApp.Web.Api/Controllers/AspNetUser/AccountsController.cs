@@ -15,6 +15,8 @@ using WowAutoApp.Services.Email.Token;
 using WowAutoApp.Services.Identity.Auth;
 using WowAutoApp.Services.Identity.Registration;
 using WowAutoApp.Services.Identity.User;
+using WowAutoApp.Services.Profile;
+using WowAutoApp.Services;
 using Profile = WowAutoApp.Core.Domain.Profile.Profile;
 
 
@@ -32,6 +34,8 @@ namespace wowautoapp.Controllers.AspNetUser
         private readonly IAuthService _authService;
         private readonly IUserService _userService;
         private readonly IRegistrationService _registrationService;
+        private readonly IProfileService _profileService;
+        private readonly IVehicleService _vehicleService;
         //ToDo: Implement Email
         //private readonly IEmailExtensionService _emailExtensionService;
 
@@ -45,6 +49,8 @@ namespace wowautoapp.Controllers.AspNetUser
             IAuthService authService,
             IUserService userService,
             IRegistrationService registrationService,
+            IProfileService profileService,
+            IVehicleService vehicleService,
             //ToDo: Implement Email
             //IEmailExtensionService emailService,
             UserManager<ApplicationUser> userManager,
@@ -58,6 +64,8 @@ namespace wowautoapp.Controllers.AspNetUser
             _userManager = userManager;
             _roleManager = roleManager;
             _registrationService = registrationService;
+            _profileService = profileService;
+            _vehicleService = vehicleService;
             //ToDo: Implement Email
             //_emailExtensionService = emailService;
 
@@ -101,24 +109,21 @@ namespace wowautoapp.Controllers.AspNetUser
             //if (!await _registrationService.RegisterAsync(userIdentity, model.Password, model.CallbackUrl))
             //    return Bad("");
 
-            var mappedProfile = _mapper.Map<Profile>(model);
-            mappedProfile.ApplicationUserId = userIdentity.Id;
-            //ToDo: Implement profile service
+            //var mappedProfile = _mapper.Map<Profile>(model);
+            //mappedProfile.ApplicationUserId = userIdentity.Id;
             //_profileService.AddProfile(mappedProfile);
 
-            //ToDo: Implement Upload DriverLicensePhoto
-            //var driverLicense = _pictureService.GetPictureById(model.DriverLicensePhotoId);
-
             var mappedVehicle = _mapper.Map<Vehicle>(model);
-            mappedVehicle.OwnerLicenseId = userIdentity.Id;
-            //ToDo: Implement vehicle service
+            //mappedVehicle.OwnerLicenseId = userIdentity.Id;
             //_vehicleService.AddVehicle(mappedVehicle);
 
-            ////add role 
-            //await _userManager.AddToRoleAsync(userIdentity, Consts.UserRoleKey);
+            //ToDo: Need to implement send email.
 
-            //var jwt = await _authService.GetJwtAsync(model.Email, ClientId);
-            return Ok();
+            //add role 
+            await _userManager.AddToRoleAsync(userIdentity, Consts.UserRoleKey);
+
+            var jwt = await _authService.GetJwtAsync(model.Email, ClientId);
+            return Ok(jwt);
         }
 
         /// <summary>
