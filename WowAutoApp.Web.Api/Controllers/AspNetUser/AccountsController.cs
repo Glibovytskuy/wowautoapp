@@ -15,6 +15,8 @@ using WowAutoApp.Services.Email.Token;
 using WowAutoApp.Services.Identity.Auth;
 using WowAutoApp.Services.Identity.Registration;
 using WowAutoApp.Services.Identity.User;
+using Profile = WowAutoApp.Core.Domain.Profile.Profile;
+
 
 namespace wowautoapp.Controllers.AspNetUser
 {
@@ -93,14 +95,24 @@ namespace wowautoapp.Controllers.AspNetUser
         [ValidationFilter]
         public async Task<IActionResult> CreateAsync(RegistrationViewModel model)
         {
-            //var userIdentity = _mapper.Map<ApplicationUser>(model);
+            var userIdentity = _mapper.Map<ApplicationUser>(model);
 
+            //Done
             //if (!await _registrationService.RegisterAsync(userIdentity, model.Password, model.CallbackUrl))
             //    return Bad("");
 
-            ////ToDo: Implement profile
-            ////var profile = new Core.Domain.Profile.Profile { ApplicationUserId = userIdentity.Id };
-            ////_profileService.AddProfile(profile);
+            var mappedProfile = _mapper.Map<Profile>(model);
+            mappedProfile.ApplicationUserId = userIdentity.Id;
+            //ToDo: Implement profile service
+            //_profileService.AddProfile(mappedProfile);
+
+            //ToDo: Implement Upload DriverLicensePhoto
+            //var driverLicense = _pictureService.GetPictureById(model.DriverLicensePhotoId);
+
+            var mappedVehicle = _mapper.Map<Vehicle>(model);
+            mappedVehicle.OwnerLicenseId = userIdentity.Id;
+            //ToDo: Implement vehicle service
+            //_vehicleService.AddVehicle(mappedVehicle);
 
             ////add role 
             //await _userManager.AddToRoleAsync(userIdentity, Consts.UserRoleKey);
