@@ -100,18 +100,21 @@ namespace wowautoapp.Controllers.AspNetUser
         {
             var userIdentity = _mapper.Map<ApplicationUser>(model);
 
-            //if (!await _registrationService.RegisterAsync(userIdentity, model.Password, model.CallbackUrl))
-            //    return Bad("");
+            if (!await _registrationService.RegisterAsync(userIdentity, model.Password, model.CallbackUrl))
+                return Bad("");
 
-            //var mappedProfile = _mapper.Map<Profile>(model);
-            //mappedProfile.ApplicationUserId = userIdentity.Id;
-            //_profileService.AddProfile(mappedProfile);
+            var mappedProfile = _mapper.Map<Profile>(model);
+            mappedProfile.ApplicationUserId = userIdentity.Id;
+            _profileService.AddProfile(mappedProfile);
 
+            /* ToDo: Need implement blob for correctly work
             var mappedVehicle = _mapper.Map<Vehicle>(model);
-            //mappedVehicle.OwnerLicenseId = userIdentity.Id;
-            //_vehicleService.AddVehicle(mappedVehicle);
+            mappedVehicle.OwnerLicenseId = userIdentity.Id;
+            _vehicleService.AddVehicle(mappedVehicle);
+            */
 
-            //ToDo: Need to implement send email.
+
+            //ToDo: Need to implement send email verify user and for admin all data without pass
 
             //add role 
             await _userManager.AddToRoleAsync(userIdentity, Consts.UserRoleKey);

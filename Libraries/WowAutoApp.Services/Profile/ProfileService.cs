@@ -35,10 +35,10 @@ namespace WowAutoApp.Services.Profile
         {
             var profilePicture = Repository.TableNoTracking
                 .Where(x => x.Id.Equals(profileId))
-                .Select(x => x.ProfilePictures.LastOrDefault().Picture.AltAttribute)
+                .Select(x => x.ProfilePictures.LastOrDefault())
                 .FirstOrDefault();
 
-            return profilePicture.IsNullOrEmpty() ? "" : profilePicture;
+            return profilePicture is null ? "" : profilePicture.Picture.AltAttribute;
         }
 
         public virtual void UpdateProfile(Core.Domain.Profile.Profile profile)
