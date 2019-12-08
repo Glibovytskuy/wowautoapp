@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 using WowAutoApp.Data.Extensions;
 using wowautoapp.Extensions.StartupExtensions.RuntimePipelineConfigurations;
 using wowautoapp.Extensions.StartupExtensions;
+using wowautoapp.Extentions.StartupExtensions;
 
 namespace wowautoapp
 {
@@ -51,6 +52,9 @@ namespace wowautoapp
 
             // JWT Configuration
             services.AddAuthenticationConfiguration(Configuration);
+
+            // Add email config
+            services.AddEmailConfiguration(Configuration);
 
             //Configure web config
             services.AddWebConfiguration();

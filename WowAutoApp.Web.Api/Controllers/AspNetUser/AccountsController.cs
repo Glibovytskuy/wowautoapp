@@ -18,7 +18,7 @@ using WowAutoApp.Services.Identity.User;
 using WowAutoApp.Services.Profile;
 using WowAutoApp.Services;
 using Profile = WowAutoApp.Core.Domain.Profile.Profile;
-
+using WowAutoApp.Services.Email;
 
 namespace wowautoapp.Controllers.AspNetUser
 {
@@ -36,8 +36,7 @@ namespace wowautoapp.Controllers.AspNetUser
         private readonly IRegistrationService _registrationService;
         private readonly IProfileService _profileService;
         private readonly IVehicleService _vehicleService;
-        //ToDo: Implement Email
-        //private readonly IEmailExtensionService _emailExtensionService;
+        private readonly IEmailExtensionService _emailService;
 
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
@@ -51,8 +50,7 @@ namespace wowautoapp.Controllers.AspNetUser
             IRegistrationService registrationService,
             IProfileService profileService,
             IVehicleService vehicleService,
-            //ToDo: Implement Email
-            //IEmailExtensionService emailService,
+            IEmailExtensionService emailService,
             UserManager<ApplicationUser> userManager,
             RoleManager<IdentityRole> roleManager
             )
@@ -66,9 +64,7 @@ namespace wowautoapp.Controllers.AspNetUser
             _registrationService = registrationService;
             _profileService = profileService;
             _vehicleService = vehicleService;
-            //ToDo: Implement Email
-            //_emailExtensionService = emailService;
-
+            _emailService = emailService;
         }
 
         /// <summary>
@@ -79,13 +75,12 @@ namespace wowautoapp.Controllers.AspNetUser
         [ProducesResponseType(204)]
         public async Task<IActionResult> SendVerificationEmailAsync(string callbackUrl)
         {
-            //ToDo: Implement Email
-            //var token = new EmailToken
-            //{
-            //    Email = UserName,
-            //    Token = await _userService.GetEmailVerificationTokenAsync(UserName)
-            //};
-            //await _emailExtensionService.SendVerificationEmailAsync(token, callbackUrl);
+            var token = new EmailToken
+            {
+                Email = UserName,
+                Token = await _userService.GetEmailVerificationTokenAsync(UserName)
+            };
+            await _emailService.SendVerificationEmailAsync(token, callbackUrl);
 
             return NoContent();
         }
@@ -105,7 +100,6 @@ namespace wowautoapp.Controllers.AspNetUser
         {
             var userIdentity = _mapper.Map<ApplicationUser>(model);
 
-            //Done
             //if (!await _registrationService.RegisterAsync(userIdentity, model.Password, model.CallbackUrl))
             //    return Bad("");
 

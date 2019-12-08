@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using WowAutoApp.Core.Domain;
+using WowAutoApp.Services.Email;
 using WowAutoApp.Services.Identity.User;
 
 namespace WowAutoApp.Services.Identity.Registration
@@ -9,11 +10,12 @@ namespace WowAutoApp.Services.Identity.Registration
     public class RegistrationService : IRegistrationService
     {
         private readonly IUserService _userService;
+        private readonly IEmailExtensionService _emailService;
 
-        // TODO: Investigate if it is possible to abstracted out userrManager and Application context should to interfaces
-        public RegistrationService(IUserService userService)
+        public RegistrationService(IUserService userService, IEmailExtensionService emailService)
         {
             _userService = userService;
+            _emailService = emailService;
         }
 
         // TODO: Get rid of IdentityResult, introduce own IServiceResult
@@ -23,6 +25,17 @@ namespace WowAutoApp.Services.Identity.Registration
             user.LastName = Regex.Replace(user.LastName, @"\s+", " ").Trim();
 
             var result = await _userService.CreateAsync(user, password);
+
+            if (result.Succeeded)
+            {
+                var token = new Email.Token.EmailToken
+                {
+                    Email = user.UserName,
+                    Token = await _userService.GetEmailVerificationTokenAsync(user.UserName)
+                };
+                await _emailService.SendVerificationEmailAsync(token, baseUrl);
+            }
+
             return result.Succeeded;
         }
     }

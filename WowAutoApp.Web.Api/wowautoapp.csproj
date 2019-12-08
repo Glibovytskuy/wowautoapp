@@ -69,6 +69,10 @@
     <ProjectReference Include="..\Libraries\WowAutoApp.Data\WowAutoApp.Data.csproj" />
     <ProjectReference Include="..\Libraries\WowAutoApp.Services\WowAutoApp.Services.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\Email\EmailVerification.cshtml" />
+  </ItemGroup>
   
   <ProjectExtensions>
     <VisualStudio>
