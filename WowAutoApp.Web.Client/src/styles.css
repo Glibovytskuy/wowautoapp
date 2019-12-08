@@ -24,7 +24,8 @@ body {
   font-size: 100%;
   font-family: 'Open Sans', sans-serif;
   color: #f2f2f2;
-  background: #BA68D7;
+  /* background: #BA68D7; */
+  background: linear-gradient(0deg, rgba(140, 82, 255, 1) 0%, rgba(186, 104, 215, 1) 70%);
 }
 
 .bg-wrapper {
@@ -71,8 +72,11 @@ p {
   text-transform: uppercase;
 }
 
-.p-t-120 {
-  padding-top: 120px;
+.form-centered {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
 }
 
 .login-head {
@@ -86,6 +90,7 @@ p {
 .custom-form {
   margin: 0 auto;
   width: 472px;
+  border-radius: 8px;
   background-color: #fff;
   border: 1px solid #e0e1e2;
   padding: 0 40px;
@@ -134,11 +139,6 @@ p {
   padding: 14px;
 }
 
-@media (max-width: 470px) {
-  .custom-form {
-    width: 360px;
-  }
-}
 /* end login */
 
 /* -------------------------------- 
@@ -861,9 +861,14 @@ header {
   /***************End Section5 Styles**************/
 }
 
-@media (max-height: 840px) {
-  .container.flex-centered {
-    margin-bottom: 3rem;
+@media (max-width: 470px) {
+
+  .form-centered {
+    height: 70%;
+  }
+
+  .custom-form {
+    width: 360px;
   }
 }
 
@@ -895,5 +900,11 @@ header {
   }
   .container {
     width: 1170px;
+  }
+}
+
+@media (max-height: 840px) {
+  .container.flex-centered {
+    margin-bottom: 3rem;
   }
 }
