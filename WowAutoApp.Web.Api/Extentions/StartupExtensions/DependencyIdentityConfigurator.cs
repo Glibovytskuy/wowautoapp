@@ -68,8 +68,8 @@ namespace wowautoapp.Extensions.StartupExtensions
             using (var serviceScope = builder.ApplicationServices.CreateScope())
             {
                 var dbContext = serviceScope.ServiceProvider.GetService<ApplicationDbContext>();
-                dbContext.Database.Migrate();
                 dbContext.Database.EnsureCreated();
+                dbContext.Database.Migrate();
 
                 var identityContext = serviceScope.ServiceProvider.GetRequiredService<IIdentityServerInitializer>();
                 identityContext.SeedAsync().Wait();

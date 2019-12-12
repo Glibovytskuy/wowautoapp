@@ -5,6 +5,35 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20191211083439_Add_Buisness_License.cs" />
+    <Compile Remove="Migrations\20191211083439_Add_Buisness_License.Designer.cs" />
+    <Compile Remove="Migrations\20191211083531_Add_Buisness.cs" />
+    <Compile Remove="Migrations\20191211083531_Add_Buisness.Designer.cs" />
+    <Compile Remove="Migrations\20191211083824_Add_Buisness_License.cs" />
+    <Compile Remove="Migrations\20191211083824_Add_Buisness_License.Designer.cs" />
+    <Compile Remove="Migrations\20191211084243_Add_Buisness_License.cs" />
+    <Compile Remove="Migrations\20191211084243_Add_Buisness_License.Designer.cs" />
+    <Compile Remove="Migrations\20191211084828_Add_Buisness_License.cs" />
+    <Compile Remove="Migrations\20191211084828_Add_Buisness_License.Designer.cs" />
+    <Compile Remove="Migrations\20191211091208_Add_Buisness_License.cs" />
+    <Compile Remove="Migrations\20191211091208_Add_Buisness_License.Designer.cs" />
+    <Compile Remove="Migrations\20191211092948_Add_Buisness_License.cs" />
+    <Compile Remove="Migrations\20191211092948_Add_Buisness_License.Designer.cs" />
+    <Compile Remove="Migrations\20191211093214_Add_Buisness_License.cs" />
+    <Compile Remove="Migrations\20191211093214_Add_Buisness_License.Designer.cs" />
+    <Compile Remove="Migrations\20191211224819_Add_Bank_Table.cs" />
+    <Compile Remove="Migrations\20191211224819_Add_Bank_Table.Designer.cs" />
+    <Compile Remove="Migrations\20191211231417_Add_Table.cs" />
+    <Compile Remove="Migrations\20191211231417_Add_Table.Designer.cs" />
+    <Compile Remove="Migrations\20191211232547_Add_Table.cs" />
+    <Compile Remove="Migrations\20191211232547_Add_Table.Designer.cs" />
+    <Compile Remove="Migrations\20191211233510_Add_Table.cs" />
+    <Compile Remove="Migrations\20191211233510_Add_Table.Designer.cs" />
+    <Compile Remove="Migrations\20191211234527_Add_Table.cs" />
+    <Compile Remove="Migrations\20191211234527_Add_Table.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="IdentityServer4.EntityFramework" Version="2.4.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.8" />

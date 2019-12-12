@@ -24,7 +24,6 @@ namespace wowautoapp.Infrastructure
         /// </summary>
         /// <param name="httpContextAccessor"></param>
         /// <param name="userService"></param>
-        /// <param name="staticCache"></param>
         public WebWorkContext(IHttpContextAccessor httpContextAccessor,
             IUserService userService)
         {

@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WowAutoApp.Data;
 
 namespace WowAutoApp.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20191211084107_Add_Buisness")]
+    partial class Add_Buisness
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -129,27 +131,6 @@ namespace WowAutoApp.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("WowAutoApp.Core.Domain.Address", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("City");
-
-                    b.Property<string>("PostalCode");
-
-                    b.Property<string>("State");
-
-                    b.Property<string>("StreetAddress");
-
-                    b.Property<string>("StreetAddressLine");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Addresses");
-                });
-
             modelBuilder.Entity("WowAutoApp.Core.Domain.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
@@ -207,64 +188,6 @@ namespace WowAutoApp.Data.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
-                });
-
-            modelBuilder.Entity("WowAutoApp.Core.Domain.Bank", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("AccountNumber");
-
-                    b.Property<int>("AddressId");
-
-                    b.Property<string>("ContactPerson");
-
-                    b.Property<string>("Name");
-
-                    b.Property<int>("Phone");
-
-                    b.Property<string>("Representative");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AddressId");
-
-                    b.ToTable("Banks");
-                });
-
-            modelBuilder.Entity("WowAutoApp.Core.Domain.Buisness", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("AddressId");
-
-                    b.Property<int>("BankId");
-
-                    b.Property<string>("BusinessType");
-
-                    b.Property<string>("Email");
-
-                    b.Property<int>("GrossAnnualIncome");
-
-                    b.Property<string>("Name");
-
-                    b.Property<int>("Phone");
-
-                    b.Property<int>("TaxIDNumber");
-
-                    b.Property<int>("YearEstablished");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AddressId");
-
-                    b.HasIndex("BankId");
-
-                    b.ToTable("Buisnesses");
                 });
 
             modelBuilder.Entity("WowAutoApp.Core.Domain.Media.Picture", b =>
@@ -417,27 +340,6 @@ namespace WowAutoApp.Data.Migrations
                     b.HasOne("WowAutoApp.Core.Domain.ApplicationUser")
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("WowAutoApp.Core.Domain.Bank", b =>
-                {
-                    b.HasOne("WowAutoApp.Core.Domain.Address", "Address")
-                        .WithMany()
-                        .HasForeignKey("AddressId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("WowAutoApp.Core.Domain.Buisness", b =>
-                {
-                    b.HasOne("WowAutoApp.Core.Domain.Address", "Address")
-                        .WithMany()
-                        .HasForeignKey("AddressId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("WowAutoApp.Core.Domain.Bank", "Bank")
-                        .WithMany()
-                        .HasForeignKey("BankId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

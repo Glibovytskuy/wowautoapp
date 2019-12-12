@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using WowAutoApp.Core.Interfaces;
 
 namespace WowAutoApp.Core.Domain

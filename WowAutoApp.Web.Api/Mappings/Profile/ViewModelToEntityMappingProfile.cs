@@ -8,7 +8,7 @@ namespace wowautoapp.Mappings.Profile
     public class ViewModelToEntityMappingProfile : AutoMapper.Profile
     {
         /// <summary>
-        /// Profile view model to entity mapping constructor
+        /// <see cref="ViewModelToEntityMappingProfile"/> constructor.
         /// </summary>
         public ViewModelToEntityMappingProfile()
         {

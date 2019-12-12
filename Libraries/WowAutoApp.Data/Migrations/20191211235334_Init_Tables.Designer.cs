@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WowAutoApp.Data;
 
 namespace WowAutoApp.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20191211235334_Init_Tables")]
+    partial class Init_Tables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -240,10 +242,6 @@ namespace WowAutoApp.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("AddressId");
-
-                    b.Property<int>("BankId");
-
                     b.Property<string>("BusinessType");
 
                     b.Property<string>("Email");
@@ -259,10 +257,6 @@ namespace WowAutoApp.Data.Migrations
                     b.Property<int>("YearEstablished");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("AddressId");
-
-                    b.HasIndex("BankId");
 
                     b.ToTable("Buisnesses");
                 });
@@ -425,19 +419,6 @@ namespace WowAutoApp.Data.Migrations
                     b.HasOne("WowAutoApp.Core.Domain.Address", "Address")
                         .WithMany()
                         .HasForeignKey("AddressId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("WowAutoApp.Core.Domain.Buisness", b =>
-                {
-                    b.HasOne("WowAutoApp.Core.Domain.Address", "Address")
-                        .WithMany()
-                        .HasForeignKey("AddressId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("WowAutoApp.Core.Domain.Bank", "Bank")
-                        .WithMany()
-                        .HasForeignKey("BankId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

@@ -127,5 +127,6 @@ namespace WowAutoApp.Data
             //drop the table
             this.DropPluginTable(nameof(type));
         }
+
     }
 }

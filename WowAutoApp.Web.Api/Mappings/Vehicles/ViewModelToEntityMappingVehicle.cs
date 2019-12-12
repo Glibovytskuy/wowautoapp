@@ -9,7 +9,7 @@ namespace wowautoapp.Mappings.Vehicles
     public class ViewModelToEntityMappingVehicle : AutoMapper.Profile
     {
         /// <summary>
-        /// Profile view model to entity mapping constructor
+        /// <see cref="ViewModelToEntityMappingVehicle"/> constructor.
         /// </summary>
         public ViewModelToEntityMappingVehicle()
         {
