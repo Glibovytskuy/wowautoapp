@@ -9,15 +9,11 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './components/home/home.component';
 
-import { CreditApplicationComponent } from './components/credit-application/credit-application.component';
-import { ChooseApplicationComponent } from './components/choose-application/choose-application.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    CreditApplicationComponent,
-    ChooseApplicationComponent
+    HomeComponent
   ],
   imports: [
     CommonModule,
