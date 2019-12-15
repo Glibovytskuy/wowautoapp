@@ -13,6 +13,12 @@ namespace WowAutoApp.Core.Domain
         public int GrossAnnualIncome { get; set; }
         public int YearEstablished { get; set; }
 
+        public string StreetAddress { get; set; }
+        public string StreetAddressLine { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
+        public string PostalCode { get; set; }
+
         public int BankId { get; set; }
         [ForeignKey(nameof(BankId))]
         public virtual Bank Bank { get; set; }

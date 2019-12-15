@@ -9,12 +9,12 @@ namespace WowAutoApp.Services.Buisness
             : base(profileRepository)
         { }
 
-        public void AddBuisness(Core.Domain.Buisness vehicle)
+        public void AddBuisness(Core.Domain.Buisness buisness)
         {
-            if (vehicle == null)
-                throw new ArgumentNullException(nameof(vehicle));
+            if (buisness == null)
+                throw new ArgumentNullException(nameof(buisness));
 
-            Repository.Insert(vehicle);
+            Repository.Insert(buisness);
         }
     }
 }
