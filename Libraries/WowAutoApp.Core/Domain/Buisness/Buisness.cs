@@ -13,9 +13,9 @@ namespace WowAutoApp.Core.Domain
         public int GrossAnnualIncome { get; set; }
         public int YearEstablished { get; set; }
 
-        //public int BankId { get; set; }
-        //[ForeignKey(nameof(BankId))]
-        //public virtual Bank Bank { get; set; }
+        public int BankId { get; set; }
+        [ForeignKey(nameof(BankId))]
+        public virtual Bank Bank { get; set; }
 
         //public int AddressId { get; set; }
         //[ForeignKey(nameof(AddressId))]
