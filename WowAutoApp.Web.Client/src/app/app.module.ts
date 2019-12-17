@@ -8,6 +8,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './components/home/home.component';
+import { CoreModule } from './core/core.module';
+import { HttpClientService } from './core/general-services/http-client.service';
 
 
 @NgModule({
@@ -16,6 +18,7 @@ import { HomeComponent } from './components/home/home.component';
     HomeComponent
   ],
   imports: [
+    CoreModule,
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
