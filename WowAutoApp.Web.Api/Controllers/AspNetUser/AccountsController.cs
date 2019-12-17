@@ -52,8 +52,7 @@ namespace wowautoapp.Controllers.AspNetUser
             IEmailExtensionService emailService,
             UserManager<ApplicationUser> userManager,
             RoleManager<IdentityRole> roleManager
-            )
-           : base(workContext)
+            ) : base(workContext)
         {
             _mapper = mapper;
             _authService = authService;

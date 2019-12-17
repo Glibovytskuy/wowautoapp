@@ -9,15 +9,24 @@ using wowautoapp.Controllers.Abstract;
 using WowAutoApp.Core;
 using wowautoapp.Utilities.Filters.ValidationFilters;
 using wowautoapp.ViewModels;
+using AutoMapper;
+using WowAutoApp.Core.Domain;
 
 namespace wowautoapp.Controllers.Buisness
 {
     [Route("api/[controller]")]
     public class BuisnessController : BaseController
     {
-        public BuisnessController(IWorkContext workContext)
-            : base(workContext)
+        #region Fields
+        private readonly IMapper _mapper;
+
+        #endregion
+
+        public BuisnessController(IWorkContext workContext,
+             IMapper mapper
+            ) : base(workContext)
         {
+            _mapper = mapper;
 
         }
 
@@ -33,6 +42,10 @@ namespace wowautoapp.Controllers.Buisness
         [ValidationFilter]
         public async Task<IActionResult> CreateAsync(RegistrationBuisnessViewModel model)
         {
+            var bankAddressViewModel = _mapper.Map<Address>(model);
+            var bankViewModel = _mapper.Map<Bank>(model);
+            var buisnessViewModel = _mapper.Map<WowAutoApp.Core.Domain.Buisness>(model);
+
 
             return Ok();
         }
