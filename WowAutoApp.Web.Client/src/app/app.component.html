@@ -6,7 +6,7 @@
           <img class src="assets/img/svg/Logo.svg">
         </a>
       </div>
-      <img class="menu" src="assets/img/menu.png">
+      <img class="menu" (click)="openModal(template)" src="assets/img/menu.png">
       <div class="social">
         <a href="https://facebook.com/wowleasing" target="_blank">
           <img src="assets/img/svg/Facebook.svg">
@@ -56,3 +56,15 @@
 <img class="chat" src="assets/img/svg/chat1.svg">
 
 <router-outlet></router-outlet>
+
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Modal</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    This is a modal.
+  </div>
+</ng-template>
