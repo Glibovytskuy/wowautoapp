@@ -15,7 +15,7 @@ export class CreditAplicationForm {
         SocialSecurityNumber: new FormControl(''),
         StreetAddress: new FormControl(''),
         HouseFlatNumber: new FormControl(''),
-        City1: new FormControl(''),
+        VehicleName: new FormControl(''),
         State: new FormControl(''),
         ZipCode: new FormControl(''),
         MonthlyRent: new FormControl(''),
