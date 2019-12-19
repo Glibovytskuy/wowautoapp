@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
 import { SharedModule } from './components/shared/shared.module';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { AppComponent } from './app.component';
@@ -21,8 +20,6 @@ import { HttpClientService } from './core/general-services/http-client.service';
   imports: [
     CoreModule,
     CommonModule,
-    ReactiveFormsModule,
-    FormsModule,
     BrowserModule,
     SharedModule,
     AppRoutingModule,

@@ -1,27 +1,35 @@
 <div class="bg-wrapper">
   <div class="container">
-    <form class="credit-application-form">
+    <form class="credit-application-form" [formGroup]="form" (ngSubmit)="register()">
       <h2>credit application</h2>
   
       <div class="form-group">
         <h4>Personal Info</h4>
         <div class="row">
           <div class="col-md-6">
-            <input type="text" class="form-control" placeholder="First Name*">
+            <input type="text" class="form-control" formControlName="FirstName" placeholder="First Name*">
           </div>
           <div class="col-md-6">
-            <input type="text" class="form-control" placeholder="Last Name*">
+            <input type="text" class="form-control" formControlName="LastName" placeholder="Last Name*">
           </div>
         </div>
         <div class="row">
           <div class="col-md-4">
-            <input type="text" class="form-control" placeholder="Email*">
+            <input type="text" class="form-control" formControlName="Email" placeholder="Email*">
           </div>
           <div class="col-md-4">
-            <input type="text" class="form-control" placeholder="Mobile Number*">
+            <input type="text" class="form-control" formControlName="MobileNumber" placeholder="Mobile Number*">
           </div>
           <div class="col-md-4">
-            <input type="text" class="form-control" placeholder="Phone Number">
+            <input type="text" class="form-control" formControlName="PhoneNumber" placeholder="Phone Number">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <input type="text" class="form-control" formControlName="Password" placeholder="Password*">
+          </div>
+          <div class="col-md-6">
+            <input type="text" class="form-control" formControlName="ConfirmPassword" placeholder="Confirm Password*">
           </div>
         </div>
       </div>
@@ -30,10 +38,10 @@
         <h4>Identification</h4>
         <div class="row">
           <div class="col-md-6">
-            <input type="text" class="form-control" placeholder="Date of Birth*">
+            <input type="text" class="form-control" formControlName="DateOfBirth" placeholder="Date of Birth*">
           </div>
           <div class="col-md-6">
-            <input type="text" class="form-control" placeholder="Social Security Number*">
+            <input type="text" class="form-control" formControlName="SocialSecurityNumber" placeholder="Social Security Number*">
           </div>
         </div>
       </div>
@@ -42,29 +50,29 @@
         <h4>Residence</h4>
         <div class="row">
           <div class="col-md-6">
-            <input type="text" class="form-control" placeholder="Street Addres*">
+            <input type="text" class="form-control" formControlName="StreetAddress" placeholder="Street Addres*">
           </div>
           <div class="col-md-6">
-            <input type="text" class="form-control" placeholder="House/Flat Number*">
+            <input type="text" class="form-control" formControlName="HouseFlatNumber" placeholder="House/Flat Number*">
           </div>
         </div>
         <div class="row">
           <div class="col-md-4">
-            <input type="text" class="form-control" placeholder="City*">
+            <input type="text" class="form-control" formControlName="City" placeholder="City*">
           </div>
           <div class="col-md-4">
-            <input type="text" class="form-control" placeholder="State*">
+            <input type="text" class="form-control" formControlName="State" placeholder="State*">
           </div>
           <div class="col-md-4">
-            <input type="text" class="form-control" placeholder="Zip">
+            <input type="text" class="form-control" formControlName="ZipCode" placeholder="Zip">
           </div>
         </div>
         <div class="row">
           <div class="col-md-6">
-            <input type="text" class="form-control" placeholder="Montly Rent*">
+            <input type="text" class="form-control" formControlName="MonthlyRent" placeholder="Montly Rent*">
           </div>
           <div class="col-md-6">
-            <select class="form-control">
+            <select class="form-control" formControlName="ResidenceOwner">
               <option disabled>Residence Owner*</option>
               <option value="1">1</option>
               <option value="2">2</option>
@@ -78,7 +86,7 @@
         <h4>Emplyment Status</h4>
         <div class="row">
           <div class="col-md-12">
-              <select class="form-control">
+              <select class="form-control" formControlName="EmploymentStatus">
                 <option disabled>Emplyment Status*</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -93,18 +101,19 @@
         <div class="row vehicle-block">
           <div class="col-md-4 vehicle-col">
             <div>
-              <input type="text" class="form-control" placeholder="City*">
+              <input type="text" class="form-control" placeholder="City*" formControlName="City1">
             </div>
             <div>
-              <input type="text" class="form-control" placeholder="State*">
+              <input type="text" class="form-control" placeholder="DownPayment*" formControlName="DownPayment">
             </div>
             <div>
-              <input type="text" class="form-control" placeholder="Zip">
+              <input type="text" class="form-control" placeholder="TotalAmount*" formControlName="TotalAmount">
             </div>
           </div>
           
           <div class="col-md-4">
-            <textarea cols="30" rows="10" placeholder="Other Info"></textarea>
+            <textarea cols="30" rows="10" placeholder="Other Info" formControlName="OtherInfo">
+            </textarea>
           </div>
   
           <div class="col-md-4 draggable">
@@ -128,7 +137,7 @@
           </button>
         </div>
   
-        <button type="submit" class="login-button" (click)="register()">
+        <button type="submit" class="login-button">
           <div class="social-login-label">SUBMIT</div>
         </button>
       </div>
