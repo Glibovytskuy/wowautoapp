@@ -7,6 +7,6 @@ export const environment = {
   production: false,
   baseUrl: 'http://localhost:52098',
   apiUrl: 'http://localhost:52098/api',
-  clientUrl: 'http://localhost:4200',
+  clientUrl: 'http://localhost:52100',
   siteKey: '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI'
 };

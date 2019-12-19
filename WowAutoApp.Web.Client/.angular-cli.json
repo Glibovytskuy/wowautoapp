@@ -28,7 +28,8 @@
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
-        "dev": "environments/environment.ts",
+        "local": "environments/environment.ts",
+        "dev": "environments/environment.dev.ts",
         "prod": "environments/environment.prod.ts"
       }
     }
@@ -58,6 +59,9 @@
     }
   },
   "defaults": {
+    "serve": {
+      "port": 52100
+    },
     "styleExt": "css",
     "component": {},
     "build": {

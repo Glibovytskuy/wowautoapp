@@ -76,6 +76,9 @@ namespace wowautoapp
 
             // Add mvc
             services.AddMvc();
+
+            // Add CORS
+            services.AddCors(Configuration);
         }
 
         /// <summary>
@@ -90,6 +93,9 @@ namespace wowautoapp
             ILoggerFactory loggerFactory,
             IServiceProvider services)
         {
+            // Use cors
+            applicationBuilder.UseCors(Configuration["CorsPolicyName"]);
+
             //Use logger factory
             loggerFactory.UseRuntimeLoggerBuilder(Configuration);
 

@@ -9,14 +9,9 @@ export class RegisterService {
 
     public constructor(private _httpClient: HttpClientService) {}
 
-    public register(model): Observable<JwtToken> {
+    public register(model): Observable<any> {
         return this._httpClient.post(HttpClientService.ACCOUNTS_CONTROLLER,
-            { ...model, callbackUrl: environment.clientUrl }, null, false, true);
-    }
-
-    public test(): Observable<any> {
-        debugger
-        return this._httpClient.post(HttpClientService.ACCOUNTS_CONTROLLER, null,false,true);
+            model, false, true, true);
     }
 
     public prepareModelError(errorObject: any): string{

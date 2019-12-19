@@ -93,7 +93,7 @@ namespace wowautoapp.Controllers.AspNetUser
         [AllowAnonymous]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
-        [ValidationFilter]
+       // [ValidationFilter]
         public async Task<IActionResult> CreateAsync(RegistrationViewModel model)
         {
             var userIdentity = _mapper.Map<ApplicationUser>(model);
@@ -193,7 +193,6 @@ namespace wowautoapp.Controllers.AspNetUser
                 return NotFound();
 
             var token = await _authService.GetJwtAsync(CurrentUser.UserName, ClientId);
-
             return Ok(token);
         }
     }
