@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RegisterService } from '../../../core/general-services/register.service';
 import { JwtToken } from '../../../core/models/JwtToken';
 import { CreditAplicationForm } from '@app/core/forms/creditApplications/CreditAplicationForm';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-credit-application',
@@ -13,8 +14,8 @@ export class CreditApplicationComponent implements OnInit {
   public form = new CreditAplicationForm().CreditAplicationForm;
 
   constructor(
-    private _registerService: RegisterService
-
+    private _registerService: RegisterService,
+    private _toastr: ToastrService
   ) { }
 
   ngOnInit() {
@@ -36,12 +37,13 @@ export class CreditApplicationComponent implements OnInit {
             //   this._globalService.unreadNotificationCount = response.unreadNotificationCount;
             //   this._authService.initializeAfterAuthentication(response);
             // });
+          // this._toastr.success('success');
           }
 
         },
         (errorMessage) => {
           let modifiedString = this._registerService.prepareModelError(errorMessage.error);
-          //this._alertService.error(modifiedString);
+          this._toastr.error(modifiedString);
         });
   }
 }
