@@ -7,7 +7,9 @@ export class CreditAplicationForm {
         CallbackUrl: new FormControl(''),
         FirstName: new FormControl(''),
         LastName: new FormControl(''),
-        Email: new FormControl(''),
+        Email: new FormControl('', [
+            Validators.email
+        ]),
         IsEmailVerified: new FormControl(''),
         MobileNumber: new FormControl(''),
         PhoneNumber: new FormControl(''),
@@ -19,8 +21,8 @@ export class CreditAplicationForm {
         State: new FormControl(''),
         ZipCode: new FormControl(''),
         MonthlyRent: new FormControl(''),
-        ResidenceOwner: new FormControl(''),
-        EmploymentStatus: new FormControl(''),
+        ResidenceOwner: new FormControl(),
+        EmploymentStatus: new FormControl(),
         DownPayment: new FormControl(''),
         TotalAmount: new FormControl(''),
         OtherInfo: new FormControl(''),

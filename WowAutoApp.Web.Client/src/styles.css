@@ -61,6 +61,10 @@ p {
   line-height: 36px;
 }
 
+button[disabled] {
+  background: #eaeaea !important;
+}
+
 .avaliable-font1 {
   font-size: 13px;
   color: #8B8C9C;

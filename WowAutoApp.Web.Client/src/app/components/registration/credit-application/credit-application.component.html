@@ -15,7 +15,7 @@
         </div>
         <div class="row">
           <div class="col-md-4">
-            <input type="text" class="form-control" formControlName="Email" placeholder="Email*">
+            <input class="form-control" formControlName="Email" placeholder="Email*">
           </div>
           <div class="col-md-4">
             <input type="text" class="form-control" formControlName="MobileNumber" placeholder="Mobile Number*">
@@ -26,10 +26,10 @@
         </div>
         <div class="row">
           <div class="col-md-6">
-            <input type="text" class="form-control" formControlName="Password" placeholder="Password*">
+            <input type="password" class="form-control" formControlName="Password" placeholder="Password*">
           </div>
           <div class="col-md-6">
-            <input type="text" class="form-control" formControlName="ConfirmPassword" placeholder="Confirm Password*">
+            <input type="password" class="form-control" formControlName="ConfirmPassword" placeholder="Confirm Password*">
           </div>
         </div>
       </div>
@@ -73,7 +73,7 @@
           </div>
           <div class="col-md-6">
             <select class="form-control" formControlName="ResidenceOwner">
-              <option disabled>Residence Owner*</option>
+              <option [value]="null" disabled>Residence Owner*</option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -87,7 +87,7 @@
         <div class="row">
           <div class="col-md-12">
               <select class="form-control" formControlName="EmploymentStatus">
-                <option disabled>Emplyment Status*</option>
+                <option [value]="null" disabled>Emplyment Status*</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -137,8 +137,8 @@
           </button>
         </div>
   
-        <button type="submit" class="login-button">
-          <div class="social-login-label">SUBMIT</div>
+        <button type="submit" [disabled]="form.invalid" class="login-button">
+          SUBMIT
         </button>
       </div>
   
