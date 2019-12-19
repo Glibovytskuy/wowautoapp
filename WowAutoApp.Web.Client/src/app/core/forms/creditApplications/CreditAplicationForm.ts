@@ -23,7 +23,7 @@ export class CreditAplicationForm {
         EmploymentStatus: new FormControl(''),
         DownPayment: new FormControl(''),
         TotalAmount: new FormControl(''),
-        OtherInfo: new FormControl('']),
+        OtherInfo: new FormControl(''),
         DriverLicensePhotoId: new FormControl(''),
         Password: new FormControl(''),
         ConfirmPassword: new FormControl('')

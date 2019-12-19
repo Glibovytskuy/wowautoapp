@@ -60,6 +60,7 @@
   },
   "defaults": {
     "serve": {
+      "host": "0.0.0.0",
       "port": 52100
     },
     "styleExt": "css",
