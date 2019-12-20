@@ -234,6 +234,17 @@ header {
   margin-bottom: 2rem;
 }
 
+input.ng-invalid.ng-touched {
+  border: 1px solid tomato;
+}
+
+.error {
+  display: flex;
+  text-align: left;
+  color: tomato;
+  font-size: 12px;
+}
+
 /*Section1 Styles*/
 .cd-section#section1 {
   min-height: 100vh;
@@ -685,6 +696,89 @@ header {
   margin-right: auto;
   margin-left: auto;
 }
+/*menu modal styles START*/
+.menu-modal {
+  margin: 0;
+  width: 90%;
+}
+
+.menu-modal > .modal-content{
+  background-color: #BA68D7;
+  border-radius: 0;
+  border: none;
+}
+
+.menu-modal .header-mobile {
+  padding: 10px;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.menu-modal .close-mobile {
+  display: flex;
+}
+
+.menu-modal .close {
+  font-size: 30px;
+  line-height: 1;
+  font-weight: normal;
+  color: #fff;
+  text-shadow: none;
+  opacity: 1;
+}
+
+.menu-modal .logo-mobile {
+  display: flex;
+  justify-content: center;
+}
+
+.menu-modal .logo-mobile img {
+  width: 150px;
+}
+
+.menu-modal .modal-body {
+  height: 300px;
+}
+
+.menu-modal .menu-list li {
+  display: flex;
+  align-items: center;
+  margin: 25px 0;
+}
+
+.menu-list li:first-child {
+  margin-top: 10px;
+}
+
+.menu-list li img {
+  width: 30px;
+  margin-right: 20px;
+}
+
+.menu-list li i {
+  font-size: 30px;
+  margin-right: 20px;
+}
+
+.menu-list li i.fa-map-marker-alt {
+  margin-right: 30px;
+}
+
+.modal-footer ul {
+  display: flex;
+  justify-content: center;
+}
+
+.modal-footer li {
+  margin-right: 15px;
+}
+
+.modal-footer li img {
+  width: 50px;
+}
+
+
+/*menu modal styles END*/
+
 
 @media (max-width: 1400px) {
   .profile-menu .dropdown-menu {
