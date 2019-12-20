@@ -7,7 +7,8 @@ export class CreditAplicationForm {
         CallbackUrl: new FormControl(''),
         FirstName: new FormControl(''),
         LastName: new FormControl(''),
-        Email: new FormControl('', [
+        Email: new FormControl(null, [
+            Validators.required,
             Validators.email
         ]),
         IsEmailVerified: new FormControl(''),

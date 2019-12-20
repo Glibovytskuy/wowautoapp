@@ -234,6 +234,17 @@ header {
   margin-bottom: 2rem;
 }
 
+input.ng-invalid.ng-touched {
+  border: 1px solid tomato;
+}
+
+.error {
+  display: flex;
+  text-align: left;
+  color: tomato;
+  font-size: 12px;
+}
+
 /*Section1 Styles*/
 .cd-section#section1 {
   min-height: 100vh;
@@ -694,6 +705,7 @@ header {
 .menu-modal > .modal-content{
   background-color: #BA68D7;
   border-radius: 0;
+  border: none;
 }
 
 .menu-modal .header-mobile {
