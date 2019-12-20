@@ -58,53 +58,5 @@
 <router-outlet></router-outlet>
 
 <ng-template #template>
-  <div class="header-mobile">
-    <div class="close-mobile">
-      <button type="button" class="close pull-left" aria-label="Close" (click)="modalRef.hide()">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="logo-mobile">
-      <a routerLink="/">
-        <img class src="assets/img/svg/Logo.svg">
-      </a>
-    </div>
-  </div>
-  <div class="modal-body">
-    <ul class="menu-list">
-      <li>
-        <img src="assets/img/svg/Tree.svg">
-        <span> Trees Planted: </span>
-        <span class="count"> 240 </span>
-        <span> (00:08)</span>
-      </li>
-      <li>
-        <i class="fas fa-phone-alt"></i>
-        1-844-797-2577
-      </li>
-      <li>
-        <i class="fas fa-map-marker-alt"></i>
-        Planet Earth
-      </li>
-    </ul>
-  </div>
-  <div class="modal-footer">
-      <ul>
-          <li>
-            <a href="https://facebook.com/wowleasing">
-              <img src="assets/img/svg/Facebook.svg">
-            </a>
-          </li>
-          <li>
-            <a href="https://www.instagram.com/wowautoapp/?igshid=aa4foa5f2au8">
-              <img src="assets/img/svg/Instagram.svg">
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <img src="assets/img/svg/linkedin.svg">
-            </a>
-          </li>
-        </ul>
-  </div>
+  <app-mobile-menu-modal></app-mobile-menu-modal>
 </ng-template>

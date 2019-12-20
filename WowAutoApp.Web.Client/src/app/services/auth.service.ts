@@ -1,13 +1,13 @@
-import { Injectable } from "@angular/core";
-import { HttpClientService } from "./http-client.service";
+import { Injectable } from '@angular/core';
 import { Observable } from "rxjs/Observable";
-import { JwtToken } from "../models/JwtToken";
-import { environment } from "../../../environments/environment";
+import { HttpClientService } from "@app/services/general-services/http-client.service";
+import { Subject } from 'rxjs/Subject';
 
 @Injectable()
-export class RegisterService {
+export class AuthService {
+  onCloseModalMenu$ = new Subject<void>();
 
-    public constructor(private _httpClient: HttpClientService) {}
+  public constructor(private _httpClient: HttpClientService) {}
 
     public register(model): Observable<any> {
         return this._httpClient.post(HttpClientService.ACCOUNTS_CONTROLLER,
@@ -43,4 +43,5 @@ export class RegisterService {
         }
         return string;
     }
+
 }

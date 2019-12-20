@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { RegisterService } from '../../../core/general-services/register.service';
-import { JwtToken } from '../../../core/models/JwtToken';
+import { JwtToken } from '@app/core/models/JwtToken';
+import { AuthService } from '@app/services/auth.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-register',
@@ -10,9 +11,8 @@ import { JwtToken } from '../../../core/models/JwtToken';
 export class RegisterComponent implements OnInit {
 
   constructor(
-    private _registerService: RegisterService
-
-    //private _alertService: AlertService
+    private _authService: AuthService,
+    private _toastr: ToastrService
   ) { 
   }
 
@@ -20,12 +20,11 @@ export class RegisterComponent implements OnInit {
   }
   public register(registerModel: any): void {
     if (registerModel.password !== registerModel.confirmPassword) {
-      //TODO: Need to create alert service  
-      //this._alertService.error('The password and confirmation password do not match', 'Error!');
+      this._toastr.error('The password and confirmation password do not match', 'Error!');
     }
     else {
       if (registerModel.password === registerModel.confirmPassword) {
-        this._registerService.register({...registerModel})
+        this._authService.register({...registerModel})
           .subscribe(
             (jwt: JwtToken) => {
                 if (jwt) {
@@ -37,10 +36,9 @@ export class RegisterComponent implements OnInit {
                 }
 
             },
-
             (errorMessage) => {
-                let modifiedString = this._registerService.prepareModelError(errorMessage.error);
-                //this._alertService.error(modifiedString);
+                let modifiedString = this._authService.prepareModelError(errorMessage.error);
+                this._toastr.error(modifiedString);
             });
       }
     }

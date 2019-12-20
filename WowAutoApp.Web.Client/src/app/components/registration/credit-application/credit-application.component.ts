@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { RegisterService } from '../../../core/general-services/register.service';
-import { JwtToken } from '../../../core/models/JwtToken';
 import { CreditAplicationForm } from '@app/core/forms/creditApplications/CreditAplicationForm';
 import { ToastrService } from 'ngx-toastr';
+import { AuthService } from '@app/services/auth.service';
+import { JwtToken } from '@app/core/models/JwtToken';
 
 @Component({
   selector: 'app-credit-application',
@@ -14,7 +14,7 @@ export class CreditApplicationComponent implements OnInit {
   public form = new CreditAplicationForm().CreditAplicationForm;
 
   constructor(
-    private _registerService: RegisterService,
+    private _authService: AuthService,
     private _toastr: ToastrService
   ) { }
 
@@ -27,8 +27,8 @@ export class CreditApplicationComponent implements OnInit {
     this.form.get('CallbackUrl').setValue('http://localhost:52098');
     this.form.get('IsEmailVerified').setValue('false');
     this.form.get('DriverLicensePhotoId').setValue('');
-
-    this._registerService.register(this.form.value)
+    
+    this._authService.register(this.form.value)
       .subscribe(
         (jwt: JwtToken) => {
           if (jwt) {
@@ -42,7 +42,7 @@ export class CreditApplicationComponent implements OnInit {
 
         },
         (errorMessage) => {
-          let modifiedString = this._registerService.prepareModelError(errorMessage.error);
+          let modifiedString = this._authService.prepareModelError(errorMessage.error);
           this._toastr.error(modifiedString);
         });
   }
