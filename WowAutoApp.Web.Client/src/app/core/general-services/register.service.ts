@@ -11,7 +11,7 @@ export class RegisterService {
 
     public register(model): Observable<any> {
         return this._httpClient.post(HttpClientService.ACCOUNTS_CONTROLLER,
-            model, false, true, true);
+            model);
     }
 
     public prepareModelError(errorObject: any): string{

@@ -37,7 +37,7 @@ export class CreditApplicationComponent implements OnInit {
             //   this._globalService.unreadNotificationCount = response.unreadNotificationCount;
             //   this._authService.initializeAfterAuthentication(response);
             // });
-          // this._toastr.success('success');
+            this._toastr.success('Register Success');
           }
 
         },

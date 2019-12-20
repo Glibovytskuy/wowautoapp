@@ -18,6 +18,7 @@ using WowAutoApp.Services.Profile;
 using WowAutoApp.Services;
 using Profile = WowAutoApp.Core.Domain.Profile.Profile;
 using WowAutoApp.Services.Email;
+using wowautoapp.ViewModels;
 
 namespace wowautoapp.Controllers.AspNetUser
 {
@@ -94,7 +95,7 @@ namespace wowautoapp.Controllers.AspNetUser
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
        // [ValidationFilter]
-        public async Task<IActionResult> CreateAsync(RegistrationViewModel model)
+        public async Task<IActionResult> CreateAsync([FromBody] RegistrationViewModel model)
         {
             var userIdentity = _mapper.Map<ApplicationUser>(model);
 

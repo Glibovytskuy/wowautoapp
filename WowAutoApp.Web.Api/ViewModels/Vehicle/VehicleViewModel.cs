@@ -7,22 +7,22 @@ namespace wowautoapp.ViewModels
         /// <summary>
         /// Down Payment user
         /// </summary>
-        [Required]
+        //[Required]
         public int DownPayment { get; set; }
         /// <summary>
         /// Total Amount user
         /// </summary>
-        [Required]
+        //[Required]
         public int TotalAmount { get; set; }
         /// <summary>
         /// Other Info user
         /// </summary>
-        [Required]
+        //[Required]
         public string OtherInfo { get; set; }
         /// <summary>
         /// Photo driver license
         /// </summary>
-        [Required]
-        public int DriverLicensePhotoId { get; set; }
+        //[Required]
+        //public int DriverLicensePhotoId { get; set; }
     }
 }
