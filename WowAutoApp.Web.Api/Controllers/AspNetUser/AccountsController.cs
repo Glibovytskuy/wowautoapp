@@ -19,6 +19,7 @@ using WowAutoApp.Services;
 using Profile = WowAutoApp.Core.Domain.Profile.Profile;
 using WowAutoApp.Services.Email;
 using wowautoapp.ViewModels;
+using System.Linq;
 
 namespace wowautoapp.Controllers.AspNetUser
 {
@@ -99,8 +100,9 @@ namespace wowautoapp.Controllers.AspNetUser
         {
             var userIdentity = _mapper.Map<ApplicationUser>(model);
 
-            if (!await _registrationService.RegisterAsync(userIdentity, model.Password, model.CallbackUrl))
-                return Bad("");
+            var result = await _registrationService.RegisterAsync(userIdentity, model.Password, model.CallbackUrl);
+            if (!result.Succeeded)
+                return Bad(result.Errors.FirstOrDefault().Description);
 
             var mappedProfile = _mapper.Map<Profile>(model);
             mappedProfile.ApplicationUserId = userIdentity.Id;

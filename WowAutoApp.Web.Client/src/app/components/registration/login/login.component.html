@@ -1,6 +1,6 @@
 <div class="m-auto form-centered">
   <div class="custom-form boxshadow">
-    <form  class="login" name="loginForm">
+    <form  class="login" name="loginForm" [formGroup]="form" (ngSubmit)="signIn()">
       <div class="login-head">
         LOG IN
       </div>
@@ -21,15 +21,15 @@
 
       <!--User Name Input-->
 
-      <input type="email" class="login-form-control" placeholder="Email"
+      <input type="email" formControlName="userName" class="login-form-control" placeholder="Email"
         id="login-username" />
 
       <!--Password Input-->
 
-      <input type="password" class="login-form-control" placeholder="Password"
+      <input type="password" formControlName="password" class="login-form-control" placeholder="Password"
          id="login-password" />
 
-      <button type="button" class="login-button main-btn" id="login-btn" 
+      <button type="button" class="login-button main-btn" id="login-btn" type="submit"
      [disabled]="isLoading">
         LOG IN
       </button>

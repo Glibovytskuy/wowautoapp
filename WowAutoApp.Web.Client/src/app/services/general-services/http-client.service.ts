@@ -10,6 +10,9 @@ export class HttpClientService {
     private static readonly BASE: string = environment.baseUrl;
     private static readonly API: string = environment.apiUrl;
 
+    //Login/Controller
+    public static readonly IDENTITY_SERVER_CONNECT = HttpClientService.BASE + "/connect/token";
+    
     //Controllers
     public static readonly ACCOUNTS_CONTROLLER = HttpClientService.API + "/Accounts";
 

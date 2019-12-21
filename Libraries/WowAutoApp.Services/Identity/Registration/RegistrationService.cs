@@ -19,7 +19,7 @@ namespace WowAutoApp.Services.Identity.Registration
         }
 
         // TODO: Get rid of IdentityResult, introduce own IServiceResult
-        public async Task<bool> RegisterAsync(ApplicationUser user, string password, string baseUrl)
+        public async Task<IdentityResult> RegisterAsync(ApplicationUser user, string password, string baseUrl)
         {
             user.FirstName = Regex.Replace(user.FirstName, @"\s+", " ").Trim();
             user.LastName = Regex.Replace(user.LastName, @"\s+", " ").Trim();
@@ -36,7 +36,7 @@ namespace WowAutoApp.Services.Identity.Registration
                 await _emailService.SendVerificationEmailAsync(token, baseUrl);
             }
 
-            return result.Succeeded;
+            return result;
         }
     }
 }

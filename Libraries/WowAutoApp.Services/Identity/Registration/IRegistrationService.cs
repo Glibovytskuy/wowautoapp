@@ -6,6 +6,6 @@ namespace WowAutoApp.Services.Identity.Registration
 {
     public interface IRegistrationService
     {
-        Task<bool> RegisterAsync(ApplicationUser user, string password, string baseUrl);
+        Task<IdentityResult> RegisterAsync(ApplicationUser user, string password, string baseUrl);
     }
 }
