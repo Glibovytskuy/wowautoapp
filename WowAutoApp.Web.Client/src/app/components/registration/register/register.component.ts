@@ -28,7 +28,7 @@ export class RegisterComponent implements OnInit {
           .subscribe(
             (jwt: JwtToken) => {
                 if (jwt) {
-                  // this._authService.saveToken(jwt.access_token, jwt.refresh_token);
+                  this._authService.saveToken(jwt.access_token, jwt.refresh_token);
                   // this._accountService.initialize(this._globalService._currentUser.ProfileId).subscribe(response =>{
                   //   this._globalService.unreadNotificationCount = response.unreadNotificationCount;
                   //   this._authService.initializeAfterAuthentication(response);

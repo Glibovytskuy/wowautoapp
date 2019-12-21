@@ -36,10 +36,10 @@ export class LoginComponent implements OnInit {
     this._authService.login(this.form.value)
       .subscribe(
           (jwt: JwtToken) => {
-            this._toastr.success('Register Success');
+            this._toastr.success('Login Success');
 
             //TODO: Need to implement save token
-            //this._authService.saveToken(jwt.access_token, jwt.refresh_token);
+            this._authService.saveToken(jwt.access_token, jwt.refresh_token);
             // this._accountService.initialize(this._globalService._currentUser.ProfileId).subscribe(response =>{
             //   this._globalService.unreadNotificationCount = response.unreadNotificationCount;
             //   this._authService.initializeAfterAuthentication(response);
