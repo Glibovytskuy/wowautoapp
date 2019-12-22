@@ -104,4 +104,16 @@ namespace wowautoapp.ViewModels
         //[Required]
         public string EmploymentStatus { get; set; }
     }
+
+    /// <summary>
+    /// Confirm Email token Model
+    /// </summary>
+    public class ConfirmEmailModel
+    {
+        /// <summary>
+        /// Token
+        /// </summary>
+        [Required]
+        public string Token { get; set; }
+    }
 }

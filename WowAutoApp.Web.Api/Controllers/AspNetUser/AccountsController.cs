@@ -125,6 +125,25 @@ namespace wowautoapp.Controllers.AspNetUser
         }
 
         /// <summary>
+        /// Api confirm user email
+        /// </summary>
+        /// /// <param name="model">If tokes isn't valid, the method returns response code is 400.</param>
+        /// <returns>The response code is 204 (No content).</returns>
+        [AllowAnonymous]
+        [HttpPost("confirm-email")]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(204)]
+        [ValidationFilter]
+        public async Task<IActionResult> PostAsync([FromBody]ConfirmEmailModel model)
+        {
+            var verifyEmailResult = await _userService.VerifyEmailAsync(UserName, model.Token);
+            if (!verifyEmailResult.Succeeded)
+                return Bad(verifyEmailResult);
+
+            return NoContent();
+        }
+
+        /// <summary>
         /// The send API allows to send a User email for change password.
         /// </summary>
         /// <param name="model">Forgot password view model</param>
