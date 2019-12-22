@@ -20,6 +20,7 @@ using Profile = WowAutoApp.Core.Domain.Profile.Profile;
 using WowAutoApp.Services.Email;
 using wowautoapp.ViewModels;
 using System.Linq;
+using WowAutoApp.Core.Dto.CreaditApplicationDtos;
 
 namespace wowautoapp.Controllers.AspNetUser
 {
@@ -114,8 +115,9 @@ namespace wowautoapp.Controllers.AspNetUser
             _vehicleService.AddVehicle(mappedVehicle);
             */
 
-
-            //ToDo: Need to implement send email verify user and for admin all data without pass
+            //Send to admin Credit application model
+            var mappedCreditApplication = _mapper.Map<CreditApplicationDto>(model);
+            await _emailService.SendCreditAplicationEmailAsync(mappedCreditApplication);
 
             //add role 
             await _userManager.AddToRoleAsync(userIdentity, Consts.UserRoleKey);

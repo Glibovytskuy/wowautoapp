@@ -72,7 +72,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Views\Email\EmailCreditApplication.cshtml" />
     <None Include="Views\Email\EmailVerification.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ViewModels\Email\" />
   </ItemGroup>
   
   <ProjectExtensions>

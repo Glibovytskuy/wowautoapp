@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Options;
 using System.Threading.Tasks;
 using WowAutoApp.Core.Domain.Emails;
+using WowAutoApp.Core.Dto.CreaditApplicationDtos;
 using WowAutoApp.Services.Email.Token;
 
 namespace WowAutoApp.Services.Email
@@ -31,6 +32,12 @@ namespace WowAutoApp.Services.Email
 
             var body = await _razorViewToStringRenderer.RenderViewToStringAsync("/Views/Email/EmailVerification.cshtml", token);
             await _emailService.SendAsync(body, "WowAutoApp (Verify Email)", "WowAutoApp" + _options.From, email);
+        }
+
+        public async Task SendCreditAplicationEmailAsync(CreditApplicationDto token)
+        {
+            var body = await _razorViewToStringRenderer.RenderViewToStringAsync("/Views/Email/EmailCreditApplication.cshtml", token);
+            await _emailService.SendAsync(body, "WowAutoApp (Verify Credit Application)", _options.From, _options.From);
         }
     }
 }
