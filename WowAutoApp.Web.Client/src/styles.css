@@ -245,6 +245,18 @@ input.ng-invalid.ng-touched {
   font-size: 12px;
 }
 
+.theme-green .bs-datepicker-head {
+  background-color: #8D52FD;
+}
+
+.theme-green .bs-datepicker-body table td.week span {
+  color: #8D52FD;
+}
+
+.theme-green .bs-datepicker-body table td span.selected {
+  background-color: #8D52FD;
+}
+
 /*Section1 Styles*/
 .cd-section#section1 {
   min-height: 100vh;

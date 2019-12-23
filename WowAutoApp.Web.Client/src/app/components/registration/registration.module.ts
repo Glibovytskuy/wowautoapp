@@ -9,12 +9,13 @@ import { RecoverPasswordComponent } from './recover-password/recover-password.co
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { CreditApplicationComponent } from './credit-application/credit-application.component';
 import { ChooseApplicationComponent } from './choose-application/choose-application.component';
-
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 @NgModule({
   imports: [
     CommonModule,
     RegistrationRoutingModule,
-    SharedModule
+    SharedModule,
+    BsDatepickerModule.forRoot()
   ],
   declarations: [
     RegisterComponent, 

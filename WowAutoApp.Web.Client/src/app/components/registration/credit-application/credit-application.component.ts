@@ -27,6 +27,7 @@ export class CreditApplicationComponent implements OnInit {
     this.form.get('CallbackUrl').setValue('http://localhost:52098');
     this.form.get('IsEmailVerified').setValue('false');
     this.form.get('DriverLicensePhotoId').setValue('');
+    this.changeBirthDateFormat();
     
     this._authService.register(this.form.value)
       .subscribe(
@@ -45,5 +46,10 @@ export class CreditApplicationComponent implements OnInit {
           // let modifiedString = this._authService.prepareModelError(errorMessage.errorMessage);
           this._toastr.error(errorMessage.errorMessage);
         });
+  }
+
+  private changeBirthDateFormat() {
+    let date = this.form.value.DateOfBirth;
+    this.form.value.DateOfBirth = `${(date.getMonth() + 1)}.${date.getDate()}.${date.getFullYear()}`;
   }
 }
