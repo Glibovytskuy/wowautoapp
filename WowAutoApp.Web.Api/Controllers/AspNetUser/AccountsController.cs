@@ -96,7 +96,7 @@ namespace wowautoapp.Controllers.AspNetUser
         [AllowAnonymous]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
-       // [ValidationFilter]
+        [ValidationFilter]
         public async Task<IActionResult> CreateAsync([FromBody] RegistrationViewModel model)
         {
             var userIdentity = _mapper.Map<ApplicationUser>(model);

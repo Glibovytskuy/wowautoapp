@@ -11,7 +11,7 @@ namespace wowautoapp.ViewModels.AspNetUser
         /// Password new user
         /// </summary>
         [Required]
-        [MinLength(6)]
+        [MinLength(6, ErrorMessage = "The password must contain some symbol, upper case and lower case letters and numeric value.")]
         public string Password { get; set; }
         /// <summary>
         /// Confirm password new user
