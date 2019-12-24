@@ -5,6 +5,10 @@ namespace wowautoapp.ViewModels
     public class VehicleViewModel
     {
         /// <summary>
+        /// Vehicle Name
+        /// </summary>
+        public string VehicleName { get; set; }
+        /// <summary>
         /// Down Payment user
         /// </summary>
         //[Required]

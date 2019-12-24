@@ -24,7 +24,8 @@ export class CreditApplicationComponent implements OnInit {
   public register(): void {
     //TODO: Need implement complit form
     this.form.get('SecurityStamp').setValue('dc18fcf2-c24d-4c5d-abda-bbccd60d9c38');
-    this.form.get('CallbackUrl').setValue('http://localhost:52098');
+    this.form.get('CallbackUrl').setValue('https://wowauto.azurewebsites.net/');
+    // this.form.get('CallbackUrl').setValue('http://localhost:52098');
     this.form.get('IsEmailVerified').setValue('false');
     this.form.get('DriverLicensePhotoId').setValue('');
     this.changeBirthDateFormat();

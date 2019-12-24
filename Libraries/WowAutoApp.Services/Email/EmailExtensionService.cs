@@ -28,10 +28,10 @@ namespace WowAutoApp.Services.Email
             //token.IconUrl = _options.IconUrl;
 
             //ToDo: Need to implement options
-            _options.From = "wowautoapp@gmail.com";
+            _options.From = "Hello@wowautoapp.com";
 
             var body = await _razorViewToStringRenderer.RenderViewToStringAsync("/Views/Email/EmailVerification.cshtml", token);
-            await _emailService.SendAsync(body, "WowAutoApp (Verify Email)", "WowAutoApp" + _options.From, email);
+            await _emailService.SendAsync(body, "WowAutoApp (Verify Email)", _options.From, email);
         }
 
         public async Task SendCreditAplicationEmailAsync(CreditApplicationDto token)

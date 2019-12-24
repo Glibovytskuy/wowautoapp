@@ -38,13 +38,13 @@ namespace wowautoapp.ViewModels
         /// Mobile number user
         /// </summary>
         [Required]
-        [Phone]
+        //[Phone]
         public string MobileNumber { get; set; }
 
         /// <summary>
         /// Phone number user
         /// </summary>
-        [Phone]
+        //[Phone]
         public string PhoneNumber { get; set; }
 
         /// <summary>
