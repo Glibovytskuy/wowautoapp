@@ -16,12 +16,12 @@
         <div class="row">
           <div class="col-md-4">
             <input class="form-control" formControlName="Email" placeholder="Email*">
-            <label *ngIf="form.controls['Email']?.hasError('required') && 
+            <!-- <label *ngIf="form.controls['Email']?.hasError('required') && 
                           form.controls['Email']?.touched" class="error">
                 Email is required
-            </label>
-            <label *ngIf="form.controls['Email']?.hasError('email') && 
-                          form.controls['Email']?.touched" class="error">
+            </label> -->
+            <label *ngIf="form.controls['Email']?.touched && form.controls['Email']?.hasError('email')" 
+              class="error">
                 Enter valid email
             </label>
           </div>
@@ -35,9 +35,29 @@
         <div class="row">
           <div class="col-md-6">
             <input type="password" class="form-control" formControlName="Password" placeholder="Password*">
+            <label *ngIf="(form.controls['Password']?.touched || form.controls['Password']?.dirty) && 
+                          (form.controls['Password']?.hasError('minlength') || 
+                           form.controls['Password']?.hasError('maxlength'))" class="error">
+                The password must be (from 6 to 64 characters)
+            </label>
+            <label *ngIf="(form.controls['Password']?.touched || form.controls['Password']?.dirty) &&
+                           form.controls['Password']?.hasError('pattern')"
+                class="error">
+                The password must contain some symbol, upper case and lower case letters and numeric value.
+            </label>
           </div>
           <div class="col-md-6">
             <input type="password" class="form-control" formControlName="ConfirmPassword" placeholder="Confirm Password*">
+            <label *ngIf="(form.controls['ConfirmPassword']?.touched || form.controls['ConfirmPassword']?.dirty) && 
+                          (form.controls['ConfirmPassword']?.hasError('minlength') || 
+                           form.controls['ConfirmPassword']?.hasError('maxlength'))" class="error">
+                The password must be (from 6 to 64 characters)
+              </label>
+              <label *ngIf="(form.controls['ConfirmPassword']?.touched || form.controls['ConfirmPassword']?.dirty) &&
+                             form.controls['ConfirmPassword']?.hasError('pattern')"
+                class="error">
+                The password must contain some symbol, upper case and lower case letters and numeric value.
+              </label>
           </div>
         </div>
       </div>
@@ -50,7 +70,7 @@
                    formControlName="DateOfBirth"
                    placeholder="Date of Birth*"
                    class="form-control"
-                   [bsConfig]="{ dateInputFormat: 'MM-DD-YYYY' }"
+                   [bsConfig]="{ dateInputFormat: 'MM.DD.YYYY' }"
                    bsDatepicker>
           </div>
           <div class="col-md-6">

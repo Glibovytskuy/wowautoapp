@@ -25,7 +25,17 @@ export class CreditAplicationForm {
         TotalAmount: new FormControl(0, [Validators.required]),
         OtherInfo: new FormControl(''),
         DriverLicensePhotoId: new FormControl(''),
-        Password: new FormControl('', [Validators.required]),
-        ConfirmPassword: new FormControl('', [Validators.required])
+        Password: new FormControl('', [
+            Validators.required,
+            Validators.minLength(6),
+            Validators.maxLength(64),
+            Validators.pattern(/^.*((?=.*[!@#$%^&*()\-_=+{};:,<.>]){1})(?=.*\d)((?=.*[a-z]){1})((?=.*[A-Z]){1}).*$/)
+        ]),
+        ConfirmPassword: new FormControl('', [
+            Validators.required,
+            Validators.minLength(6),
+            Validators.maxLength(64),
+            Validators.pattern(/^.*((?=.*[!@#$%^&*()\-_=+{};:,<.>]){1})(?=.*\d)((?=.*[a-z]){1})((?=.*[A-Z]){1}).*$/)
+        ])
     });
 }
