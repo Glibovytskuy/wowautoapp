@@ -93,17 +93,19 @@ namespace wowautoapp
             ILoggerFactory loggerFactory,
             IServiceProvider services)
         {
-            // Use cors
-            applicationBuilder.UseCors(Configuration["CorsPolicyName"]);
-
             //Use logger factory
             loggerFactory.UseRuntimeLoggerBuilder(Configuration);
+
+            // Use cors
+            applicationBuilder.UseCors(Configuration["CorsPolicyName"]);
 
             // Use swagger
             applicationBuilder.UseRuntimeSwaggerBuilder();
 
             if (hostingEnvironment.IsDevelopment())
                 applicationBuilder.UseDeveloperExceptionPage();
+
+            applicationBuilder.UseRuntimeCorsBuilder(Configuration);
 
             // Use IdentityServer
             applicationBuilder.UseIdentityServer();
