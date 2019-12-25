@@ -44,7 +44,7 @@ export class CreditApplicationComponent implements OnInit {
 
         },
         (errorMessage) => {
-          this._toastr.error(errorMessage.error);
+          this._toastr.error(errorMessage.message);
         });
   }
 

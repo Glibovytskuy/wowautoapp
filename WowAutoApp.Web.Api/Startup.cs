@@ -113,6 +113,8 @@ namespace wowautoapp
             // Use authentication
             applicationBuilder.UseAuthentication();
 
+            applicationBuilder.UseRuntimeExceptionHandler();
+
             applicationBuilder.UseMvc(routes =>
             {
                 routes.MapRoute(
