@@ -21,6 +21,7 @@ using WowAutoApp.Services.Email;
 using wowautoapp.ViewModels;
 using System.Linq;
 using WowAutoApp.Core.Dto.CreaditApplicationDtos;
+using System;
 
 namespace wowautoapp.Controllers.AspNetUser
 {
@@ -105,9 +106,16 @@ namespace wowautoapp.Controllers.AspNetUser
             if (!result.Succeeded)
                 return Bad(result.Errors.FirstOrDefault().Description);
 
-            var mappedProfile = _mapper.Map<Profile>(model);
-            mappedProfile.ApplicationUserId = userIdentity.Id;
-            _profileService.AddProfile(mappedProfile);
+            try
+            {
+                var mappedProfile = _mapper.Map<Profile>(model);
+                mappedProfile.ApplicationUserId = userIdentity.Id;
+                _profileService.AddProfile(mappedProfile);
+            }
+            catch (Exception ex)
+            {
+                return Bad("Bad Mapping proffile: " + ex.Message);
+            }
 
             /* ToDo: Need implement blob for correctly work
             var mappedVehicle = _mapper.Map<Vehicle>(model);
@@ -115,9 +123,16 @@ namespace wowautoapp.Controllers.AspNetUser
             _vehicleService.AddVehicle(mappedVehicle);
             */
 
-            //Send to admin Credit application model
-            var mappedCreditApplication = _mapper.Map<CreditApplicationDto>(model);
-            await _emailService.SendCreditAplicationEmailAsync(mappedCreditApplication);
+            try
+            {
+                //Send to admin Credit application model
+                var mappedCreditApplication = _mapper.Map<CreditApplicationDto>(model);
+                await _emailService.SendCreditAplicationEmailAsync(mappedCreditApplication);
+            }
+            catch (Exception ex)
+            {
+                return Bad("Bad Mapping Credit Application: " + ex.Message);
+            }
 
             //add role 
             await _userManager.AddToRoleAsync(userIdentity, Consts.UserRoleKey);
