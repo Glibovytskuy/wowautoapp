@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using wowautoapp.ViewModels.Abstract;
+using WowAutoApp.Core.Domain.Enums;
 
 namespace wowautoapp.ViewModels
 {
@@ -98,13 +99,13 @@ namespace wowautoapp.ViewModels
         /// Residence Owner
         /// </summary>
         //[Required]
-        public string ResidenceOwner { get; set; }
+        public OwnerType ResidenceOwner { get; set; }
 
         /// <summary>
         /// Employment Status user
         /// </summary>
         //[Required]
-        public string EmploymentStatus { get; set; }
+        public EmploymentStatusType EmploymentStatus { get; set; }
     }
 
     /// <summary>

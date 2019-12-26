@@ -99,9 +99,6 @@ namespace wowautoapp.Controllers.AspNetUser
         [ValidationFilter]
         public async Task<IActionResult> CreateAsync([FromBody] RegistrationViewModel model)
         {
-            var mappedCreditApplication = _mapper.Map<CreditApplicationDto>(model);
-            await _emailService.SendCreditAplicationEmailAsync(mappedCreditApplication);
-
             var userIdentity = _mapper.Map<ApplicationUser>(model);
 
             var result = await _registrationService.RegisterAsync(userIdentity, model.Password, model.CallbackUrl);
@@ -119,8 +116,8 @@ namespace wowautoapp.Controllers.AspNetUser
             */
 
             //Send to admin Credit application model
-            //var mappedCreditApplication = _mapper.Map<CreditApplicationDto>(model);
-            //await _emailService.SendCreditAplicationEmailAsync(mappedCreditApplication);
+            var mappedCreditApplication = _mapper.Map<CreditApplicationDto>(model);
+            await _emailService.SendCreditAplicationEmailAsync(mappedCreditApplication);
 
             //add role 
             await _userManager.AddToRoleAsync(userIdentity, Consts.UserRoleKey);
