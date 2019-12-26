@@ -1,4 +1,5 @@
 ﻿using System;
+using WowAutoApp.Core.Domain.Enums;
 
 namespace WowAutoApp.Core.Dto.CreaditApplicationDtos
 {
@@ -71,12 +72,12 @@ namespace WowAutoApp.Core.Dto.CreaditApplicationDtos
         /// <summary>
         /// Residence Owner
         /// </summary>
-        public string ResidenceOwner { get; set; }
+        public OwnerType ResidenceOwner { get; set; }
 
         /// <summary>
         /// Employment Status user
         /// </summary>
-        public string EmploymentStatus { get; set; }
+        public EmploymentStatusType EmploymentStatus { get; set; }
 
         /// <summary>
         /// Vehicle Name

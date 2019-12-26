@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using WowAutoApp.Core.Domain.Enums;
 using WowAutoApp.Core.Domain.Media;
 using WowAutoApp.Core.Interfaces;
 
@@ -24,7 +25,8 @@ namespace WowAutoApp.Core.Domain.Profile
         public string State { get; set; }
         public string ZipCode { get; set; }
         public int MonthlyRent { get; set; }
-        public string EmploymentStatus { get; set; }
+        public OwnerType ResidenceOwner { get; set; }
+        public EmploymentStatusType EmploymentStatus { get; set; }
 
         public virtual ICollection<ProfilePicture> ProfilePictures
         {

@@ -5,6 +5,7 @@ import { FooterComponent } from '../components/footer/footer.component';
 import { AuthService } from '@app/services/auth.service';
 import { HttpClientService } from '@app/services/general-services/http-client.service';
 import { MobileMenuModalComponent } from './mobile-menu-modal/mobile-menu-modal.component';
+import { StringSplitterPipe } from './StringSplitterPipe';
 
 @NgModule({
   imports: [
@@ -13,7 +14,10 @@ import { MobileMenuModalComponent } from './mobile-menu-modal/mobile-menu-modal.
   ],
   declarations:[
     FooterComponent,
-    MobileMenuModalComponent
+    MobileMenuModalComponent,
+
+    //pipes
+    StringSplitterPipe
   ],
   providers: [
     AuthService,
@@ -23,7 +27,10 @@ import { MobileMenuModalComponent } from './mobile-menu-modal/mobile-menu-modal.
     FooterComponent, 
     FormsModule, 
     ReactiveFormsModule,
-    MobileMenuModalComponent
+    MobileMenuModalComponent,
+
+     /*Pipes*/
+     StringSplitterPipe
   ]
 })
 

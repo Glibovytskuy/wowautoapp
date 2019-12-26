@@ -107,11 +107,13 @@
           <div class="col-md-6">
             <select class="form-control" formControlName="ResidenceOwner">
               <option [value]="null" disabled>Residence Owner*</option>
-              <option value="1">Self or Spouse</option>
-              <option value="2">Landlord</option>
-              <option value="3">Relative</option>
-              <option value="4">Mortgage</option>
-              <option value="5">Others</option>
+
+              <option 
+                *ngFor="let type of OwnerTypes "
+                [ngValue]="type"
+                id="{{type}}">
+                {{ type | stringSplitter}}
+              </option>
             </select>
           </div>
         </div>
@@ -123,11 +125,12 @@
           <div class="col-md-12">
               <select class="form-control" formControlName="EmploymentStatus">
                 <option [value]="null" disabled>Emplyment Status*</option>
-                <option value="1">Self Employed</option>
-                <option value="2">Contract</option>
-                <option value="3">Retired</option>
-                <option value="4">Unemployed</option>
-                <option value="5">Business Owner</option>
+                <option 
+                  *ngFor="let type of EmploymentStatusTypes "
+                  [ngValue]="type"
+                  id="{{type}}">
+                  {{ type | stringSplitter}}
+                </option>
               </select>
           </div>
         </div>

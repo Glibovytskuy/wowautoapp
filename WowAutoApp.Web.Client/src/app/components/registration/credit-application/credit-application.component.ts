@@ -3,6 +3,8 @@ import { CreditAplicationForm } from '@app/core/forms/creditApplications/CreditA
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '@app/services/auth.service';
 import { JwtToken } from '@app/core/models/JwtToken';
+import { OwnerType } from "@app/core/enums/OwnerType";
+import { EmploymentStatusType } from "@app/core/enums/EmploymentStatusType";
 
 @Component({
   selector: 'app-credit-application',
@@ -13,12 +15,18 @@ export class CreditApplicationComponent implements OnInit {
 
   public form = new CreditAplicationForm().CreditAplicationForm;
 
+  public OwnerTypes: any;
+  public EmploymentStatusTypes: any;
+
+
   constructor(
     private _authService: AuthService,
     private _toastr: ToastrService
   ) { }
 
   ngOnInit() {
+    this.OwnerTypes = OwnerType.values();
+    this.EmploymentStatusTypes = EmploymentStatusType.values();
   }
 
   public register(): void {
