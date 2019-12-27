@@ -123,16 +123,16 @@ namespace wowautoapp.Controllers.AspNetUser
             _vehicleService.AddVehicle(mappedVehicle);
             */
 
-            //try
-            //{
-            //    //Send to admin Credit application model
-            //    var mappedCreditApplication = _mapper.Map<CreditApplicationDto>(model);
-            //    await _emailService.SendCreditAplicationEmailAsync(mappedCreditApplication);
-            //}
-            //catch (Exception ex)
-            //{
-            //    return Bad("Bad Mapping Credit Application: " + ex.Message);
-            //}
+            try
+            {
+                //Send to admin Credit application model
+                var mappedCreditApplication = _mapper.Map<CreditApplicationDto>(model);
+                await _emailService.SendCreditAplicationEmailAsync(mappedCreditApplication);
+            }
+            catch (Exception ex)
+            {
+                return Bad("Bad Mapping Credit Application: " + ex.Message);
+            }
 
             //add role 
             await _userManager.AddToRoleAsync(userIdentity, Consts.UserRoleKey);
