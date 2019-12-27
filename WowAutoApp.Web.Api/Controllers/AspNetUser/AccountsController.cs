@@ -114,7 +114,7 @@ namespace wowautoapp.Controllers.AspNetUser
             }
             catch (Exception ex)
             {
-                return Bad("Bad Mapping proffile: " + ex.Message);
+                return Ok("Bad Mapping proffile: " + ex.Message);
             }
 
             /* ToDo: Need implement blob for correctly work
@@ -131,7 +131,7 @@ namespace wowautoapp.Controllers.AspNetUser
             }
             catch (Exception ex)
             {
-                return Bad("Bad Mapping Credit Application: " + ex.Message);
+                return Ok("Bad Mapping Credit Application: " + ex.Message);
             }
 
             //add role 

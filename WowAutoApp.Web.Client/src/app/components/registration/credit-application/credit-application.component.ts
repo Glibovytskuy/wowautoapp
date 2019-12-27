@@ -52,7 +52,7 @@ export class CreditApplicationComponent implements OnInit {
 
         },
         (errorMessage) => {
-          this._toastr.error(errorMessage.error.BadRequest.toString());
+          this._toastr.error(errorMessage.error);
         });
   }
 
