@@ -5,6 +5,7 @@ import { AuthService } from '@app/services/auth.service';
 import { JwtToken } from '@app/core/models/JwtToken';
 import { OwnerType } from "@app/core/enums/OwnerType";
 import { EmploymentStatusType } from "@app/core/enums/EmploymentStatusType";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-credit-application',
@@ -21,7 +22,8 @@ export class CreditApplicationComponent implements OnInit {
 
   constructor(
     private _authService: AuthService,
-    private _toastr: ToastrService
+    private _toastr: ToastrService,
+    private _router: Router,
   ) { }
 
   ngOnInit() {
@@ -42,12 +44,15 @@ export class CreditApplicationComponent implements OnInit {
       .subscribe(
         (jwt: JwtToken) => {
           if (jwt) {
+            this._toastr.success('Register Success');
+
             this._authService.saveToken(jwt.access_token, jwt.refresh_token);
+
+            this._router.navigate(['/login']);
             // this._accountService.initialize(this._globalService._currentUser.ProfileId).subscribe(response =>{
             //   this._globalService.unreadNotificationCount = response.unreadNotificationCount;
             //   this._authService.initializeAfterAuthentication(response);
             // });
-            this._toastr.success('Register Success');
           }
 
         },
