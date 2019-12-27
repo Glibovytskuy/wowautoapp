@@ -26,6 +26,7 @@ namespace wowautoapp.Extentions.StartupExtensions
                 {
                     builder.WithOrigins(allowedOrigins)
                            .AllowAnyHeader()
+                           .AllowAnyOrigin()
                            .AllowAnyMethod()
                            .AllowCredentials();
                 });
