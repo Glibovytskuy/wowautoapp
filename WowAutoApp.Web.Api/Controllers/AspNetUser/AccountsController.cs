@@ -106,16 +106,16 @@ namespace wowautoapp.Controllers.AspNetUser
             if (!result.Succeeded)
                 return Bad(result.Errors.FirstOrDefault().Description);
 
-            //try
-            //{
-            //    var mappedProfile = _mapper.Map<Profile>(model);
-            //    mappedProfile.ApplicationUserId = userIdentity.Id;
-            //    _profileService.AddProfile(mappedProfile);
-            //}
-            //catch (Exception ex)
-            //{
-            //    return Bad("Bad Mapping proffile: " + ex.Message);
-            //}
+            try
+            {
+                var mappedProfile = _mapper.Map<Profile>(model);
+                mappedProfile.ApplicationUserId = userIdentity.Id;
+                _profileService.AddProfile(mappedProfile);
+            }
+            catch (Exception ex)
+            {
+                return Bad("Bad Mapping proffile: " + ex.Message);
+            }
 
             /* ToDo: Need implement blob for correctly work
             var mappedVehicle = _mapper.Map<Vehicle>(model);
@@ -123,16 +123,16 @@ namespace wowautoapp.Controllers.AspNetUser
             _vehicleService.AddVehicle(mappedVehicle);
             */
 
-            try
-            {
-                //Send to admin Credit application model
-                var mappedCreditApplication = _mapper.Map<CreditApplicationDto>(model);
-                await _emailService.SendCreditAplicationEmailAsync(mappedCreditApplication);
-            }
-            catch (Exception ex)
-            {
-                return Bad("Bad Mapping Credit Application: " + ex.Message);
-            }
+            //try
+            //{
+            //    //Send to admin Credit application model
+            //    var mappedCreditApplication = _mapper.Map<CreditApplicationDto>(model);
+            //    await _emailService.SendCreditAplicationEmailAsync(mappedCreditApplication);
+            //}
+            //catch (Exception ex)
+            //{
+            //    return Bad("Bad Mapping Credit Application: " + ex.Message);
+            //}
 
             //add role 
             await _userManager.AddToRoleAsync(userIdentity, Consts.UserRoleKey);
