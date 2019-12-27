@@ -106,16 +106,16 @@ namespace wowautoapp.Controllers.AspNetUser
             if (!result.Succeeded)
                 return Bad(result.Errors.FirstOrDefault().Description);
 
-            try
-            {
-                var mappedProfile = _mapper.Map<Profile>(model);
-                mappedProfile.ApplicationUserId = userIdentity.Id;
-                _profileService.AddProfile(mappedProfile);
-            }
-            catch (Exception ex)
-            {
-                return Bad("Bad Mapping proffile: " + ex.Message);
-            }
+            //try
+            //{
+            //    var mappedProfile = _mapper.Map<Profile>(model);
+            //    mappedProfile.ApplicationUserId = userIdentity.Id;
+            //    _profileService.AddProfile(mappedProfile);
+            //}
+            //catch (Exception ex)
+            //{
+            //    return Bad("Bad Mapping proffile: " + ex.Message);
+            //}
 
             /* ToDo: Need implement blob for correctly work
             var mappedVehicle = _mapper.Map<Vehicle>(model);
