@@ -12,8 +12,7 @@ export class AuthService {
   public constructor(private _httpClient: HttpClientService) {}
 
     public register(model): Observable<any> {
-        return this._httpClient.post(HttpClientService.ACCOUNTS_CONTROLLER,
-            model);
+        return this._httpClient.post(HttpClientService.ACCOUNTS_CONTROLLER, model, null, false, true);
     }
 
     // TODO: Add model classes, use typings!!!
