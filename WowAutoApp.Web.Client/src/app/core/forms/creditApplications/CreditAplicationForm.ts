@@ -35,12 +35,12 @@ export class CreditAplicationForm {
         ]),
         ResidenceOwner: new FormControl(null, [Validators.required]),
         MonthlyRent: new FormControl(null, [
-            // Validators.required,
+            Validators.required,
             Validators.min(0),
             Validators.pattern(/[0-9+]/)
         ]),
         MobileNumber: new FormControl('', [
-            // Validators.required,
+            Validators.required,
             Validators.minLength(10),
             Validators.maxLength(15),
             Validators.pattern(/^\d+$/)]),
