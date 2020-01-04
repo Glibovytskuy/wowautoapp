@@ -51,60 +51,59 @@ namespace wowautoapp.ViewModels
         /// <summary>
         /// Date Of Birth user
         /// </summary>
-        //[Required]
+        [Required]
         public DateTime? DateOfBirth { get; set; }
 
         /// <summary>
         /// Social Security Number user
         /// </summary>
-        //[Required]
-        public int SocialSecurityNumber { get; set; }
+        [Required]
+        public string SocialSecurityNumber { get; set; }
 
         /// <summary>
         /// Street Address user
         /// </summary>
-        //[Required]
+        [Required]
         public string StreetAddress { get; set; }
 
         /// <summary>
         /// House/Flat Number* user
         /// </summary>
-        //[Required]
         public int HouseFlatNumber { get; set; }
 
         /// <summary>
         /// City user
         /// </summary>
-        //[Required]
+        [Required]
         public string City { get; set; }
 
         /// <summary>
         /// State user
         /// </summary>
-        //[Required]
+        [Required]
         public string State { get; set; }
 
         /// <summary>
         /// Zip code user
         /// </summary>
+        [Required]
         public string ZipCode { get; set; }
 
         /// <summary>
         /// Monthly Rent user
         /// </summary>
-        //[Required]
+        [Required]
         public int MonthlyRent { get; set; }
 
         /// <summary>
         /// Residence Owner
         /// </summary>
-        //[Required]
+        [Required]
         public OwnerType ResidenceOwner { get; set; }
 
         /// <summary>
         /// Employment Status user
         /// </summary>
-        //[Required]
         public EmploymentStatusType EmploymentStatus { get; set; }
     }
 
