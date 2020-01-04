@@ -70,7 +70,10 @@ export class CreditApplicationComponent implements OnInit {
 
         },
         (errorMessage) => {
-          this._toastr.error(errorMessage.error);
+          for(var index in errorMessage.error) 
+          {  
+            this._toastr.error(errorMessage.error[index]);   
+          } 
         });
   }
 
