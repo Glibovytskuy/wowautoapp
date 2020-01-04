@@ -18,7 +18,7 @@ namespace WowAutoApp.Core.Domain.Profile
         public string MobileNumber { get; set; }
         public string PhoneNumber { get; set; }
         public DateTime DateOfBirth { get; set; }
-        public int SocialSecurityNumber { get; set; }
+        public string SocialSecurityNumber { get; set; }
         public string StreetAddress { get; set; }
         public int HouseFlatNumber { get; set; }
         public string City { get; set; }

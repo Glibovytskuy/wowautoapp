@@ -8,9 +8,19 @@
         <div class="row">
           <div class="col-md-6">
             <input type="text" class="form-control" formControlName="FirstName" placeholder="First Name*">
+            <label *ngIf="(form.controls['FirstName']?.touched || form.controls['FirstName']?.dirty) && 
+                          (form.controls['FirstName']?.hasError('minlength') || 
+                           form.controls['FirstName']?.hasError('maxlength'))" class="error">
+                The password must be (from 2 to 32 characters)
+            </label>
           </div>
           <div class="col-md-6">
             <input type="text" class="form-control" formControlName="LastName" placeholder="Last Name*">
+            <label *ngIf="(form.controls['LastName']?.touched || form.controls['LastName']?.dirty) && 
+              (form.controls['LastName']?.hasError('minlength') || 
+              form.controls['LastName']?.hasError('maxlength'))" class="error">
+              The password must be (from 2 to 32 characters)
+            </label>
           </div>
         </div>
         <div class="row">
@@ -27,9 +37,19 @@
           </div>
           <div class="col-md-4">
             <input type="text" class="form-control" formControlName="MobileNumber" placeholder="Mobile Number*">
+            <label *ngIf="(form.controls['MobileNumber']?.touched || form.controls['MobileNumber']?.dirty) && 
+              (form.controls['MobileNumber']?.hasError('minlength') || 
+              form.controls['MobileNumber']?.hasError('maxlength'))" class="error">
+              The number must be (from 10 to 15 characters)
+            </label>
           </div>
           <div class="col-md-4">
             <input type="text" class="form-control" formControlName="PhoneNumber" placeholder="Phone Number">
+            <label *ngIf="(form.controls['PhoneNumber']?.touched || form.controls['PhoneNumber']?.dirty) && 
+              (form.controls['PhoneNumber']?.hasError('minlength') || 
+              form.controls['PhoneNumber']?.hasError('maxlength'))" class="error">
+              The number must be (from 10 to 15 characters)
+            </label>
           </div>
         </div>
         <div class="row">
@@ -83,10 +103,10 @@
         <h4>Residence</h4>
         <div class="row">
           <div class="col-md-6">
-<input type="text" class="form-control" formControlName="StreetAddress" placeholder="Street Addres*">
+            <input type="text" class="form-control" formControlName="StreetAddress" placeholder="Street Addres*">
           </div>
           <div class="col-md-6">
-            <input type="text" class="form-control" formControlName="HouseFlatNumber" placeholder="House/Flat Number*">
+            <input type="text" class="form-control" formControlName="HouseFlatNumber" placeholder="House/Flat Number">
           </div>
         </div>
         <div class="row">
@@ -97,12 +117,18 @@
             <input type="text" class="form-control" formControlName="State" placeholder="State*">
           </div>
           <div class="col-md-4">
-            <input type="text" class="form-control" formControlName="ZipCode" placeholder="Zip">
+            <input type="text" class="form-control" formControlName="ZipCode" placeholder="Zip*">
+            <label *ngIf="form.controls['ZipCode']?.hasError('required')" class="error">
+              Zip Code is required.
+            </label>
           </div>
         </div>
         <div class="row">
           <div class="col-md-6">
             <input type="text" class="form-control" formControlName="MonthlyRent" placeholder="Montly Rent*">
+            <label *ngIf="form.controls['ZipCode']?.hasError('required')" class="error">
+              Montly Rent is required.
+            </label>
           </div>
           <div class="col-md-6">
             <select class="form-control" formControlName="ResidenceOwner">
@@ -115,6 +141,9 @@
                 {{ type | stringSplitter}}
               </option>
             </select>
+            <label *ngIf="form.controls['ResidenceOwner']?.hasError('required')" class="error">
+              The Residence Owner must be selected.
+            </label>
           </div>
         </div>
       </div>
@@ -132,6 +161,9 @@
                   {{ type | stringSplitter}}
                 </option>
               </select>
+              <label *ngIf="form.controls['EmploymentStatus']?.hasError('required')" class="error">
+                The Employment Status must be selected.
+              </label>
           </div>
         </div>
       </div>
@@ -141,13 +173,13 @@
         <div class="row vehicle-block">
           <div class="col-md-4 vehicle-col">
             <div>
-              <input type="text" class="form-control" placeholder="Vehicle Name*" formControlName="VehicleName">
+              <input type="text" class="form-control" placeholder="Vehicle Name" formControlName="VehicleName">
             </div>
             <div>
-              <input type="text" class="form-control" placeholder="DownPayment*" formControlName="DownPayment">
+              <input type="text" class="form-control" placeholder="Down Payment" formControlName="DownPayment">
             </div>
             <div>
-              <input type="text" class="form-control" placeholder="TotalAmount*" formControlName="TotalAmount">
+              <input type="text" class="form-control" placeholder="Total Amount" formControlName="TotalAmount">
             </div>
           </div>
           

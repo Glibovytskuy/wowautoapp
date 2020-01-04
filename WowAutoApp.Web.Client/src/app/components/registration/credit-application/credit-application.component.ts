@@ -40,6 +40,19 @@ export class CreditApplicationComponent implements OnInit {
     this.form.get('DriverLicensePhotoId').setValue('');
     this.changeBirthDateFormat();
     
+    //ToDo: Need to improve this if ve have not value need set default value but we need see place holder.
+    
+    if(this.form.get('DownPayment').value == null)
+      this.form.get('DownPayment').setValue(0);
+
+    if(this.form.get('TotalAmount').value == null)
+      this.form.get('TotalAmount').setValue(0);
+
+    if(this.form.get('HouseFlatNumber').value == null)
+      this.form.get('HouseFlatNumber').setValue(0);
+    //
+
+
     this._authService.register(this.form.value)
       .subscribe(
         (jwt: JwtToken) => {
