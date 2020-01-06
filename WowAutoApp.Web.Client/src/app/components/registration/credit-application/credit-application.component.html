@@ -8,18 +8,18 @@
         <div class="row">
           <div class="col-md-6">
             <input type="text" class="form-control" formControlName="FirstName" placeholder="First Name*">
-            <label *ngIf="(form.controls['FirstName']?.touched || form.controls['FirstName']?.dirty) && 
-                          (form.controls['FirstName']?.hasError('minlength') || 
-                           form.controls['FirstName']?.hasError('maxlength'))" class="error">
-                The password must be (from 2 to 32 characters)
+            <label *ngIf="form.controls['FirstName']?.hasError('required') ||
+                          form.controls['FirstName']?.hasError('minlength') || 
+                          form.controls['FirstName']?.hasError('maxlength')" class="error">
+                The First Name must be (from 2 to 32 characters)
             </label>
           </div>
           <div class="col-md-6">
             <input type="text" class="form-control" formControlName="LastName" placeholder="Last Name*">
-            <label *ngIf="(form.controls['LastName']?.touched || form.controls['LastName']?.dirty) && 
-              (form.controls['LastName']?.hasError('minlength') || 
-              form.controls['LastName']?.hasError('maxlength'))" class="error">
-              The password must be (from 2 to 32 characters)
+            <label *ngIf="form.controls['LastName']?.hasError('required') ||
+                          form.controls['LastName']?.hasError('minlength') || 
+                          form.controls['LastName']?.hasError('maxlength')" class="error">
+              The Last Name must be (from 2 to 32 characters)
             </label>
           </div>
         </div>
@@ -30,16 +30,17 @@
                           form.controls['Email']?.touched" class="error">
                 Email is required
             </label> -->
-            <label *ngIf="form.controls['Email']?.touched && form.controls['Email']?.hasError('email')" 
+            <label *ngIf="form.controls['Email']?.hasError('required') ||
+                          form.controls['Email']?.touched && form.controls['Email']?.hasError('email')" 
               class="error">
                 Enter valid email
             </label>
           </div>
           <div class="col-md-4">
             <input type="text" class="form-control" formControlName="MobileNumber" placeholder="Mobile Number*">
-            <label *ngIf="(form.controls['MobileNumber']?.touched || form.controls['MobileNumber']?.dirty) && 
-              (form.controls['MobileNumber']?.hasError('minlength') || 
-              form.controls['MobileNumber']?.hasError('maxlength'))" class="error">
+            <label *ngIf="form.controls['MobileNumber']?.hasError('required') ||
+                          form.controls['MobileNumber']?.hasError('minlength') || 
+                          form.controls['MobileNumber']?.hasError('maxlength')" class="error">
               The number must be (from 10 to 15 characters)
             </label>
           </div>
@@ -55,9 +56,9 @@
         <div class="row">
           <div class="col-md-6">
             <input type="password" class="form-control" formControlName="Password" placeholder="Password*">
-            <label *ngIf="(form.controls['Password']?.touched || form.controls['Password']?.dirty) && 
-                          (form.controls['Password']?.hasError('minlength') || 
-                           form.controls['Password']?.hasError('maxlength'))" class="error">
+            <label *ngIf="form.controls['Password']?.hasError('required') ||
+                          form.controls['Password']?.hasError('minlength') || 
+                          form.controls['Password']?.hasError('maxlength')" class="error">
                 The password must be (from 6 to 64 characters)
             </label>
             <label *ngIf="(form.controls['Password']?.touched || form.controls['Password']?.dirty) &&
@@ -68,9 +69,9 @@
           </div>
           <div class="col-md-6">
             <input type="password" class="form-control" formControlName="ConfirmPassword" placeholder="Confirm Password*">
-            <label *ngIf="(form.controls['ConfirmPassword']?.touched || form.controls['ConfirmPassword']?.dirty) && 
-                          (form.controls['ConfirmPassword']?.hasError('minlength') || 
-                           form.controls['ConfirmPassword']?.hasError('maxlength'))" class="error">
+            <label *ngIf="form.controls['ConfirmPassword']?.hasError('required') ||
+                          form.controls['ConfirmPassword']?.hasError('minlength') || 
+                          form.controls['ConfirmPassword']?.hasError('maxlength')" class="error">
                 The password must be (from 6 to 64 characters)
               </label>
               <label *ngIf="(form.controls['ConfirmPassword']?.touched || form.controls['ConfirmPassword']?.dirty) &&
@@ -92,9 +93,15 @@
                    class="form-control"
                    [bsConfig]="{ dateInputFormat: 'MM.DD.YYYY' }"
                    bsDatepicker>
+            <label *ngIf="form.controls['DateOfBirth']?.hasError('required')" class="error">
+              Date of Birth is required.
+            </label>
           </div>
           <div class="col-md-6">
             <input type="text" class="form-control" formControlName="SocialSecurityNumber" placeholder="Social Security Number*">
+            <label *ngIf="form.controls['SocialSecurityNumber']?.hasError('required')" class="error">
+              Social Security Number is required.
+            </label>
           </div>
         </div>
       </div>
@@ -104,6 +111,9 @@
         <div class="row">
           <div class="col-md-6">
             <input type="text" class="form-control" formControlName="StreetAddress" placeholder="Street Addres*">
+            <label *ngIf="form.controls['StreetAddress']?.hasError('required')" class="error">
+              Street Addres is required.
+            </label>
           </div>
           <div class="col-md-6">
             <input type="text" class="form-control" formControlName="HouseFlatNumber" placeholder="House/Flat Number">
@@ -112,9 +122,15 @@
         <div class="row">
           <div class="col-md-4">
             <input type="text" class="form-control" formControlName="City" placeholder="City*">
+            <label *ngIf="form.controls['City']?.hasError('required')" class="error">
+              City is required.
+            </label>
           </div>
           <div class="col-md-4">
             <input type="text" class="form-control" formControlName="State" placeholder="State*">
+            <label *ngIf="form.controls['State']?.hasError('required')" class="error">
+              State is required.
+            </label>
           </div>
           <div class="col-md-4">
             <input type="text" class="form-control" formControlName="ZipCode" placeholder="Zip*">
