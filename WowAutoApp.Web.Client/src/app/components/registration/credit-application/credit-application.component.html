@@ -102,6 +102,9 @@
             <label *ngIf="form.controls['SocialSecurityNumber']?.hasError('required')" class="error">
               Social Security Number is required.
             </label>
+            <label *ngIf="form.controls['SocialSecurityNumber']?.hasError('pattern')" class="error">
+              Enter Valid Social Security.
+            </label>
           </div>
         </div>
       </div>

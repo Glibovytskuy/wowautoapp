@@ -1,39 +1,16 @@
-<nav id="cd-vertical-nav">
-  <ul>
-    <li>
-      <a href="#section1" data-number="1">
-        <span class="cd-dot"></span>
-        <span class="cd-label">A new solution</span>
-      </a>
-    </li>
-    <li>
-      <a href="#section2" data-number="2">
-        <span class="cd-dot"></span>
-        <span class="cd-label">Our mission</span>
-      </a>
-    </li>
-    <li>
-      <a href="#section3" data-number="3">
-        <span class="cd-dot"></span>
-        <span class="cd-label">How to..</span>
-      </a>
-    </li>
-    <li>
-      <a href="#section4" data-number="4">
-        <span class="cd-dot"></span>
-        <span class="cd-label">This month's pledge</span>
-      </a>
-    </li>
-    <li>
-      <a href="#section5" data-number="5">
-        <span class="cd-dot"></span>
-        <span class="cd-label">Monthly</span>
-      </a>
-    </li>
-  </ul>
+<nav class="controls">
+  <button class="section-anchor" data-btn="1" type="button"></button>
+  <button class="section-anchor" data-btn="2" type="button"></button>
+  <button class="section-anchor" data-btn="3" type="button"></button>
+  <button class="section-anchor" data-btn="4" type="button"></button>
+  <button class="section-anchor" data-btn="5" type="button"></button>
 </nav>
 
-<section id="section1" class="cd-section">
+<div class="slide-container">
+    
+  <div class="slideDiv">
+
+<section id="section1" class="cd-section slide active">
   <div class="container flex-centered">
       <div class="section1-left-block ">
         <img src="assets/img/phone.png">
@@ -66,10 +43,10 @@
           </div>
         </div>
   </div>
-  <a href="#section2" class="cd-scroll-down cd-img-replace">scroll down</a>
+  <a data-slide="1" class="cd-scroll-down cd-img-replace">scroll down</a>
 </section>
 
-<section id="section2" class="cd-section">
+<section id="section2" class="cd-section slide">
   <div class="container flex-centered">
     <div class="section2-left-block">
       <div class="image-wrapper">
@@ -104,10 +81,10 @@
         <span class="hashtag">#fixyourcarbonfootprint</span>
       </div>
   </div>
-  <a href="#section3" class="cd-scroll-down cd-img-replace">scroll down</a>
+  <a data-slide="2" class="cd-scroll-down cd-img-replace">scroll down</a>
 </section>
 
-<section id="section3" class="cd-section column">
+<section id="section3" class="cd-section column slide">
   <div class="container flex-centered">
     <h1 class="section-heading">how to...</h1>
     <p class="section3-subtitle">
@@ -182,10 +159,10 @@
         </a>
       </div>
   </div>
-  <a href="#section4" class="cd-scroll-down cd-img-replace">scroll down</a>
+  <a data-slide="3" class="cd-scroll-down cd-img-replace">scroll down</a>
 </section>
 
-<section id="section4" class="cd-section column">
+<section id="section4" class="cd-section column slide">
   <div class="container flex-centered">
     <h1 class="section-heading">this month's pledge</h1>
     <div class="pledge-block">
@@ -204,9 +181,9 @@
       </div>
     </div>
   </div>
-  <a href="#section5" class="cd-scroll-down cd-img-replace">scroll down</a>
+  <a data-slide="4" class="cd-scroll-down cd-img-replace">scroll down</a>
 </section>
-<section id="section5" class="cd-section column">
+<section id="section5" class="cd-section column slide">
   <div class="container flex-centered">
     <div class="squares-block">
       <h1 class="section-heading">monthly</h1>
@@ -236,32 +213,6 @@
             <div>some text</div>
         </div>
       </div>
-      <div class="row mb5">
-          <div class="img-block">
-              <img src="assets/img/Rectangle3.png">
-              <div>some text</div>
-          </div>
-          <div class="img-block">
-              <img src="assets/img/Rectangle3.png">
-              <div>some text</div>
-          </div>
-          <div class="img-block">
-              <img src="assets/img/Rectangle3.png">
-              <div>some text</div>
-          </div>
-          <div class="img-block">
-              <img src="assets/img/Rectangle3.png">
-              <div>some text</div>
-          </div>
-          <div class="img-block">
-              <img src="assets/img/Rectangle3.png">
-              <div>some text</div>
-          </div>
-          <div class="img-block">
-              <img src="assets/img/Rectangle3.png">
-              <div>some text</div>
-          </div>
-        </div>
 
       <h1 class="section-heading">Other vehicles / brands</h1>
       <div class="row mb5">
@@ -294,4 +245,4 @@
   </div>
 </section>
 
-<app-footer></app-footer>
+  </div>

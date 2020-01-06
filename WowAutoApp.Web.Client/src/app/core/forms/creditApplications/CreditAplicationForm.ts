@@ -16,7 +16,10 @@ export class CreditAplicationForm {
         SocialSecurityNumber: new FormControl('', [
             Validators.required,
             Validators.min(0),
-            Validators.pattern(/[0-9.+]/)
+            // Validators.pattern(/[0-9.+]/)
+            // Validators.pattern(/^\d{3}-\(*[A-Za-z]{2}-\d{4}$/)
+            Validators.pattern(/^\d{3}-\d{2}-\d{4}$/)
+
         ]),
         DateOfBirth: new FormControl('', [Validators.required]),
         PhoneNumber: new FormControl('', [
@@ -71,3 +74,5 @@ export class CreditAplicationForm {
         ])
     });
 }
+
+// ^\d{3}-\(*[A-Za-z]{2}-\d{4}$
