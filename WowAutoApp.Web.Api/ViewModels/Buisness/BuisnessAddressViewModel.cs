@@ -16,7 +16,6 @@ namespace wowautoapp.ViewModels
         /// <summary>
         /// Street address line 2
         /// </summary>
-        [Required]
         public string StreetAddressLine { get; set; }
 
         /// <summary>
@@ -34,7 +33,6 @@ namespace wowautoapp.ViewModels
         /// <summary>
         /// Postal / Zip Code
         /// </summary>
-        [Required]
         public string PostalCode { get; set; }
     }
 }

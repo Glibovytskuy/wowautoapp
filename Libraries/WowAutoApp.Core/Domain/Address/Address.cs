@@ -11,7 +11,6 @@ namespace WowAutoApp.Core.Domain
         public string City { get; set; }
         public string State { get; set; }
         public string PostalCode { get; set; }
-        //public virtual ICollection<Bank> Banks { get; set; } = new List<Bank>();
         //public virtual ICollection<Buisness> Buisnesses { get; set; } = new List<Buisness>();
     }
 }

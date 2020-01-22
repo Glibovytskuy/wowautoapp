@@ -23,11 +23,9 @@ namespace wowautoapp.Controllers.Buisness
         #endregion
 
         public BuisnessController(IWorkContext workContext,
-             IMapper mapper
-            ) : base(workContext)
+             IMapper mapper) : base(workContext)
         {
             _mapper = mapper;
-
         }
 
         /// <summary>
@@ -42,8 +40,6 @@ namespace wowautoapp.Controllers.Buisness
         [ValidationFilter]
         public async Task<IActionResult> CreateAsync(RegistrationBuisnessViewModel model)
         {
-            var bankAddressViewModel = _mapper.Map<Address>(model);
-            var bankViewModel = _mapper.Map<Bank>(model);
             var buisnessViewModel = _mapper.Map<WowAutoApp.Core.Domain.Buisness>(model);
 
 

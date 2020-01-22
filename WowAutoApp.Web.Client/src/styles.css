@@ -379,7 +379,6 @@ input.ng-invalid.ng-touched {
   color: #fff;
   text-align: left;
   max-width: 348px;
-  height: 432px;
   padding: 40px 30px;
   margin: 0 25px 25px 0;
   border: 1px solid #FFFFFF;
@@ -488,11 +487,6 @@ input.ng-invalid.ng-touched {
   margin: 10px;
 
 }
-
-.row .img-block:nth-child(1) {
-  margin-left: 0px;
-}
-
 /***************End Section5 Styles**************/
 
 .avaliable-block {
@@ -756,10 +750,6 @@ input.ng-invalid.ng-touched {
 
   .auth-button.sign-up {
     top: 72%;
-  }
-
-  .steps .step {
-    margin-right: 0;
   }
 }
 
