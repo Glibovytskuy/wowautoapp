@@ -27,11 +27,31 @@ export class AuthService {
         return this._httpClient.post(HttpClientService.IDENTITY_SERVER_CONNECT, formData, null, true, true);
     }
 
+    public refreshTokens(): Observable<any>{
+        let formData = new HttpParams()
+            .append("client_id", "wowautoapp_spa")
+            .append("grant_type", "refresh_token")
+            .append("refresh_token", this.getRefreshToken())
+            .append("scope", "openid offline_access email phone profile wowautoapp_api");
+
+        return this._httpClient.post(HttpClientService.IDENTITY_SERVER_CONNECT, formData, null, true, true);
+    }
+
     public saveToken(access_token: string, refresh_token: string) {
         if (access_token && refresh_token) {
             localStorage.setItem('token', access_token);
             localStorage.setItem('refresh_token', refresh_token);
         }
+    }
+
+    public logout(): void {
+        localStorage.removeItem('token');
+        localStorage.removeItem('refresh_token');
+        localStorage.removeItem('actions');
+    }
+
+    private getRefreshToken(): string {
+        return localStorage.getItem('refresh_token');
     }
 
     public prepareModelError(errorObject: any): string{
