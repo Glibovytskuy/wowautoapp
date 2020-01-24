@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '@app/services/auth.service';
 import { JwtToken } from '@app/core/models/JwtToken';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -25,7 +26,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private _authService: AuthService,
-    private _toastr: ToastrService
+    private _toastr: ToastrService,
+    private _router: Router
       ) {  }
 
 
@@ -38,10 +40,11 @@ export class LoginComponent implements OnInit {
           (jwt: JwtToken) => {
             this._toastr.success('Login Success');
 
-            //TODO: Need to implement save token
             this._authService.saveToken(jwt.access_token, jwt.refresh_token);
+
+            this._router.navigate(['/profile']);
+            //ToDo: Need to implement init service
             // this._accountService.initialize(this._globalService._currentUser.ProfileId).subscribe(response =>{
-            //   this._globalService.unreadNotificationCount = response.unreadNotificationCount;
             //   this._authService.initializeAfterAuthentication(response);
             // });
           },
