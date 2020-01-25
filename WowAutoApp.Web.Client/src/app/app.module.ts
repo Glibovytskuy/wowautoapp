@@ -11,11 +11,13 @@ import { HomeComponent } from './components/home/home.component';
 import { CoreModule } from './core/core.module';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PrivacyComponent } from './components/about/privacy/privacy.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    PrivacyComponent
   ],
   imports: [
     CoreModule,
