@@ -10,11 +10,14 @@ export class HttpClientService {
     private static readonly BASE: string = environment.baseUrl;
     private static readonly API: string = environment.apiUrl;
 
+    //Controllers
+    public static readonly ACCOUNTS_CONTROLLER = HttpClientService.API + "/Accounts";
+
     //Login/Controller
     public static readonly IDENTITY_SERVER_CONNECT = HttpClientService.BASE + "/connect/token";
     
-    //Controllers
-    public static readonly ACCOUNTS_CONTROLLER = HttpClientService.API + "/Accounts";
+    //AccountController
+    public static readonly SHORT_REGISTER = HttpClientService.ACCOUNTS_CONTROLLER + "/short-register";
 
 
     constructor(

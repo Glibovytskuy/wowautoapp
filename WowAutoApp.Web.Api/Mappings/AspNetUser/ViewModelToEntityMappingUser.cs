@@ -16,6 +16,9 @@ namespace wowautoapp.Mappings.AspNetUser
         {
             CreateMap<RegistrationViewModel, ApplicationUser>()
                 .ForMember(au => au.UserName, map => map.MapFrom(vm => vm.Email));
+
+            CreateMap<ShortRegistrationViewModel, ApplicationUser>()
+                .ForMember(au => au.UserName, map => map.MapFrom(vm => vm.Email));
         }
     }
 }

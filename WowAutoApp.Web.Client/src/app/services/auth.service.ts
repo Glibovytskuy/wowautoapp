@@ -15,6 +15,10 @@ export class AuthService {
         return this._httpClient.post(HttpClientService.ACCOUNTS_CONTROLLER, model, null, false, true);
     }
 
+    public shortRegister(model): Observable<any> {
+        return this._httpClient.post(HttpClientService.SHORT_REGISTER, model, null, false, true);
+    }
+
     // TODO: Add model classes, use typings!!!
     public login(credentials): Observable<JwtToken> {
         let formData = new HttpParams()

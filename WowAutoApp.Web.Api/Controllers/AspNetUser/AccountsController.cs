@@ -142,6 +142,44 @@ namespace wowautoapp.Controllers.AspNetUser
         }
 
         /// <summary>
+        /// The create API allows to create a Profile item based on provided JSON object.
+        /// </summary>
+        /// <param name="model">Registration view model</param>
+        /// <returns>Returns a 200 response if item added. Can return 400 if model state is
+        /// not valid</returns>
+        [HttpPost("short-register")]
+        [AllowAnonymous]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ValidationFilter]
+        public async Task<IActionResult> RegisterAsync([FromBody] ShortRegistrationViewModel model)
+        {
+            var userIdentity = _mapper.Map<ApplicationUser>(model);
+            model.IsEmailVerified = false;
+
+            var result = await _registrationService.RegisterAsync(userIdentity, model.Password, model.CallbackUrl);
+            if (!result.Succeeded)
+                return Bad(result.Errors.FirstOrDefault().Description);
+
+            try
+            {
+                var mappedProfile = _mapper.Map<Profile>(model);
+                mappedProfile.ApplicationUserId = userIdentity.Id;
+                _profileService.AddProfile(mappedProfile);
+            }
+            catch (Exception ex)
+            {
+                return Ok("Bad Mapping proffile: " + ex.Message);
+            }
+
+            //add role 
+            await _userManager.AddToRoleAsync(userIdentity, Consts.UserRoleKey);
+
+            var jwt = await _authService.GetJwtAsync(model.Email, ClientId);
+            return Ok(jwt);
+        }
+
+        /// <summary>
         /// Api confirm user email
         /// </summary>
         /// /// <param name="model">If tokes isn't valid, the method returns response code is 400.</param>
@@ -216,23 +254,6 @@ namespace wowautoapp.Controllers.AspNetUser
             }
 
             return NoContent();
-        }
-
-        /// <summary>
-        /// The update API allows to update a token item based on provided JSON object.
-        /// To support partial updates, use HTTP PATCH.
-        /// </summary>
-        /// <returns>The response is 200 (Status - Ok).</returns>
-        [HttpGet("refresh-token")]
-        [ProducesResponseType(200)]
-        [ProducesResponseType(404)]
-        public async Task<IActionResult> RefreshAsync()
-        {
-            if (string.IsNullOrEmpty(CurrentUser.UserName))
-                return NotFound();
-
-            var token = await _authService.GetJwtAsync(CurrentUser.UserName, ClientId);
-            return Ok(token);
         }
     }
 }
