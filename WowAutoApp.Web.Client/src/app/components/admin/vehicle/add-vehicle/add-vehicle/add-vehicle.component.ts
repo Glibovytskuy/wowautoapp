@@ -10,6 +10,7 @@ export class AddVehicleComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
   }
 
 }
