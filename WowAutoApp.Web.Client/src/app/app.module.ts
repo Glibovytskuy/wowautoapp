@@ -12,12 +12,14 @@ import { CoreModule } from './core/core.module';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PrivacyComponent } from './components/about/privacy/privacy.component';
+import { NotFoundComponent } from './static/not-found/not-found/not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    PrivacyComponent
+    PrivacyComponent,
+    NotFoundComponent
   ],
   imports: [
     CoreModule,

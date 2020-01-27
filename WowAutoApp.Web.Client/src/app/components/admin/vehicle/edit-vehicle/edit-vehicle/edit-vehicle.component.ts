@@ -10,6 +10,7 @@ export class EditVehicleComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
   }
 
 }

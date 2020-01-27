@@ -19,7 +19,9 @@ const routes: Routes = [
     path: 'edit/:id',
     component: EditVehicleComponent,
     data: {}
-  }
+  },
+  
+  {path: '**', redirectTo: 'not-found'}
 ];
 
 @NgModule({

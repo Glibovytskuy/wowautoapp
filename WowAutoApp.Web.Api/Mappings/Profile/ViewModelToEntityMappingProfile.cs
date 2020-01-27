@@ -13,6 +13,7 @@ namespace wowautoapp.Mappings.Profile
         public ViewModelToEntityMappingProfile()
         {
             CreateMap<RegistrationViewModel, WowAutoApp.Core.Domain.Profile.Profile>();
+            CreateMap<ShortRegistrationViewModel, WowAutoApp.Core.Domain.Profile.Profile>();
         }
     }
 }
