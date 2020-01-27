@@ -91,17 +91,30 @@
   .section1-left-block {
     margin-left: -80px;
     margin-right: -50px;
+    top: -40px;
   }
-  .section2-left-block{
+  .section2-left-block {
     margin: 0;
   }
+  p {
+    font-size: 20px;
+  }
 
-
+  .cd-section {
+    padding: 1px 0;
+  }
 
 }
 
 @media (max-width: 768px)
 {
+  .section1-left-block {
+    margin-left: 0;
+    margin-right: 0;
+    top: 0;
+    width: 90%;
+  }
+
   .section2-left-block{
     order: 2;
   }
@@ -127,11 +140,35 @@
     width: 44%;
     margin: 10px;
   }
+
+  p {
+    font-size: 18px;
+  }
+
+  .auth-button {
+    width: 35%;
+  }
 }
 
 @media (max-width: 500px)
 {
   .row .img-block{
     width: 140px;
+  }
+  .auth-button {
+    font-size: 13px;
+    padding: 7px 0;
+  }
+  .step-description {
+    font-size: 18px;
+  }
+  .steps .step {
+    margin-right: 0;
+  }
+  .step-title div {
+    font-size: 25px;
+  }
+  .avaliable-font2 {
+    font-size: 12px;
   }
 }
