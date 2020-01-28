@@ -150,6 +150,12 @@ a.pulsingButton:hover {
   .section2-left-block {
     margin: 0;
   }
+  p{
+    font-size: 20px;
+  }
+  .cd-section{
+    padding: 1px 0;
+  }
 }
 
 @media (max-width: 768px)
