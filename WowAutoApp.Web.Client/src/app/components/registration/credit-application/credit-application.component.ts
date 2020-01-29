@@ -64,7 +64,6 @@ export class CreditApplicationComponent implements OnInit {
 
             this._router.navigate(['/']);
             // this._accountService.initialize(this._globalService._currentUser.ProfileId).subscribe(response =>{
-            //   this._globalService.unreadNotificationCount = response.unreadNotificationCount;
             //   this._authService.initializeAfterAuthentication(response);
             // });
           }

@@ -16,7 +16,7 @@ export class AppComponent implements OnInit{
   
   constructor(
     private modalService: BsModalService,
-    private _authService: AuthService
+    public auth: AuthService
   ) {}
 
   ngOnInit() {
@@ -28,7 +28,7 @@ export class AppComponent implements OnInit{
   }
 
   private _onCloseModalMenuSub() {
-    this._authService.onCloseModalMenu$.subscribe(() => this.modalRef.hide());
+    this.auth.onCloseModalMenu$.subscribe(() => this.modalRef.hide());
   }
 
 }
