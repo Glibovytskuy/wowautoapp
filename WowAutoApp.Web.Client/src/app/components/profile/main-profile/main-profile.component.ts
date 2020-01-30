@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { GlobalService } from '@app/services/general-services/global.service';
 
 @Component({
   selector: 'app-main-profile',
@@ -8,7 +9,8 @@ import { Title } from '@angular/platform-browser';
 })
 export class MainProfileComponent implements OnInit {
 
-  constructor(private _title: Title) { }
+  constructor(private _title: Title,
+    public globalService: GlobalService) { }
 
   ngOnInit() {
     this._title.setTitle('Profile');
