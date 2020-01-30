@@ -42,7 +42,7 @@
         </a>
         <ul class="dropdown-menu">
           <li><a *ngIf="!auth.isLogged()" routerLink="/login">Log In</a></li>
-          <li><a *ngIf="!auth.isLogged()" href="#">Register</a></li>
+          <li><a *ngIf="!auth.isLogged()" href="/registration">Register</a></li>
           <li><a *ngIf="auth.isLogged()" routerLink="/profile">Profile</a></li>
           <li><a routerLink="/applications">Applications</a></li>
           <li><a *ngIf="auth.isLogged()" routerLink="/" (click)="auth.logout()" >Log Out</a></li>
