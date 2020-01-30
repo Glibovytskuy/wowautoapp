@@ -33,12 +33,12 @@ namespace wowautoapp.Mappings.Buisness
         /// </summary>
         public ViewModelToEntityBuisness()
         {
-            CreateMap<RegistrationBuisnessViewModel, WowAutoApp.Core.Domain.Buisness>()
-                .ForMember(au => au.Address.City, map => map.MapFrom(vm => vm.BuisnessAddress.City))
-                .ForMember(au => au.Address.PostalCode, map => map.MapFrom(vm => vm.BuisnessAddress.PostalCode))
-                .ForMember(au => au.Address.State, map => map.MapFrom(vm => vm.BuisnessAddress.State))
-                .ForMember(au => au.Address.StreetAddress, map => map.MapFrom(vm => vm.BuisnessAddress.StreetAddress))
-                .ForMember(au => au.Address.StreetAddressLine, map => map.MapFrom(vm => vm.BuisnessAddress.StreetAddressLine));
+            //CreateMap<RegistrationBuisnessViewModel, WowAutoApp.Core.Domain.Buisness>()
+            //    .ForMember(au => au.Address.City, map => map.MapFrom(vm => vm.BuisnessAddress.City))
+            //    .ForMember(au => au.Address.PostalCode, map => map.MapFrom(vm => vm.BuisnessAddress.PostalCode))
+            //    .ForMember(au => au.Address.State, map => map.MapFrom(vm => vm.BuisnessAddress.State))
+            //    .ForMember(au => au.Address.StreetAddress, map => map.MapFrom(vm => vm.BuisnessAddress.StreetAddress))
+            //    .ForMember(au => au.Address.StreetAddressLine, map => map.MapFrom(vm => vm.BuisnessAddress.StreetAddressLine));
         }
     }
 }

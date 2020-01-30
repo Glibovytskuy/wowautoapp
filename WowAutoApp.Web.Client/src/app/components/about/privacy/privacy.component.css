@@ -1,0 +1,27 @@
+.container {
+    padding-top: 45px;
+}
+
+.cd-section {
+    min-height: 90vh;
+    position: relative;
+    padding: 2em 0;
+    background: linear-gradient(0deg, rgba(140, 82, 255, 1) 20%, rgba(186, 104, 215, 1) 80%); 
+  }
+
+h2 {
+    font-size: 32px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin: 20px 0;
+}
+
+.description {
+    text-align: left;
+    font-size: 22px;
+    margin-bottom: 40px;
+}
+
+.green {
+    color: #1AD5B1;
+}

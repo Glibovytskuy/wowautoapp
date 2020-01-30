@@ -22,7 +22,7 @@ Primary style
 body {
   margin: 0;
   font-size: 100%;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Segoe UI Regular', 'Open Sans', sans-serif;
   color: #f2f2f2;
   /* background: #BA68D7; */
   background: linear-gradient(0deg, rgba(140, 82, 255, 1) 0%, rgba(186, 104, 215, 1) 70%);

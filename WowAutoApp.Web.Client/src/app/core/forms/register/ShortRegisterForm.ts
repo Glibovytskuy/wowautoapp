@@ -29,5 +29,10 @@ export class ShortRegisterForm {
             Validators.maxLength(64),
             Validators.pattern(/^(.*\S+.*)$/)]),
         Email: new FormControl('', [Validators.required, Validators.email]),
+        ZipCode: new FormControl(null, [
+            Validators.required,
+            Validators.min(0),
+            Validators.pattern(/[0-9+]/)
+        ]),
     });
 }

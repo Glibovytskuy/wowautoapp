@@ -13,7 +13,7 @@ import { Title } from '@angular/platform-browser';
 })
 export class RegisterComponent implements OnInit {
 
-  public shortRegisterForm = new ShortRegisterForm().ShortRegisterForm;
+  public form = new ShortRegisterForm().ShortRegisterForm;
 
   constructor(
     private _authService: AuthService,
@@ -30,12 +30,14 @@ export class RegisterComponent implements OnInit {
 
   public register(): void {
     //TODO: Need implement complit form
-    this.shortRegisterForm.get('SecurityStamp').setValue('dc18fcf2-c24d-4c5d-abda-bbccd60d9c38');
-    this.shortRegisterForm.get('CallbackUrl').setValue('https://wowauto.azurewebsites.net/');
 
-    this._authService.shortRegister(this.shortRegisterForm.value)
+    this.form.get('SecurityStamp').setValue('dc18fcf2-c24d-4c5d-abda-bbccd60d9c38');
+    this.form.get('CallbackUrl').setValue('https://wowauto.azurewebsites.net/');
+
+    this._authService.shortRegister(this.form.value)
       .subscribe(
         (jwt: JwtToken) => {
+          debugger;
           if (jwt) {
             this._toastr.success('Register Success');
 
