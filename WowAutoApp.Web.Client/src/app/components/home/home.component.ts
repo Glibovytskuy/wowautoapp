@@ -14,45 +14,47 @@ export class HomeComponent implements OnInit {
     this.doSmoothScrolling();
   }
 
-  doSmoothScrolling() {
-    var currentItem = 1;
-    let finishAnimate = true;
+  doSmoothScrolling(): void {
+    let slideNumber = 1; // number of current slide
 
-    function autoScroll() {
-      setInterval(function () { getNext(); }, 10000);
-    }
+    $(".cd-scroll-down").click(function () {
+      slideNumber++;
+      animate();
+    });
 
-    autoScroll();
-
-    function scroll() {
-      $('body').bind('mousewheel', function (e) {
-        getNext();
-      });
+    function scrollDown() {
+        slideNumber++;
+        animate(); 
     };
 
-    function getNext() {
-      if (currentItem < 5 && finishAnimate) {
-        finishAnimate = false;
-        let slideBtn = $(`[data-btn='${Number(currentItem) + 1}']`);
-        $(slideBtn).addClass('selected').siblings('button').removeClass('selected');
-        $('.slideDiv').animate({
-          top: -$('.slide-container').height() * $(slideBtn).index()
-        }, 450, function () {
-          finishAnimate = true;
-        });
-        currentItem++;
-      }
-    }
+    var autoScroll = setInterval(scrollDown, 10000);
+
+    function scroll() {
+      let isPauseFinished = true;
+      $('body').bind('mousewheel', function (e) {
+        if(isPauseFinished) {
+          isPauseFinished = false;
+          if(e.originalEvent.deltaY < 0){
+            slideNumber--;
+          } else {
+            slideNumber++;
+          };
+          setTimeout(function(){ 
+            isPauseFinished = true;
+            clearInterval(autoScroll);
+            autoScroll = setInterval(scrollDown, 10000);
+          }, 500); 
+          animate();
+        } 
+      });
+    };
 
     scroll();
 
     function controls() {
-      $(this).addClass('selected').siblings('button').removeClass('selected');
-      currentItem = $(this).attr("data-btn");
-      $('.slideDiv').animate({
-        top: -$('.slide-container').height() * $(this).index()
-      }, 450);
-    }
+      slideNumber = $(this).attr("data-slide");
+      animate();
+    };
 
     /***Event Listeners***/
     const runCode = () => {
@@ -62,18 +64,24 @@ export class HomeComponent implements OnInit {
           button[i].addEventListener('click', controls, false);
         }
       }
-    }
+    };
+
     runCode();
 
-    $(".cd-scroll-down").click(function () {
-      currentItem = $(this).data("slide");
-      let slideNumber = currentItem + 1;
-      let slideBtn = $(`[data-btn='${slideNumber}']`);
+    function animate() {
+      validate();
+      let slideBtn = $(`.section-anchor[data-slide=${slideNumber}]`);
       slideBtn.addClass('selected').siblings('button').removeClass('selected');
-
       $('.slideDiv').animate({
-        top: -$('.slide-container').height() * $(this).data("slide")
+        top: -$('.slide-container').height() * $(slideBtn).index()
       }, 450);
-    });
-  }
-}
+    };
+
+    function validate() {
+        if(slideNumber > 5 || slideNumber < 1){
+          slideNumber = 1;
+        };
+    };
+  };
+
+};
