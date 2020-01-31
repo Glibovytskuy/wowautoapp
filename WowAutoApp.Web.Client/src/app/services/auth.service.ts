@@ -4,12 +4,17 @@ import { HttpClientService } from "@app/services/general-services/http-client.se
 import { Subject } from 'rxjs/Subject';
 import { HttpParams } from '@angular/common/http';
 import { JwtToken } from '@app/core/models/JwtToken';
+import { GlobalService } from './general-services/global.service';
+import { tokenNotExpired } from 'angular2-jwt';
 
 @Injectable()
 export class AuthService {
   onCloseModalMenu$ = new Subject<void>();
 
-  public constructor(private _httpClient: HttpClientService) {}
+  public constructor(
+    private _httpClient: HttpClientService,
+    private _globalService: GlobalService
+    ) {}
 
     public register(model): Observable<any> {
         return this._httpClient.post(HttpClientService.ACCOUNTS_CONTROLLER, model, null, false, true);
@@ -45,13 +50,20 @@ export class AuthService {
         if (access_token && refresh_token) {
             localStorage.setItem('token', access_token);
             localStorage.setItem('refresh_token', refresh_token);
+            this._globalService.getDataFromToken();
         }
     }
 
     public logout(): void {
+        this._globalService._currentUser = null;
+
         localStorage.removeItem('token');
         localStorage.removeItem('refresh_token');
         localStorage.removeItem('actions');
+    }
+
+    public isLogged() {
+        return tokenNotExpired('token');
     }
 
     private getRefreshToken(): string {

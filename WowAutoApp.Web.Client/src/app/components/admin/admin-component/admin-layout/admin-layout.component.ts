@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GlobalService } from '@app/services/general-services/global.service';
 
 @Component({
   selector: 'app-admin-layout',
@@ -7,8 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminLayoutComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public globalService: GlobalService
+  ) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 }

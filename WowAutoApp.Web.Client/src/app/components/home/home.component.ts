@@ -14,34 +14,74 @@ export class HomeComponent implements OnInit {
     this.doSmoothScrolling();
   }
 
-  doSmoothScrolling() {
-      function controls() {
-        $(this).addClass('selected').siblings('button').removeClass('selected');
-        $('.slideDiv').animate({
-          top: -$('.slide-container').height() * $(this).index()
-        }, 450);
-      }
-  
-      /***Event Listeners***/
-      const runCode = () => {
-        const button = document.querySelectorAll('.section-anchor');
-        if (button) {
-          for (let i = 0; i < button.length; i++) {
-            button[i].addEventListener('click', controls, false);
-          }
+  doSmoothScrolling(): void {
+    let slideNumber = 1; // number of current slide
+
+    $(".cd-scroll-down").click(function () {
+      slideNumber++;
+      animate();
+    });
+
+    function scrollDown() {
+        slideNumber++;
+        animate(); 
+    };
+
+    var autoScroll = setInterval(scrollDown, 10000);
+
+    function scroll() {
+      let isPauseFinished = true;
+      $('body').bind('mousewheel', function (e) {
+        if(isPauseFinished) {
+          isPauseFinished = false;
+          if(e.originalEvent.deltaY < 0){
+            slideNumber--;
+          } else {
+            slideNumber++;
+          };
+          setTimeout(function(){ 
+            isPauseFinished = true;
+            clearInterval(autoScroll);
+            autoScroll = setInterval(scrollDown, 10000);
+          }, 500); 
+          animate();
+        } 
+      });
+    };
+
+    scroll();
+
+    function controls() {
+      slideNumber = $(this).attr("data-slide");
+      animate();
+    };
+
+    /***Event Listeners***/
+    const runCode = () => {
+      const button = document.querySelectorAll('.section-anchor');
+      if (button) {
+        for (let i = 0; i < button.length; i++) {
+          button[i].addEventListener('click', controls, false);
         }
       }
-      runCode();
+    };
 
-      $(".cd-scroll-down").click(function() {
-        let slideNumber =  $(this).data("slide") + 1;
-        let slideBtn =  $(`[data-btn='${slideNumber}']`);
-        slideBtn.addClass('selected').siblings('button').removeClass('selected');
-  
-        $('.slideDiv').animate({
-          top: -$('.slide-container').height() * $(this).data("slide")
-        }, 450);
-      });
-  }
+    runCode();
 
-}
+    function animate() {
+      validate();
+      let slideBtn = $(`.section-anchor[data-slide=${slideNumber}]`);
+      slideBtn.addClass('selected').siblings('button').removeClass('selected');
+      $('.slideDiv').animate({
+        top: -$('.slide-container').height() * $(slideBtn).index()
+      }, 450);
+    };
+
+    function validate() {
+        if(slideNumber > 5 || slideNumber < 1){
+          slideNumber = 1;
+        };
+    };
+  };
+
+};

@@ -6,7 +6,6 @@ import { JwtToken } from '@app/core/models/JwtToken';
 import { OwnerType } from "@app/core/enums/OwnerType";
 import { EmploymentStatusType } from "@app/core/enums/EmploymentStatusType";
 import { Router } from '@angular/router';
-import { ShortRegisterForm } from '@app/core/forms/register/ShortRegisterForm';
 
 @Component({
   selector: 'app-credit-application',
@@ -64,7 +63,6 @@ export class CreditApplicationComponent implements OnInit {
 
             this._router.navigate(['/']);
             // this._accountService.initialize(this._globalService._currentUser.ProfileId).subscribe(response =>{
-            //   this._globalService.unreadNotificationCount = response.unreadNotificationCount;
             //   this._authService.initializeAfterAuthentication(response);
             // });
           }
