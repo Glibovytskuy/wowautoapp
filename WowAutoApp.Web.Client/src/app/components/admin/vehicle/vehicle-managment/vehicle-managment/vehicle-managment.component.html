@@ -1,7 +1,7 @@
 <div class="bg-wrapper">
   <div class="container">
     <div class="d-flex-row col-xs">
-      <form class="edit-profile-block right-col">
+      <form class="edit-profile-block right-col" [formGroup]="form" (ngSubmit)="add(form.value)">
         <h2>Add Vehicle</h2>
 
         <div class="form-group">
@@ -10,38 +10,73 @@
           <div class="row vehicle-block">  
             <div class="col-md-6 vehicle-col">
                 <div>
-                  <input type="text" class="form-control" placeholder="First name*">
+                  <label *ngIf="form.controls['FirstName']?.touched && form.controls['FirstName']?.hasError('required') ||
+                          form.controls['FirstName']?.hasError('minlength')" class="error">
+                        The First Name must be (from 2 to 32 characters)
+                  </label>
+                  <input type="text" class="form-control" formControlName="FirstName" placeholder="First name*">
                 </div>
                 <div>
-                  <input type="text" class="form-control" placeholder="Last name*">
+                  <label *ngIf="form.controls['LastName']?.touched && form.controls['LastName']?.hasError('required') ||
+                          form.controls['LastName']?.hasError('minlength')" class="error">
+                        The Last Name must be (from 2 to 32 characters)
+                  </label>
+                  <input type="text" class="form-control" formControlName="LastName" placeholder="Last name*">
                 </div>
               <div>
-                <input type="text" class="form-control" placeholder="Mailing / Registering address">
+                <label *ngIf="form.controls['MailingAddress']?.touched && form.controls['MailingAddress']?.hasError('required') ||
+                        form.controls['MailingAddress']?.hasError('minlength')" class="error">
+                      The Mailing Address can't be empty
+                </label>
+                <input type="text" class="form-control" formControlName="MailingAddress" placeholder="Mailing / Registering address">
               </div>
               <div>
-                <input type="text" class="form-control" placeholder="Budget">
+                <label *ngIf="form.controls['Budget']?.touched && form.controls['Budget']?.hasError('required') ||
+                        form.controls['Budget']?.hasError('minlength') ||
+                        form.controls['Budget']?.hasError('pattern')" class="error">
+                      The Budget can't be empty
+                </label>
+                <input type="text" class="form-control" formControlName="Budget" placeholder="Budget">
               </div>
               <div>
-                <select class="form-control">
-                  <option disabled>Vehicle Make*</option>
+                <label *ngIf="form.controls['VehicleMake']?.touched 
+                        && form.controls['VehicleMake']?.hasError('required')
+                        " class="error">
+                      The Vehicle Make is raquaire field
+                </label>
+                <select class="form-control" formControlName="VehicleMake">
+                  <option value="" selected disabled hidden>Vehicle Make*</option>
                   <option value="1">Bentley</option>
                   <option value="2">BMW</option>
                   <option value="3">Buick</option>
                 </select>
               </div>
               <div>
-                <select class="form-control">
-                  <option disabled>Vehicle Model*</option>
+                <label *ngIf="form.controls['VehicleModel']?.touched 
+                        && form.controls['VehicleModel']?.hasError('required')" 
+                        class="error">
+                      The Vehicle Model is raquaire field
+                </label>
+                <select class="form-control" formControlName="VehicleModel">
+                  <option value="" selected disabled hidden>Vehicle Model*</option>
                   <option value="1">318</option>
                   <option value="2">320</option>
                   <option value="3">M3</option>
                 </select>
               </div>
               <div>
-                <input type="text" class="form-control" placeholder="Year">
+                <label *ngIf="form.controls['VehikleOld']?.touched && form.controls['VehikleOld']?.hasError('required') ||
+                        form.controls['VehikleOld']?.hasError('minlength')" class="error">
+                      The Vehikle old is raquaire field
+                </label>
+                <select class="form-control" formControlName="VehikleOld">
+                  <option value="" selected disabled hidden>Select year</option>
+                  <option *ngFor='let year of years; trackBy: index;'>{{year}}</option>
+                  </select>
               </div>
               <div>
-                <input type="text" class="form-control" placeholder="Description">
+                <textarea rows="5" type="text" class="form-control" 
+                formControlName="Description" placeholder="Description"></textarea>
               </div>
             </div>
             
@@ -52,8 +87,8 @@
         </div>
 
         <div class="d-flex-row submit">
-          <button type="submit" class="submit-button" id="add-vehicle-btn">
-            <div class="social-login-label">Add vehicle</div>
+          <button type="submit" class="submit-button" id="add-vehicle-btn" [disabled]="form.invalid">
+            <div class="social-login-label" >Add vehicle</div>
           </button>
         </div>
       </form>
