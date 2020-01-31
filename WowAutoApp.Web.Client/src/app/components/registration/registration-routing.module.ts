@@ -4,6 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { RecoverPasswordComponent } from './recover-password/recover-password.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { ChooseApplicationComponent } from './choose-application/choose-application.component';
+import { CreditApplicationComponent } from './credit-application/credit-application.component';
 import { RegisterComponent } from './register/register.component';
 
 
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'change-password', component: ChangePasswordComponent },
   { path: 'login', component: LoginComponent },
   { path: 'applications', component: ChooseApplicationComponent },
+  { path: 'applications/personal', component: CreditApplicationComponent },
   { path: 'registration', component: RegisterComponent }
 ];
 

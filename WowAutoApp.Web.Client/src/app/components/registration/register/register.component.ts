@@ -37,7 +37,6 @@ export class RegisterComponent implements OnInit {
     this._authService.shortRegister(this.form.value)
       .subscribe(
         (jwt: JwtToken) => {
-          debugger;
           if (jwt) {
             this._toastr.success('Register Success');
 
