@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'assets/js/jquery-3.4.1.min.js';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
@@ -8,9 +9,12 @@ import * as $ from 'assets/js/jquery-3.4.1.min.js';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(
+    private _title: Title
+  ) { }
+  
   ngOnInit() {
+    this._title.setTitle('Wowauto');
     this.doSmoothScrolling();
   }
 

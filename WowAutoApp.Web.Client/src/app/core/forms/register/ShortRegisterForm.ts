@@ -15,8 +15,6 @@ export class ShortRegisterForm {
             Validators.pattern(/^.*((?=.*[!@#$%^&*()\-_=+{};:,<.>]){1})(?=.*\d)((?=.*[a-z]){1})((?=.*[A-Z]){1}).*$/)
         ]),
         SecurityStamp: new FormControl(''),
-        CallbackUrl: new FormControl(''),
-
         FirstName: new FormControl('', [
             Validators.required,
             Validators.minLength(2),

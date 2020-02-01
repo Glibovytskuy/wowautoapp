@@ -4,6 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '@app/services/auth.service';
 import { JwtToken } from '@app/core/models/JwtToken';
 import { Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-login',
@@ -27,11 +28,12 @@ export class LoginComponent implements OnInit {
   constructor(
     private _authService: AuthService,
     private _toastr: ToastrService,
-    private _router: Router
+    private _router: Router,
+    private _title: Title
       ) {  }
 
-
   ngOnInit() {
+    this._title.setTitle('Login');
   }
 
   public signIn(): void {

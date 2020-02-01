@@ -101,6 +101,7 @@ namespace wowautoapp.Controllers.AspNetUser
         public async Task<IActionResult> CreateAsync([FromBody] RegistrationViewModel model)
         {
             var userIdentity = _mapper.Map<ApplicationUser>(model);
+            model.IsEmailVerified = false;
 
             var result = await _registrationService.RegisterAsync(userIdentity, model.Password, model.CallbackUrl);
             if (!result.Succeeded)

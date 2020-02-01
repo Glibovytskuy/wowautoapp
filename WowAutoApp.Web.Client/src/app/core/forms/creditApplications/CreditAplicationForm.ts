@@ -51,7 +51,6 @@ export class CreditAplicationForm {
 
 
         SecurityStamp: new FormControl(''),
-        CallbackUrl: new FormControl(''),
         IsEmailVerified: new FormControl(false),
         HouseFlatNumber: new FormControl(null),
         VehicleName: new FormControl(''),
