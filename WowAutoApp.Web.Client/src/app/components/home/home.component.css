@@ -2,7 +2,7 @@
 
 .pulsingButton {
   padding: 5px;
-  box-shadow: 0 0 0 0 rgba(26,213,177);
+  box-shadow: 0 0 0 0 rgba(50,205,50);
   border-radius: 10px;
   -webkit-animation: pulsing 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
   -moz-animation: pulsing 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
@@ -28,25 +28,25 @@ a.pulsingButton:hover {
 
 @-webkit-keyframes pulsing {
   to {
-    box-shadow: 0 0 0 10px rgba(26,213,177);
+    box-shadow: 0 0 0 10px rgba(50,205,50);
   }
 }
 
 @-moz-keyframes pulsing {
   to {
-    box-shadow: 0 0 0 10px rgba(26,213,177);
+    box-shadow: 0 0 0 10px rgba(50,205,50);
   }
 }
 
 @-ms-keyframes pulsing {
   to {
-    box-shadow: 0 0 0 10px rgba(26,213,177);
+    box-shadow: 0 0 0 10px rgba(50,205,50);
   }
 }
 
 @keyframes pulsing {
   to {
-    box-shadow: 0 0 0 10px rgba(26,213,177);
+    box-shadow: 0 0 0 10px rgba(50,205,50);
   }
 }
 
