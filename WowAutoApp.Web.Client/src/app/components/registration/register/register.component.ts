@@ -20,8 +20,7 @@ export class RegisterComponent implements OnInit {
     private _toastr: ToastrService,
     private _router: Router,
     private _title: Title
-  ) { 
-  }
+  ) { }
 
   ngOnInit() {
     this._title.setTitle('Registration');
@@ -30,9 +29,7 @@ export class RegisterComponent implements OnInit {
 
   public register(): void {
     //TODO: Need implement complit form
-
     this.form.get('SecurityStamp').setValue('dc18fcf2-c24d-4c5d-abda-bbccd60d9c38');
-    this.form.get('CallbackUrl').setValue('https://wowauto.azurewebsites.net/');
 
     this._authService.shortRegister(this.form.value)
       .subscribe(
@@ -44,7 +41,6 @@ export class RegisterComponent implements OnInit {
 
             this._router.navigate(['/profile']);
             // this._accountService.initialize(this._globalService._currentUser.ProfileId).subscribe(response =>{
-            //   this._globalService.unreadNotificationCount = response.unreadNotificationCount;
             //   this._authService.initializeAfterAuthentication(response);
             // });
           }

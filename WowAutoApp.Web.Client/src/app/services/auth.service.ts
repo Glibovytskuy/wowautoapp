@@ -6,6 +6,7 @@ import { HttpParams } from '@angular/common/http';
 import { JwtToken } from '@app/core/models/JwtToken';
 import { GlobalService } from './general-services/global.service';
 import { tokenNotExpired } from 'angular2-jwt';
+import { environment } from '@env/environment';
 
 @Injectable()
 export class AuthService {
@@ -17,11 +18,13 @@ export class AuthService {
     ) {}
 
     public register(model): Observable<any> {
-        return this._httpClient.post(HttpClientService.ACCOUNTS_CONTROLLER, model, null, false, true);
+        return this._httpClient.post(HttpClientService.ACCOUNTS_CONTROLLER, 
+            { ...model, callbackUrl: environment.clientUrl }, null, false, true);
     }
 
     public shortRegister(model): Observable<any> {
-        return this._httpClient.post(HttpClientService.SHORT_REGISTER, model, null, false, true);
+        return this._httpClient.post(HttpClientService.SHORT_REGISTER, 
+            { ...model, callbackUrl: environment.clientUrl }, null, false, true);
     }
 
     // TODO: Add model classes, use typings!!!

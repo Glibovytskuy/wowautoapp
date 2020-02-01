@@ -53,5 +53,11 @@ namespace wowautoapp.ViewModels.AspNetUser
         /// Is email verified
         /// </summary>
         public bool IsEmailVerified { get; set; }
+
+        /// <summary>
+        /// ZipCode new user
+        /// </summary>
+        [Required]
+        public int ZipCode { get; set; }
     }
 }
