@@ -6,6 +6,7 @@ import { JwtToken } from '@app/core/models/JwtToken';
 import { OwnerType } from "@app/core/enums/OwnerType";
 import { EmploymentStatusType } from "@app/core/enums/EmploymentStatusType";
 import { Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-credit-application',
@@ -24,9 +25,11 @@ export class CreditApplicationComponent implements OnInit {
     private _authService: AuthService,
     private _toastr: ToastrService,
     private _router: Router,
+    private _title: Title
   ) { }
-
+    
   ngOnInit() {
+    this._title.setTitle('Credit aplication');
     this.OwnerTypes = OwnerType.values();
     this.EmploymentStatusTypes = EmploymentStatusType.values();
   }

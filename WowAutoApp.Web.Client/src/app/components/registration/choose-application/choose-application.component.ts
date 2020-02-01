@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-choose-application',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChooseApplicationComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(
+    private _title: Title
+  ) { }
+  
   ngOnInit() {
+  this._title.setTitle('Select application');
   }
 
 }

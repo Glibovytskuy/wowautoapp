@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { VehicleForm } from '@app/core/forms/admin/VehicleForm';
 
 @Component({
   selector: 'app-vehicle-managment',
@@ -9,34 +8,17 @@ import { VehicleForm } from '@app/core/forms/admin/VehicleForm';
 })
 export class VehicleManagmentComponent implements OnInit {
 
-  public year = new Date().getFullYear();
-  public years: any[];
-
-  public form = new VehicleForm().VehicleForm;
+  public vehicleViewModel: any[] = []; // ToDo: need to implement VehicleViewModel 
+  // public vehicleViewModel: VehicleViewModel[] = [];
 
   constructor(
     private _title: Title
   ) { }
 
   ngOnInit() {
-    this._title.setTitle('Vehicle managment');
+    this._title.setTitle('Vehicle list');
 
-    this.setYears();
-  }
-
-  private add(vehicleData): void{
-    console.warn('Your order has been submitted', vehicleData);
-
-    this.form.reset();
-  }
-
-  private setYears(): void{
-    var range = [];
-    range.push(this.year);
-    for (var i = 1; i < 100; i++) {
-        range.push(this.year - i);
-    }
-
-    this.years = range;
+    this.vehicleViewModel.unshift("item 1");
+    this.vehicleViewModel.unshift("item 2");
   }
 }
