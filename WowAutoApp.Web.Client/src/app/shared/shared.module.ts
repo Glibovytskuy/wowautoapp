@@ -6,6 +6,7 @@ import { AuthService } from '@app/services/auth.service';
 import { HttpClientService } from '@app/services/general-services/http-client.service';
 import { MobileMenuModalComponent } from './mobile-menu-modal/mobile-menu-modal.component';
 import { StringSplitterPipe } from './StringSplitterPipe';
+import { CreditAppService } from '@app/services/credit-app.service';
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import { StringSplitterPipe } from './StringSplitterPipe';
   ],
   providers: [
     AuthService,
-    HttpClientService
+    HttpClientService,
+    CreditAppService
   ],
   exports:[
     FooterComponent, 

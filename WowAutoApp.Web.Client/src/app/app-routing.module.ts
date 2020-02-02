@@ -32,8 +32,7 @@ const routes: Routes = [
   },
   { 
     path: '',
-    loadChildren: './components/registration/registration.module#RegistrationModule',
-    canActivate: [NonAuthGuard] 
+    loadChildren: './components/registration/registration.module#RegistrationModule'
   },
 
   { 
