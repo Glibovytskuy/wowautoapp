@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { GlobalService } from '@app/services/general-services/global.service';
 import { CreditAppService } from '@app/services/credit-app.service';
+import { Profile } from '@app/core/models/profile.model';
 
 @Component({
   selector: 'app-credit-application',
@@ -38,7 +39,7 @@ export class CreditApplicationComponent implements OnInit {
     this.EmploymentStatusTypes = EmploymentStatusType.values();
 
     if(this._authService.isLogged()){
-      this.initFormGroup();
+      this.getprofileData();
     }
   }
 
@@ -115,14 +116,55 @@ export class CreditApplicationComponent implements OnInit {
     this.form.value.DateOfBirth = `${(date.getMonth() + 1)}.${date.getDate()}.${date.getFullYear()}`;
   }
 
-  private initFormGroup(): void {
+  private getprofileData(): void {
+    this._creditApplicationService.get().subscribe(
+      (response: Profile) => {
+          this.initFormGroup(response);
+      },
+      (errorMessage) => {
+        this.form.get('FirstName').setValue(this._globalService._currentUser.FirstName);
+        this.form.get('LastName').setValue(this._globalService._currentUser.LastName);
+        this.form.get('Email').setValue(this._globalService._currentUser.Email);
+        this.form.get('MobileNumber').setValue(this._globalService._currentUser.PhoneNumber);
+
+        for(var index in errorMessage.error) 
+        {  
+          this._toastr.error(errorMessage.error[index]);   
+        } 
+      });
+  }
+
+  private initFormGroup(profileData: any): void {
     this.form.get('FirstName').setValue(this._globalService._currentUser.FirstName);
     this.form.get('LastName').setValue(this._globalService._currentUser.LastName);
     this.form.get('Email').setValue(this._globalService._currentUser.Email);
     this.form.get('MobileNumber').setValue(this._globalService._currentUser.PhoneNumber);
 
+    //Profile Part
+    this.form.get('SocialSecurityNumber').setValue(profileData.socialSecurityNumber);
+    this.form.get('DateOfBirth').setValue((new Date(profileData.dateOfBirth)).toLocaleDateString('en-US'));
+    this.form.get('PhoneNumber').setValue(profileData.phoneNumber);
+    this.form.get('StreetAddress').setValue(profileData.streetAddress);
+    this.form.get('City').setValue(profileData.city);
+    this.form.get('State').setValue(profileData.state);
+    this.form.get('ZipCode').setValue(profileData.zipCode);
+    this.form.get('ResidenceOwner').setValue(profileData.residenceOwner); //ToDo: Need to get int value from name
+    this.form.get('MonthlyRent').setValue(profileData.monthlyRent);
+    this.form.get('MobileNumber').setValue(profileData.mobileNumber);
+    this.form.get('HouseFlatNumber').setValue(profileData.houseFlatNumber);
+    this.form.get('EmploymentStatus').setValue(profileData.employmentStatus); //ToDo: Need to get int value from name
+
+    //Vehicle Part
+    this.form.get('VehicleName').setValue(profileData.vehicleName);
+    this.form.get('DownPayment').setValue(profileData.sownPayment);
+    this.form.get('TotalAmount').setValue(profileData.totalAmount);
+    this.form.get('OtherInfo').setValue(profileData.otherInfo);
+    this.form.get('DriverLicensePhotoId').setValue(profileData.driverLicensePhotoId);
+
+
+
     //Just for validator. For edit case not using
-    this.form.get('Password').setValue('111Aa!');
-    this.form.get('ConfirmPassword').setValue('111Aa!');
+    this.form.get('Password').setValue('!templatePass1');
+    this.form.get('ConfirmPassword').setValue('!templatePass1');
   }
 }

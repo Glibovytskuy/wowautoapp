@@ -1,18 +1,20 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using wowautoapp.Controllers.Abstract;
 using WowAutoApp.Core;
-using Profile = WowAutoApp.Core.Domain.Profile.Profile;
 using WowAutoApp.Services.Profile;
 using wowautoapp.ViewModels;
 using wowautoapp.Utilities.Filters.ValidationFilters;
+using Profile = WowAutoApp.Core.Domain.Profile.Profile;
+using System;
 
 namespace wowautoapp.Controllers.CreditApplication
 {
+    /// <summary>
+    /// Credit Application API Controller
+    /// </summary>
     [Route("api/[controller]")]
-    [ApiController]
     public class CreditApplicationController : BaseController
     {
         #region Fields
@@ -30,30 +32,55 @@ namespace wowautoapp.Controllers.CreditApplication
             _profileService = profileService;
         }
 
+        /// <summary>
+        /// Get profile data part for credit application.
+        /// </summary>
+        /// <returns>returns 204 (No content) </returns>
+        [HttpGet]
+        [ProducesResponseType(204)]
+        public async Task<IActionResult> GetProfileData()
+        {
+            if (CurrentUser is null)
+                return BadRequest("User is null");
 
+            var profile = await _profileService.GetProfileByUserIdAsync(CurrentUser.Id);
+
+            if (profile is null)
+                return NoContent();
+
+            profile.ApplicationUserId = null;
+
+            return Ok(profile);
+        }
+
+        /// <summary>
+        /// Update Credit application
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ValidationFilter]
         public async Task<IActionResult> UpdateAsync([FromBody] ProfileViewModel model)
         {
-            //ToDo: need to implement current user
-            //var profile = _profileService.GetProfileByUserId(CurrentUser.Id);
+            if (CurrentUser is null)
+                return BadRequest("User is null");
 
-            //if (profile == null)
-            //    return BadRequest("Profile not found");
+            var profile = await _profileService.GetProfileByUserIdAsync(CurrentUser.Id);
 
-            //try
-            //{
-            //    var mappedProfile = _mapper.Map<Profile>(model);
-            //    mappedProfile.Id = profile.Id;
+            if (profile == null)
+                return BadRequest("Profile not found");
 
-            //    _profileService.UpdateProfile(mappedProfile);
-            //}
-            //catch (Exception ex)
-            //{
-            //    return Ok("Bad Mapping proffile: " + ex.Message);
-            //}
+            try
+            {
+                var mappedProfile = _mapper.Map(model, profile);
+                _profileService.UpdateProfile(mappedProfile);
+            }
+            catch (Exception ex)
+            {
+                return Ok("Bad Mapping proffile: " + ex.Message);
+            }
 
             /* ToDo: Need implement blob for correctly work
             var mappedVehicle = _mapper.Map<Vehicle>(model);

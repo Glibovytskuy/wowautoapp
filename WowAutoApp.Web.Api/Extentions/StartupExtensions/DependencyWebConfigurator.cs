@@ -1,7 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using WowAutoApp.Core;
-using WowAutoApp.Core.Interfaces;
 using WowAutoApp.Services.Identity.Auth;
 using wowautoapp.Infrastructure;
 
