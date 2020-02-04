@@ -1,6 +1,6 @@
 <div class="bg-wrapper">
   <div class="container">
-    <form class="credit-application-form" [formGroup]="form" (ngSubmit)="register()">
+    <form class="credit-application-form" [formGroup]="form" >
       <h2>credit application</h2>
   
       <div class="form-group">
@@ -25,7 +25,7 @@
         </div>
         <div class="row">
           <div class="col-md-4">
-            <input class="form-control" formControlName="Email" placeholder="Email*">
+            <input disabled="_authService.isLogged()"  class="form-control" formControlName="Email" placeholder="Email*">
             <!-- <label *ngIf="form.controls['Email']?.hasError('required') && 
                           form.controls['Email']?.touched" class="error">
                 Email is required
@@ -53,7 +53,7 @@
             </label>
           </div>
         </div>
-        <div class="row">
+        <div *ngIf="!_authService.isLogged()" class="row">
           <div class="col-md-6">
             <input type="password" class="form-control" formControlName="Password" placeholder="Password*">
             <label *ngIf="form.controls['Password']?.hasError('required') ||
@@ -103,7 +103,7 @@
               Social Security Number is required.
             </label>
             <label *ngIf="form.controls['SocialSecurityNumber']?.hasError('pattern')" class="error">
-              Enter Valid Social Security.
+              Enter Valid Social Security. For example: 000-00-0000
             </label>
           </div>
         </div>
@@ -228,8 +228,11 @@
           </button> -->
         </div>
   
-        <button type="submit" [disabled]="form.invalid" class="login-button">
+        <button *ngIf="!_authService.isLogged()" (click)="register()" [disabled]="form.invalid" class="login-button">
           SUBMIT
+        </button>
+        <button *ngIf="_authService.isLogged()" (click)="edit()" [disabled]="form.invalid" class="login-button">
+          EDIT
         </button>
       </div>
   

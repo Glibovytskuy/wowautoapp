@@ -1,6 +1,5 @@
 ﻿using System.Threading.Tasks;
 using AutoMapper;
-using IdentityServer4.AccessTokenValidation;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -138,7 +137,7 @@ namespace wowautoapp.Controllers.AspNetUser
             //add role 
             await _userManager.AddToRoleAsync(userIdentity, Consts.UserRoleKey);
 
-            var jwt = await _authService.GetJwtAsync(model.Email, ClientId);
+            var jwt = await _authService.GetJwtAsync(model.Email, Client.Id);
             return Ok(jwt);
         }
 
@@ -176,7 +175,7 @@ namespace wowautoapp.Controllers.AspNetUser
             //add role 
             await _userManager.AddToRoleAsync(userIdentity, Consts.UserRoleKey);
 
-            var jwt = await _authService.GetJwtAsync(model.Email, ClientId);
+            var jwt = await _authService.GetJwtAsync(model.Email, Client.Id);
             return Ok(jwt);
         }
 

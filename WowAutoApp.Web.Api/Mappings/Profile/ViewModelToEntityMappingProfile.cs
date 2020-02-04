@@ -1,4 +1,5 @@
-﻿using wowautoapp.ViewModels.AspNetUser;
+﻿using wowautoapp.ViewModels;
+using wowautoapp.ViewModels.AspNetUser;
 
 namespace wowautoapp.Mappings.Profile
 {
@@ -13,6 +14,7 @@ namespace wowautoapp.Mappings.Profile
         public ViewModelToEntityMappingProfile()
         {
             CreateMap<RegistrationViewModel, WowAutoApp.Core.Domain.Profile.Profile>();
+            CreateMap<ProfileViewModel, WowAutoApp.Core.Domain.Profile.Profile>();
             CreateMap<ShortRegistrationViewModel, WowAutoApp.Core.Domain.Profile.Profile>();
         }
     }

@@ -16,5 +16,9 @@ namespace WowAutoApp.Core
         ///     Get request Client Id
         /// </summary>
         string ClientId { get; }
+        /// <summary>
+        ///     Get request url
+        /// </summary>
+        string RequestUrl { get; }
     }
 }

@@ -12,13 +12,13 @@ export class HttpClientService {
 
     //Controllers
     public static readonly ACCOUNTS_CONTROLLER = HttpClientService.API + "/Accounts";
+    public static readonly CREDIT_APPLICATION_CONTROLLER = HttpClientService.API + "/CreditApplication";
 
     //Login/Controller
     public static readonly IDENTITY_SERVER_CONNECT = HttpClientService.BASE + "/connect/token";
     
     //AccountController
     public static readonly SHORT_REGISTER = HttpClientService.ACCOUNTS_CONTROLLER + "/short-register";
-
 
     constructor(
         private _httpClient: HttpClient,

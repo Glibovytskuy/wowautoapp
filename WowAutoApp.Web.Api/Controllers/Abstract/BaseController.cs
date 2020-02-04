@@ -5,6 +5,9 @@ using WowAutoApp.Core;
 using WowAutoApp.Core.Domain;
 using WowAutoApp.Services.Utilities;
 using wowautoapp.Utilities.Filters;
+using WowAutoApp.Services.Identity.Auth;
+using System.Linq;
+using WowAutoApp.Core.Infrastructure;
 
 namespace wowautoapp.Controllers.Abstract
 {
@@ -20,9 +23,9 @@ namespace wowautoapp.Controllers.Abstract
         public ApplicationUser CurrentUser;
 
         /// <summary>
-        /// Client Id
+        /// SPA Client
         /// </summary>
-        public string ClientId;
+        public Client Client;
 
         /// <summary>
         /// Work context
@@ -42,7 +45,15 @@ namespace wowautoapp.Controllers.Abstract
         {
             WorkContext = workContext;
             CurrentUser = WorkContext.CurrentUser;
-            ClientId = workContext.ClientId;
+
+            var clientName = IdentityServerConfig.GetClients()
+                .FirstOrDefault(c => c.ClientId == WorkContext.ClientId)?.ClientName;
+            Client = new Client
+            {
+                Id = WorkContext.ClientId,
+                Name = clientName,
+                ClientUrl = WorkContext.RequestUrl
+            };
         }
 
         /// <summary>

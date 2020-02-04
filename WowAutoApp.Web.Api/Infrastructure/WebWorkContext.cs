@@ -1,10 +1,8 @@
 ﻿using IdentityModel;
 using Microsoft.AspNetCore.Http;
 using WowAutoApp.Core.Domain;
-using WowAutoApp.Services.Identity.Cache;
 using WowAutoApp.Services.Identity.User;
 using WowAutoApp.Core;
-using System.Threading.Tasks;
 
 namespace wowautoapp.Infrastructure
 {
@@ -60,6 +58,19 @@ namespace wowautoapp.Infrastructure
             {
                 _httpContextAccessor.HttpContext.Request.Headers.TryGetValue(JwtClaimTypes.ClientId, out var clientId);
                 return clientId;
+            }
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        ///     Get request url
+        /// </summary>
+        public string RequestUrl
+        {
+            get
+            {
+                _httpContextAccessor.HttpContext.Request.Headers.TryGetValue("Origin", out var requestUrl);
+                return requestUrl;
             }
         }
     }

@@ -26,7 +26,14 @@ namespace wowautoapp.Extensions.StartupExtensions
         public static void AddAuthenticationConfiguration(this IServiceCollection services,
             IConfiguration configuration)
         {
-            services.AddAuthentication(IdentityServerAuthenticationDefaults.AuthenticationScheme)
+            services.AddAuthentication(option => {
+                option.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                option.DefaultSignInScheme = IdentityServerAuthenticationDefaults.AuthenticationScheme;
+                option.DefaultSignOutScheme = IdentityServerAuthenticationDefaults.AuthenticationScheme;
+                option.DefaultChallengeScheme = IdentityServerAuthenticationDefaults.AuthenticationScheme;
+                option.DefaultForbidScheme = IdentityServerAuthenticationDefaults.AuthenticationScheme;
+                option.DefaultScheme = IdentityServerAuthenticationDefaults.AuthenticationScheme;
+            })
                 .AddIdentityServerAuthentication(options =>
                 {
                     options.Authority = configuration.GetSection("JwtIssuer")["Audience"];

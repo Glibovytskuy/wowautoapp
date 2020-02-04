@@ -35,7 +35,7 @@ namespace wowautoapp.Infrastructure
             var claims = principal.Claims.ToList();
             claims = claims.Where(claim => context.RequestedClaimTypes.Contains(claim.Type)).ToList();
 
-            var profile = _profileService.GetProfileByUserId(user.Id);
+            var profile = _profileService.GetProfileByUserIdAsync(user.Id);
             if (profile != null)
             {
                 claims.Add(new Claim(JwtClaims.ProfileId, profile.Id.ToString()));

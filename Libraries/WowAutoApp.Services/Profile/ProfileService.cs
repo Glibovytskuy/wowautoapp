@@ -68,12 +68,12 @@ namespace WowAutoApp.Services.Profile
         /// </summary>
         /// <param name="userId">Profile identifier</param>
         /// <returns>Profile</returns>
-        public Core.Domain.Profile.Profile GetProfileByUserId(string userId)
+        public async Task<Core.Domain.Profile.Profile> GetProfileByUserIdAsync(string userId)
         {
             if (userId.IsNullOrEmpty())
                 throw new ArgumentNullException(nameof(userId));
 
-            return Repository.Table.FirstOrDefault(x => x.ApplicationUserId.Equals(userId));
+            return await Repository.Table.FirstOrDefaultAsync(x => x.ApplicationUserId.Equals(userId));
         }
 
         /// <summary>
