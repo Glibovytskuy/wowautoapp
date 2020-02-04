@@ -61,6 +61,13 @@ input.ng-invalid.ng-touched {
   text-align: center;
 }
 
+#privacy-policy{
+  color: #8C52FF;
+  font-weight: 600;
+  font-size: 14px;
+  text-align: center;
+}
+
 #login {
   color: #8C52FF;
   font-weight: 600;
@@ -92,4 +99,11 @@ input.ng-invalid.ng-touched {
     text-align: center;
     margin-top: 10px;
   }
+}
+
+.cd-section {
+  min-height: 90vh;
+  position: relative;
+  padding: 2em 0;
+  background: linear-gradient(0deg, rgba(140, 82, 255, 1) 20%, rgba(186, 104, 215, 1) 80%); 
 }

@@ -1,5 +1,5 @@
 <div class="container"></div>
-<div class="m-auto form-centered">
+<div class="m-auto form-centered cd-section">
   <div class="custom-form boxshadow">
     <form  class="register" [formGroup]="form" (ngSubmit)="register()">
       <div class="login-head">
@@ -61,9 +61,17 @@
 
     </form>
 
+    <div _ngcontent-c2  id="pre-login" class="center">
+      <span _ngcontent-c2>By creating an account, you agree to the Wow Auto</span><br>
+        <a _ngcontent-c2 routerlink="/about/privacy" ng-reflect-router-link="/about/privacy" href="/about/privacy" id="privacy-policy">PRIVACY POLICY</a>
+    </div>
+
     <div id="pre-login" class="center">
         <span>Already have an account? </span> <br>
       <a routerLink="/login" id="login">Sign-In to your account</a>
     </div>
     
   </div>
+</div>
+
+<app-footer></app-footer>
