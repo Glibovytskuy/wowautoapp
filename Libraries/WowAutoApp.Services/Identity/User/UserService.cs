@@ -43,7 +43,7 @@ namespace WowAutoApp.Services.Identity.User
 
         public async Task<ApplicationUser> GetByIdAsync(string id)
         {
-            var user = await _userManager.Users.FirstOrDefaultAsync(u => u.Id == id);
+            var user = await _userManager.Users.AsNoTracking().FirstOrDefaultAsync(u => u.Id == id);
             return user;
         }
 

@@ -39,7 +39,9 @@ namespace wowautoapp.Infrastructure
             if (profile != null)
             {
                 claims.Add(new Claim(JwtClaims.ProfileId, profile.Id.ToString()));
-                claims.Add(new Claim(JwtClaims.AvatarUrl, _profileService.GetPictureUrlByProfileId(profile.Id)));
+
+                // ToDo: Need implement picture service
+                //claims.Add(new Claim(JwtClaims.AvatarUrl, _profileService.GetPictureUrlByProfileId(profile.Id)));
             }
 
             if (user.FirstName != null)
