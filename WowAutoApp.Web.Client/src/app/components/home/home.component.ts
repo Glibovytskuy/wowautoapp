@@ -36,7 +36,7 @@ export class HomeComponent implements OnInit {
   doSmoothScrolling(): void {
 
     function scale(height, width){
-      let wrappers = document.querySelectorAll('.container.flex-centered');
+      let wrappers = Array.from(document.querySelectorAll('.container.flex-centered'));
       const containerHeightConst = 750;
       let scaleConst = 1 - (containerHeightConst - height + 100) / containerHeightConst;
       wrappers.forEach(x=> {
