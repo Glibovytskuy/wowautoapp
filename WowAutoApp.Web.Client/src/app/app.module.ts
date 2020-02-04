@@ -13,13 +13,17 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PrivacyComponent } from './components/about/privacy/privacy.component';
 import { NotFoundComponent } from './static/not-found/not-found/not-found.component';
+import { AboutUsComponent } from './components/about/about-us/about-us.component';
+import { AboutWowautoComponent } from './components/about/about-wowauto/about-wowauto.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     PrivacyComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    AboutUsComponent,
+    AboutWowautoComponent
   ],
   imports: [
     CoreModule,

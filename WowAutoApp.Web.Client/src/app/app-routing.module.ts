@@ -7,6 +7,8 @@ import { Role } from './core/enums/Role';
 import { RoleGuard } from './services/guards/role.guards';
 import { NonAuthGuard } from './services/guards/non-auth.guard';
 import { AuthGuard } from './services/guards/auth.guard';
+import { AboutUsComponent } from './components/about/about-us/about-us.component';
+import { AboutWowautoComponent } from './components/about/about-wowauto/about-wowauto.component';
 
 const routes: Routes = [
   { 
@@ -17,6 +19,16 @@ const routes: Routes = [
   {
     path: 'about/privacy',
     component: PrivacyComponent
+  },
+
+  {
+    path: 'about/about-us',
+    component: AboutUsComponent
+  },
+
+  {
+    path: 'about/about-wowauto',
+    component: AboutWowautoComponent
   },
 
   {
