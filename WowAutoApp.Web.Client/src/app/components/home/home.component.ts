@@ -16,21 +16,6 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this._title.setTitle('Wowauto');
     this.doSmoothScrolling();
-    this.scale(window.innerHeight, window.innerWidth);
-  }
-
-  scale(height, width){
-    let wrappers = Array.from(document.querySelectorAll('.container.flex-centered'));
-    const containerHeightConst = 750;
-    let scaleConst = 1 - (containerHeightConst - height + 100) / containerHeightConst;
-    wrappers.forEach(x=> {
-      if(containerHeightConst + 100 >= height && width > 1288){
-        x.setAttribute("style", `transform: scale(${scaleConst})`);
-      }
-      else{
-        x.setAttribute("style", `transform: scale(1)`);
-      }
-    });
   }
 
   doSmoothScrolling(): void {
@@ -38,7 +23,7 @@ export class HomeComponent implements OnInit {
     function scale(height, width){
       let wrappers = Array.from(document.querySelectorAll('.container.flex-centered'));
       const containerHeightConst = 750;
-      let scaleConst = 1 - (containerHeightConst - height + 100) / containerHeightConst;
+      let scaleConst = 1 - (containerHeightConst - height + 150) / containerHeightConst;
       wrappers.forEach(x=> {
         if(containerHeightConst + 100 >= height && width > 1288){
           x.setAttribute("style", `transform: scale(${scaleConst})`);
@@ -48,6 +33,8 @@ export class HomeComponent implements OnInit {
         }
       });
     }
+
+    scale(window.innerHeight, window.innerWidth);
 
     let slideNumber = 1; // number of current slide
 
@@ -103,7 +90,7 @@ export class HomeComponent implements OnInit {
     runCode();
 
     function animate() {
-      scale(window.innerHeight, window.innerWidth)
+      scale(window.innerHeight, window.innerWidth);
       validate();
       let slideBtn = $(`.section-anchor[data-slide=${slideNumber}]`);
       slideBtn.addClass('selected').siblings('button').removeClass('selected');
