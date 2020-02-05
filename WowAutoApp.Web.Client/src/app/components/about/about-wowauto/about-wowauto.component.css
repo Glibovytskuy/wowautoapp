@@ -1,0 +1,27 @@
+.container {
+    padding-top: 45px;
+}
+
+.name{
+position: absolute;
+width: 253px;
+height: 49px;
+left: 834px;
+top: 200px;
+
+/* H1: Open Sans 36 semibold all caps */
+
+font-family: Open Sans;
+font-style: normal;
+font-weight: 600;
+font-size: 36px;
+line-height: 49px;
+/* identical to box height */
+
+text-align: center;
+text-transform: uppercase;
+
+/* White */
+
+color: #FFFFFF;
+}
