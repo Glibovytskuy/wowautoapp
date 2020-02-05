@@ -28,7 +28,6 @@ namespace wowautoapp.Extensions.StartupExtensions.RuntimePipelineConfigurations
                     // TODO: Extract those domains to application configuration
                     // TODO: Research, this probably be removed since it is overriding the CORS policy defined in startup. Not secure.
                     context.Response.Headers.Add("Access-Control-Allow-Origin", "*");
-                    context.Response.Headers.Add("Access-Control-Allow-Methods", "*");
 
                           var error = context.Features.Get<IExceptionHandlerFeature>();
                     if (error != null)
