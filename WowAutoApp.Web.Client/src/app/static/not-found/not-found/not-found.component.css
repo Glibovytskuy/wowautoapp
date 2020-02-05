@@ -1,7 +1,22 @@
-.not-found{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    padding-top: 101px;
+.container {
+    padding-top: 45px;
+}
+
+.cd-section {
+    min-height: 90vh;
+    position: relative;
+    padding: 2em 0;
+    background: linear-gradient(0deg, rgba(140, 82, 255, 1) 20%, rgba(186, 104, 215, 1) 80%); 
+}
+
+h2 {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin: 20px 0;
+}
+
+.space{
+    padding-top: 20%;
 }

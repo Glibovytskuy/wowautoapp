@@ -13,7 +13,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PrivacyComponent } from './components/about/privacy/privacy.component';
 import { NotFoundComponent } from './static/not-found/not-found/not-found.component';
-import { AboutUsComponent } from './components/about/about-us/about-us.component';
+import { ContactUsComponent } from './components/about/contact-us/contact-us.component';
 import { AboutWowautoComponent } from './components/about/about-wowauto/about-wowauto.component';
 
 @NgModule({
@@ -22,7 +22,7 @@ import { AboutWowautoComponent } from './components/about/about-wowauto/about-wo
     HomeComponent,
     PrivacyComponent,
     NotFoundComponent,
-    AboutUsComponent,
+    ContactUsComponent,
     AboutWowautoComponent
   ],
   imports: [

@@ -2,26 +2,43 @@
     padding-top: 45px;
 }
 
-.name{
-position: absolute;
-width: 253px;
-height: 49px;
-left: 834px;
-top: 200px;
+.cd-section {
+    min-height: 90vh;
+    position: relative;
+    padding: 2em 0;
+    background: linear-gradient(0deg, rgba(140, 82, 255, 1) 20%, rgba(186, 104, 215, 1) 80%); 
+  }
 
-/* H1: Open Sans 36 semibold all caps */
+h2 {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin: 20px 0;
+}
 
-font-family: Open Sans;
-font-style: normal;
-font-weight: 600;
-font-size: 36px;
-line-height: 49px;
-/* identical to box height */
+.description {
+    text-align: left;
+    font-size: 22px;
+    margin-bottom: 40px;
+}
 
-text-align: center;
-text-transform: uppercase;
+.green {
+    color: #1AD5B1;
+}
 
-/* White */
+span.subhead {
+    font-size: 1.5em;
+    text-align: center;
+    display: block;
+    position: relative;
+}
 
-color: #FFFFFF;
+span.subhead:before, span.subhead:after {
+    content: "";
+    width: 60px;
+    height: 6px;
+    border-top: 1px solid white;
+    display: inline-block;
+    margin: 0 10px;
 }
