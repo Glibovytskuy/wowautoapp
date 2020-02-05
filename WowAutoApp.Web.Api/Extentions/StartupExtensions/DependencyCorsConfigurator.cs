@@ -22,11 +22,11 @@ namespace wowautoapp.Extentions.StartupExtensions
 
             services.AddCors(options =>
             {
-                options.AddPolicy(policyName, builder =>
+                options.AddPolicy(policyName, 
+                builder =>
                 {
                     builder.WithOrigins(allowedOrigins)
                            .AllowAnyHeader()
-                           .AllowAnyOrigin()
                            .AllowAnyMethod()
                            .AllowCredentials();
                 });

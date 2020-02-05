@@ -74,11 +74,13 @@ namespace wowautoapp
             //Add auto mapper
             services.AddAutoMapper();
 
-            // Add mvc
-            services.AddMvc();
-
             // Add CORS
             services.AddCors(Configuration);
+
+            // Add mvc
+            services.AddMvc()
+                .AddViewLocalization()
+                .AddDataAnnotationsLocalization();
         }
 
         /// <summary>
@@ -93,17 +95,17 @@ namespace wowautoapp
             ILoggerFactory loggerFactory,
             IServiceProvider services)
         {
-            //Use logger factory
-            loggerFactory.UseRuntimeLoggerBuilder(Configuration);
+            if (hostingEnvironment.IsDevelopment())
+                applicationBuilder.UseDeveloperExceptionPage();
 
             // Use cors
             applicationBuilder.UseCors(Configuration["CorsPolicyName"]);
 
+            //Use logger factory
+            loggerFactory.UseRuntimeLoggerBuilder(Configuration);
+
             // Use swagger
             applicationBuilder.UseRuntimeSwaggerBuilder();
-
-            if (hostingEnvironment.IsDevelopment())
-                applicationBuilder.UseDeveloperExceptionPage();
 
             applicationBuilder.UseRuntimeCorsBuilder(Configuration);
 
