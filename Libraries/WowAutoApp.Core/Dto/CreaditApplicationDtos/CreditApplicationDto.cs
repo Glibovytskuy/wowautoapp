@@ -37,7 +37,7 @@ namespace WowAutoApp.Core.Dto.CreaditApplicationDtos
         /// <summary>
         /// Social Security Number user
         /// </summary>
-        public int SocialSecurityNumber { get; set; }
+        public string SocialSecurityNumber { get; set; }
 
         /// <summary>
         /// Street Address user

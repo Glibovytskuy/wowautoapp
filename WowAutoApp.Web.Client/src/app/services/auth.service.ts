@@ -65,7 +65,7 @@ export class AuthService {
         localStorage.removeItem('actions');
     }
 
-    public isLogged() {
+    public isLogged(): boolean {
         return tokenNotExpired('token');
     }
 
