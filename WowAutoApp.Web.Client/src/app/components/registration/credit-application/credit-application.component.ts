@@ -38,7 +38,10 @@ export class CreditApplicationComponent implements OnInit {
     this.OwnerTypes = OwnerType.values();
     this.EmploymentStatusTypes = EmploymentStatusType.values();
 
+    console.log('init');
+
     if(this._authService.isLogged()){
+      console.log('logget true');
       this.getprofileData();
     }
   }
@@ -117,11 +120,19 @@ export class CreditApplicationComponent implements OnInit {
   }
 
   private getprofileData(): void {
+    console.log('getprofileData start');
     this._creditApplicationService.get().subscribe(
-      (response: Profile) => {
+      (response: any) => {
           this.initFormGroup(response);
+          console.log('succes');
+          console.log(this._globalService._currentUser.FirstName);
+          console.log(this._globalService._currentUser.Email);
       },
       (errorMessage) => {
+        console.log('error');
+        console.log(this._globalService._currentUser.FirstName);
+        console.log(this._globalService._currentUser.Email);
+
         this.form.get('FirstName').setValue(this._globalService._currentUser.FirstName);
         this.form.get('LastName').setValue(this._globalService._currentUser.LastName);
         this.form.get('Email').setValue(this._globalService._currentUser.Email);

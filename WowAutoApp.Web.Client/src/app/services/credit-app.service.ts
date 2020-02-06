@@ -10,9 +10,11 @@ export class CreditAppService {
     private _httpClient: HttpClientService
   ) { }
 
-  public get(): Observable<Profile> {
+  public get(): Observable<any> {
+    console.log('service get proffile');
+
     return this._httpClient.get(HttpClientService.CREDIT_APPLICATION_CONTROLLER)
-      .map((response: Profile) => response);
+      .map((response: any) => response);
   }
 
   public edit(model): Observable<any> {
