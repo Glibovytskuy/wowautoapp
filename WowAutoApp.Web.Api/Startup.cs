@@ -40,7 +40,7 @@ namespace wowautoapp
         {
             // Add Database Context
             services.AddDatabase(Configuration);
-            
+
             // Add event configuration
             services.AddEventPublishConfiguration();
 
@@ -74,13 +74,14 @@ namespace wowautoapp
             //Add auto mapper
             services.AddAutoMapper();
 
-            // Add CORS
-            services.AddCors(Configuration);
-
+            services.AddCors();
             // Add mvc
             services.AddMvc()
                 .AddViewLocalization()
                 .AddDataAnnotationsLocalization();
+
+            // Add CORS
+ //           services.AddCors(Configuration);
         }
 
         /// <summary>
@@ -91,7 +92,7 @@ namespace wowautoapp
         /// <param name="hostingEnvironment"></param>
         /// <param name="services"></param>
         public void Configure(IApplicationBuilder applicationBuilder,
-            IHostingEnvironment hostingEnvironment, 
+            IHostingEnvironment hostingEnvironment,
             ILoggerFactory loggerFactory,
             IServiceProvider services)
         {
@@ -99,7 +100,7 @@ namespace wowautoapp
                 applicationBuilder.UseDeveloperExceptionPage();
 
             // Use cors
-            applicationBuilder.UseCors(Configuration["CorsPolicyName"]);
+            //applicationBuilder.UseCors(Configuration["CorsPolicyName"]);
 
             //Use logger factory
             loggerFactory.UseRuntimeLoggerBuilder(Configuration);
@@ -116,6 +117,10 @@ namespace wowautoapp
             applicationBuilder.UseAuthentication();
 
             applicationBuilder.UseRuntimeExceptionHandler();
+
+            applicationBuilder.UseCors(
+                options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader()
+            );
 
             applicationBuilder.UseMvc(routes =>
             {
