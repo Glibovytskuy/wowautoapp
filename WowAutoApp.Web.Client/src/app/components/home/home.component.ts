@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import * as $ from 'assets/js/jquery-3.4.1.min.js';
 import { Title } from '@angular/platform-browser';
 
@@ -12,13 +12,30 @@ export class HomeComponent implements OnInit {
   constructor(
     private _title: Title
   ) { }
-  
+
   ngOnInit() {
     this._title.setTitle('Wowauto');
     this.doSmoothScrolling();
   }
 
   doSmoothScrolling(): void {
+
+    function scale(height, width){
+      let wrappers = Array.from(document.querySelectorAll('.container.flex-centered'));
+      const containerHeightConst = 750;
+      let scaleConst = 1 - (containerHeightConst - height + 150) / containerHeightConst;
+      wrappers.forEach(x=> {
+        if(containerHeightConst + 100 >= height && width > 1288){
+          x.setAttribute("style", `transform: scale(${scaleConst})`);
+        }
+        else{
+          x.setAttribute("style", `transform: scale(1)`);
+        }
+      });
+    }
+
+    scale(window.innerHeight, window.innerWidth);
+
     let slideNumber = 1; // number of current slide
 
     $(".cd-scroll-down").click(function () {
@@ -28,7 +45,7 @@ export class HomeComponent implements OnInit {
 
     function scrollDown() {
         slideNumber++;
-        animate(); 
+        animate();
     };
 
     var autoScroll = setInterval(scrollDown, 10000);
@@ -43,13 +60,13 @@ export class HomeComponent implements OnInit {
           } else {
             slideNumber++;
           };
-          setTimeout(function(){ 
+          setTimeout(function(){
             isPauseFinished = true;
             clearInterval(autoScroll);
             autoScroll = setInterval(scrollDown, 10000);
-          }, 500); 
+          }, 500);
           animate();
-        } 
+        }
       });
     };
 
@@ -73,6 +90,7 @@ export class HomeComponent implements OnInit {
     runCode();
 
     function animate() {
+      scale(window.innerHeight, window.innerWidth);
       validate();
       let slideBtn = $(`.section-anchor[data-slide=${slideNumber}]`);
       slideBtn.addClass('selected').siblings('button').removeClass('selected');
