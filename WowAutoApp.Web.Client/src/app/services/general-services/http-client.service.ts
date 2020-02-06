@@ -73,8 +73,6 @@ export class HttpClientService {
     private _getAuthHeaders(isFormData?: boolean, isNonAuthRequest?: boolean): HttpHeaders {
         let headers = new HttpHeaders();
 
-        console.log('set heders');
-
         headers = headers.append('client_id', 'wowautoapp_spa');
 
         if (!isNonAuthRequest) {
@@ -85,7 +83,6 @@ export class HttpClientService {
         if (!isFormData)
             headers = headers.append('Content-Type', 'application/json');
             
-        console.log('heders is set', headers);
         return headers;
     }
 }

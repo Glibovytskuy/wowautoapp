@@ -38,10 +38,7 @@ export class CreditApplicationComponent implements OnInit {
     this.OwnerTypes = OwnerType.values();
     this.EmploymentStatusTypes = EmploymentStatusType.values();
 
-    console.log('init');
-
     if(this._authService.isLogged()){
-      console.log('logget true');
       this.getprofileData();
     }
   }
@@ -120,24 +117,19 @@ export class CreditApplicationComponent implements OnInit {
   }
 
   private getprofileData(): void {
-    console.log('getprofileData start');
     this._creditApplicationService.get().subscribe(
       (response: any) => {
           this.initFormGroup(response);
-          console.log('succes');
-          console.log(this._globalService._currentUser.FirstName);
-          console.log(this._globalService._currentUser.Email);
       },
       (errorMessage) => {
-        console.log('error');
-        console.log(this._globalService._currentUser.FirstName);
-        console.log(this._globalService._currentUser.Email);
-
         this.form.get('FirstName').setValue(this._globalService._currentUser.FirstName);
         this.form.get('LastName').setValue(this._globalService._currentUser.LastName);
         this.form.get('Email').setValue(this._globalService._currentUser.Email);
         this.form.get('MobileNumber').setValue(this._globalService._currentUser.PhoneNumber);
-
+        //Just for validator. For edit case not using
+        this.form.get('Password').setValue('!templatePass1');
+        this.form.get('ConfirmPassword').setValue('!templatePass1');
+        
         for(var index in errorMessage.error) 
         {  
           this._toastr.error(errorMessage.error[index]);   

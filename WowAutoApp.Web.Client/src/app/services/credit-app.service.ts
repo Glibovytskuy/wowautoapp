@@ -11,8 +11,6 @@ export class CreditAppService {
   ) { }
 
   public get(): Observable<any> {
-    console.log('service get proffile');
-
     return this._httpClient.get(HttpClientService.CREDIT_APPLICATION_CONTROLLER)
       .map((response: any) => response);
   }

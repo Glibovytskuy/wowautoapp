@@ -25,14 +25,7 @@ namespace wowautoapp.Extentions.StartupExtensions
                 options.AddPolicy(policyName, 
                 builder =>
                 {
-
-                    //ToDo: need To check
-                    //builder.WithOrigins(allowedOrigins)
-                    //       .AllowAnyHeader()
-                    //       .AllowAnyMethod()
-                    //       .AllowCredentials();
-
-                    builder.AllowAnyOrigin()
+                    builder.WithOrigins(allowedOrigins)
                            .AllowAnyHeader()
                            .AllowAnyMethod()
                            .AllowCredentials();

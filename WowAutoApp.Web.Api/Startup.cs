@@ -75,13 +75,14 @@ namespace wowautoapp
             services.AddAutoMapper();
 
             services.AddCors();
+
+            // Add CORS
+            //services.AddCors(Configuration); 
+
             // Add mvc
             services.AddMvc()
                 .AddViewLocalization()
                 .AddDataAnnotationsLocalization();
-
-            // Add CORS
- //           services.AddCors(Configuration);
         }
 
         /// <summary>
