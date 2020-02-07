@@ -28,7 +28,7 @@ namespace WowAutoApp.Services.Email
             //token.IconUrl = _options.IconUrl;
 
             //ToDo: Need to implement options
-            _options.From = "Hello@wowautoapp.com";
+            _options.From = "mr.otis.personal@gmail.com";
 
             var body = await _razorViewToStringRenderer.RenderViewToStringAsync("/Views/Email/EmailVerification.cshtml", token);
             await _emailService.SendAsync(body, "WowAutoApp (Verify Email)", _options.From, email);

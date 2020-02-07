@@ -26,15 +26,15 @@ namespace WowAutoApp.Services.Identity.Registration
 
             var result = await _userService.CreateAsync(user, password);
 
-            //if (result.Succeeded)
-            //{
-            //    var token = new Email.Token.EmailToken
-            //    {
-            //        Email = user.UserName,
-            //        Token = await _userService.GetEmailVerificationTokenAsync(user.UserName)
-            //    };
-            //    await _emailService.SendVerificationEmailAsync(token, baseUrl);
-            //}
+            if (result.Succeeded)
+            {
+                var token = new Email.Token.EmailToken
+                {
+                    Email = user.UserName,
+                    Token = await _userService.GetEmailVerificationTokenAsync(user.UserName)
+                };
+                await _emailService.SendVerificationEmailAsync(token, baseUrl);
+            }
 
             return result;
         }

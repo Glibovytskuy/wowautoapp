@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClientService } from './general-services/http-client.service';
 import { Observable } from 'rxjs';
-import { Profile } from '@app/core/models/profile.model';
 
 @Injectable()
 export class CreditAppService {
@@ -11,8 +10,6 @@ export class CreditAppService {
   ) { }
 
   public get(): Observable<any> {
-    console.log('service get proffile');
-
     return this._httpClient.get(HttpClientService.CREDIT_APPLICATION_CONTROLLER)
       .map((response: any) => response);
   }

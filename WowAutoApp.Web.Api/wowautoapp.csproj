@@ -72,8 +72,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Views\Email\EmailCreditApplication.cshtml" />
-    <None Include="Views\Email\EmailVerification.cshtml" />
+    <None Include="Views\Email\EmailCreditApplication.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Views\Email\EmailVerification.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
