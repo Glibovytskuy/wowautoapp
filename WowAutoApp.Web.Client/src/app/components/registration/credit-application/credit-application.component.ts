@@ -9,7 +9,6 @@ import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { GlobalService } from '@app/services/general-services/global.service';
 import { CreditAppService } from '@app/services/credit-app.service';
-import { Profile } from '@app/core/models/profile.model';
 
 @Component({
   selector: 'app-credit-application',

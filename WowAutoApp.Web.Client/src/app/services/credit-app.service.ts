@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClientService } from './general-services/http-client.service';
 import { Observable } from 'rxjs';
-import { Profile } from '@app/core/models/profile.model';
 
 @Injectable()
 export class CreditAppService {

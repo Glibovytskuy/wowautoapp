@@ -42,9 +42,15 @@
             <i class="fas fa-map-marker-alt"></i>
             11542 South Carolina Roud 27
           </div>
+
+          <button class="submit-button" id="confirm-email-btn" (click)="ConfirmEmail()">
+            <div class="social-login-label">Send Confirm Email</div>
+          </button>
+
           <button type="submit" class="submit-button" id="update-btn">
             <div class="social-login-label">Update Preferences</div>
           </button>
+
           <div class="description user">
             Let us know best way to contact you.
           </div>
@@ -76,7 +82,7 @@
                 <label class="custom-control-label" for="preference-phone">Phone</label>
               </div>
             </div>
-            <button type="submit" class="submit-button" id="update-btn">
+            <button type="submit" class="submit-button" id="update-preference-btn">
               <div class="social-login-label">Update Preferences</div>
             </button>
           </form>
@@ -87,7 +93,7 @@
             <input type="text" class="form-control" placeholder="Current Password">
             <input type="text" class="form-control" placeholder="Your New Password">
             <input type="text" class="form-control" placeholder="Confirm New Password">
-            <button type="submit" class="submit-button" id="update-btn">
+            <button type="submit" class="submit-button" id="change-pass-btn">
               <div class="social-login-label">Change Password</div>
             </button>
           </form>
@@ -220,7 +226,7 @@
         </div>
 
         <div class="d-flex-row submit">
-          <button type="submit" class="submit-button" id="update-btn">
+          <button type="submit" class="submit-button" id="update-profile-btn">
             <div class="social-login-label">Update Profile</div>
           </button>
         </div>

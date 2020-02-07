@@ -76,14 +76,17 @@ namespace wowautoapp.Controllers.AspNetUser
         [ProducesResponseType(204)]
         public async Task<IActionResult> SendVerificationEmailAsync(string callbackUrl)
         {
+            if (CurrentUser is null)
+                return BadRequest("User is null");
+
             var token = new EmailToken
             {
-                Email = UserName,
-                Token = await _userService.GetEmailVerificationTokenAsync(UserName)
+                Email = CurrentUser.UserName,
+                Token = await _userService.GetEmailVerificationTokenAsync(CurrentUser.UserName)
             };
             await _emailService.SendVerificationEmailAsync(token, callbackUrl);
 
-            return NoContent();
+            return Ok();
         }
 
         /// <summary>

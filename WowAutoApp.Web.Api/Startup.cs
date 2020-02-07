@@ -74,10 +74,11 @@ namespace wowautoapp
             //Add auto mapper
             services.AddAutoMapper();
 
+            // Add CORS not working for local
             services.AddCors();
 
-            // Add CORS
-            //services.AddCors(Configuration); 
+            // Add CORS check if working with azure
+            //services.AddCors(Configuration);
 
             // Add mvc
             services.AddMvc()
