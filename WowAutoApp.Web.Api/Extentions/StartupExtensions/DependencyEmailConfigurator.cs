@@ -20,19 +20,19 @@ namespace wowautoapp.Extentions.StartupExtensions
         {
             services.Configure<SmtpOptions>(options =>
             {
-                options.Host = configuration.GetSection("SmtpOptions")["Host"];
-                options.Port = int.Parse(configuration.GetSection("SmtpOptions")["Port"]);
-                options.UserName = configuration.GetSection("SmtpOptions")["EmailUserName"];
-                options.Password = configuration.GetSection("SmtpOptions")["Password"];
-                options.EnableSsl = bool.Parse(configuration.GetSection("SmtpOptions")["EnableSsl"]);
+                options.Host = configuration["Host"];
+                options.Port = int.Parse(configuration["Port"]);
+                options.UserName = configuration["EmailUserName"];
+                options.Password = configuration["Password"];
+                options.EnableSsl = bool.Parse(configuration["EnableSsl"]);
             });
 
             // Configure SystemEmailOptions
             services.Configure<EmailExtensionOptions>(options =>
             {
-                options.BaseUrl = configuration.GetSection("EmailExtentionOptions")["BaseUrl"];
-                options.From = configuration.GetSection("EmailExtentionOptions")["From"];
-                options.IconUrl = configuration.GetSection("EmailExtentionOptionss")["IconUrl"];
+                options.BaseUrl = configuration["BaseUrl"];
+                options.From = configuration["From"];
+                //options.IconUrl = configuration["IconUrl"];
             });
 
             services.AddSingleton<IEmailService, SmtpEmailService>();

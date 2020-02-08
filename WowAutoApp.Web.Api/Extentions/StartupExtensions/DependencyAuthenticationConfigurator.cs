@@ -36,12 +36,12 @@ namespace wowautoapp.Extensions.StartupExtensions
             })
                 .AddIdentityServerAuthentication(options =>
                 {
-                    options.Authority = configuration.GetSection("JwtIssuer")["Audience"];
+                    options.Authority = configuration["Audience"];
                     options.SupportedTokens = SupportedTokens.Jwt;
                     options.SaveToken = true;
                     options.RequireHttpsMetadata = false; // Note: Set to true in production
                     options.ApiName = IdentityServerConfig.ApiName;
-                    options.ClaimsIssuer = configuration.GetSection("JwtIssuer")["Issuer"];
+                    options.ClaimsIssuer = configuration["Issuer"];
                     options.TokenRetriever = request =>
                     {
                         var fromQuery = TokenRetrieval.FromQueryString();
