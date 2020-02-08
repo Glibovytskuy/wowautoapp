@@ -38,7 +38,7 @@ namespace WowAutoApp.Services.Email.Smtp
 
             //ToDo: Do not add await, it will prevent asynchronous method execution.
             //To avoid warning maybe we should make this method void
-            _ = Task.Run(async () =>
+            Task.Run(async () =>
             {
                 await CreateSmtpClient().SendMailAsync(message);
             });
