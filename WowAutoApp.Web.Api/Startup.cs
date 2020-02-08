@@ -78,7 +78,7 @@ namespace wowautoapp
             services.AddCors();
 
             // Add CORS check if working with azure
-            //services.AddCors(Configuration);
+            services.AddCors(Configuration);
 
             // Add mvc
             services.AddMvc()
@@ -121,7 +121,7 @@ namespace wowautoapp
             applicationBuilder.UseRuntimeExceptionHandler();
 
             applicationBuilder.UseCors(
-                options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader()
+                options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader().AllowCredentials()
             );
 
             applicationBuilder.UseMvc(routes =>

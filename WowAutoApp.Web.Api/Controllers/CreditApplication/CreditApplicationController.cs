@@ -6,8 +6,8 @@ using WowAutoApp.Core;
 using WowAutoApp.Services.Profile;
 using wowautoapp.ViewModels;
 using wowautoapp.Utilities.Filters.ValidationFilters;
-using Profile = WowAutoApp.Core.Domain.Profile.Profile;
 using System;
+using Castle.Core.Internal;
 
 namespace wowautoapp.Controllers.CreditApplication
 {
@@ -40,7 +40,7 @@ namespace wowautoapp.Controllers.CreditApplication
         [ProducesResponseType(204)]
         public async Task<IActionResult> GetProfileData()
         {
-            if (CurrentUser is null)
+            if (CurrentUser is null && CurrentUser.Id.IsNullOrEmpty())
                 return BadRequest("User is null");
 
             var profile = await _profileService.GetProfileByUserIdAsync(CurrentUser.Id);

@@ -21,6 +21,9 @@ export class HttpClientService {
     public static readonly SHORT_REGISTER = HttpClientService.ACCOUNTS_CONTROLLER + "/short-register";
     public static readonly ACCOUNT_SEND_CONFIRMATION_EMAIL = HttpClientService.ACCOUNTS_CONTROLLER + "/send-confirmation-email";
     
+    //ProfileController
+    public static readonly PROFILE_CONFIRM_EMAIL = HttpClientService.ACCOUNTS_CONTROLLER + "/confirm-email";
+
     constructor(
         private _httpClient: HttpClient,
         private _router: Router,

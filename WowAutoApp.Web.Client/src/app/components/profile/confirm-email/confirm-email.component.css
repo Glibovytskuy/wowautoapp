@@ -1,0 +1,13 @@
+.alert{
+    margin-top: 15px;
+}
+.container {
+    padding-top: 45px;
+}
+
+.cd-section {
+    min-height: 90vh;
+    position: relative;
+    padding: 2em 0;
+    background: linear-gradient(0deg, rgba(140, 82, 255, 1) 20%, rgba(186, 104, 215, 1) 80%); 
+  }

@@ -17,4 +17,10 @@ export class ProfileService {
     return this._httpClient.get(HttpClientService.ACCOUNT_SEND_CONFIRMATION_EMAIL, params)
       .map((response: any) => response);
   }
+
+  public verifyEmail(verifyEmailToken): Observable<any> {
+    let body = {token: verifyEmailToken}
+    
+    return this._httpClient.post(HttpClientService.PROFILE_CONFIRM_EMAIL, body);
+  }
 }

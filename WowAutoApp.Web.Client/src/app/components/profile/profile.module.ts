@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ProfileRoutingModule } from './profile-routing.module';
 import { MainProfileComponent } from './main-profile/main-profile.component';
 import { SharedModule } from '../../shared/shared.module';
+import { ConfirmEmailComponent } from './confirm-email/confirm-email.component';
 
 @NgModule({
   imports: [
@@ -11,6 +12,9 @@ import { SharedModule } from '../../shared/shared.module';
     ProfileRoutingModule,
     SharedModule
   ],
-  declarations: [MainProfileComponent]
+  declarations: [
+    MainProfileComponent,
+    ConfirmEmailComponent
+  ]
 })
 export class ProfileModule { }

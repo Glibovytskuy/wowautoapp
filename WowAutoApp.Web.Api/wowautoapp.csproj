@@ -6,6 +6,7 @@
 
     <!-- Set this to true if you enable server-side prerendering -->
     <BuildServerSideRenderer>false</BuildServerSideRenderer>
+    <MvcRazorExcludeRefAssembliesFromPublish>false</MvcRazorExcludeRefAssembliesFromPublish>
     <UserSecretsId>1d18154d-6cbd-4ce1-97f3-33155c2fb332</UserSecretsId>
   </PropertyGroup>
 
