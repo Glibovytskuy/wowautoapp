@@ -78,7 +78,7 @@ namespace wowautoapp
             services.AddCors();
 
             // Add CORS check if working with azure
-            services.AddCors(Configuration);
+            //services.AddCors(Configuration);
 
             // Add mvc
             services.AddMvc()
